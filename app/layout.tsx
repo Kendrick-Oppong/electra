@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
+import NavBar from "@/components/navbar/NavBar";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const bai_Jamjuree = Bai_Jamjuree({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700"],
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${bai_Jamjuree.className} text-lg`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+          <NavBar />
+        <main className="px-5">  {children}</main>
+          </ThemeProvider>
+      
+      </body>
     </html>
   );
 }
