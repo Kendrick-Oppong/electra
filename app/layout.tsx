@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Bai_Jamjuree } from "next/font/google";
-import NavBar from "@/components/navbar/NavBar";
+import NavBar from "@/components/navigation/NavBar";
+import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
+import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
 
 const bai_Jamjuree = Bai_Jamjuree({
@@ -30,7 +32,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavBar />
-          <main className="px-5"> {children}</main>
+          <main className=""> {children}</main>
+          <SideNavigation/>
         </ThemeProvider>
       </body>
     </html>

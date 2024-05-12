@@ -121,4 +121,8 @@
   span {
     @apply text-primary
   }
+
+  section {
+    @apply my-8
+  }
 }

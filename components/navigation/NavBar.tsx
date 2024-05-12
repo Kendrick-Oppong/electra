@@ -13,9 +13,6 @@ const NavBar = () => {
     <header>
       <div
         className="flex justify-between bg-primary items-center px-5 py-2"
-        // style={{
-        //   background: " linear-gradient(90deg, #DF4979 44.06%, #E36B31 50%)",
-        // }}
       >
         <div className="flex justify-between gap-4 text-white">
           <p>Call us: +233 5521 99556</p>
@@ -37,7 +34,7 @@ const NavBar = () => {
               placeholder="Search product"
               className="h-11 ring-1 pl-14 rounded-tr-none rounded-br-none"
             />
-            <Button className=" h-12 px-10 rounded-tl-none rounded-bl-none rounded-tr-xl rounded-br-xl hover:bg-secondary">
+            <Button className=" h-12 px-10 rounded-tl-none rounded-bl-none rounded-tr-xl rounded-br-xl ">
               Search
             </Button>
           </div>

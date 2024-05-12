@@ -12,7 +12,6 @@ import { categories } from "@/constants/shopCategories";
 import Link from "next/link";
 
 
-
 const ShopCategories = () => {
   return (
     <div>
