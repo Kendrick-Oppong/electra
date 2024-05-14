@@ -31,7 +31,8 @@ async function dbConnect() {
     });
   }
   try {
-    cached.conn = await cached.promise;
+      cached.conn = await cached.promise;
+      console.log("db connected...")
   } catch (e) {
     cached.promise = null;
     throw e;

@@ -3,9 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import {ShoppingCart,Headset,Rocket,Banknote} from "lucide-react"
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import dbConnect from "@/lib/dbConnect";
 
-export default function Home() {
-
+export default async function Home() {
+await dbConnect()
   return (
     <>
       {/* Hero section */}
@@ -26,7 +27,7 @@ export default function Home() {
           </p>
           <Button
             size="lg"
-            className="text-lg mt-6 hover:bg-secondary hover:text-black  shadow-2xl"
+            className="text-lg mt-6 border hover:bg-secondary hover:border-primary hover:text-black  shadow-2xl"
           >
             Explore Now <ShoppingCart className="inline-flex ml-2" />
           </Button>
@@ -43,7 +44,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="flex flex-wrap gap-6 ">
+      <section className="flex flex-wrap gap-6 mx-10">
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
           <Rocket className="text-primary " size={70} />
           <h2 className="text-primary font-bold my-3">
@@ -142,7 +143,7 @@ export default function Home() {
           Featured Products
         </h1>
         <Tabs defaultValue="camera" className="">
-          <TabsList className="flex gap-3 bg-transparent rounded-none">
+          <TabsList className="flex gap-3 mb-8 bg-transparent rounded-none">
             <TabsTrigger value="camera">Camera</TabsTrigger>
             <TabsTrigger value="laptop">Laptop</TabsTrigger>
             <TabsTrigger value="smartphone">Smartphone</TabsTrigger>
@@ -154,21 +155,27 @@ export default function Home() {
             accusamus odio unde error pariatur minima dolore reprehenderit
             necessitatibus distinctio. Make changes to your account here.
           </TabsContent>
-          <TabsContent value="laptop"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
-            veniam eum id fuga a qui deleniti corrupti, inventore ullam
-            accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.</TabsContent>
-          <TabsContent value="smartphone">
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
+          <TabsContent value="laptop">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
             veniam eum id fuga a qui deleniti corrupti, inventore ullam
             accusamus odio unde error pariatur minima dolore reprehenderit
             necessitatibus distinctio. Make changes to your account here.
           </TabsContent>
-          <TabsContent value="watch"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
+          <TabsContent value="smartphone">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
             veniam eum id fuga a qui deleniti corrupti, inventore ullam
             accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.</TabsContent>
+            necessitatibus distinctio. Make changes to your account here.
+          </TabsContent>
+          <TabsContent value="watch">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
+            veniam eum id fuga a qui deleniti corrupti, inventore ullam
+            accusamus odio unde error pariatur minima dolore reprehenderit
+            necessitatibus distinctio. Make changes to your account here.
+          </TabsContent>
         </Tabs>
+      
       </section>
     </>
   );
