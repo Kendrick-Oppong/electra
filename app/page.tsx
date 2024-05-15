@@ -175,7 +175,10 @@ await dbConnect()
             necessitatibus distinctio. Make changes to your account here.
           </TabsContent>
         </Tabs>
-      
+        <img
+          src="https://ik.imagekit.io/bhn8xrk7f/canon/EOS%207D_4.png?updatedAt=1715736524693"
+          alt=""
+        />
       </section>
     </>
   );
