@@ -7,64 +7,35 @@ import {
   ChevronsUp,
   Search,
 } from "lucide-react";
-import { Tooltip } from "react-tooltip";
+import ToolTipPopUp from "@/components/shared/ToolTipPopUp";
+
 const SideNavigation = () => {
   return (
     <aside className="fixed flex flex-col justify-center right-1  top-0 bottom-0 ">
-      <div className="relative  text-white divide-y-4">
+      <div className="relative text-white divide-y-4">
         <div className="bg-primary p-1">
-          <Tooltip
-            anchorSelect="#menu"
-            content="Categories"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <Menu size={27} id="menu" />
+        <ToolTipPopUp id="#menu" content="Categories"/>
+          <Menu size={27} id="menu"/>
         </div>
         <div className="bg-primary dark:bg-primary p-1">
-          <Tooltip
-            anchorSelect="#cart"
-            content="Cart"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <ShoppingCart size={27} id="cart" />
+             <ToolTipPopUp id="#cart" content="Cart"/>
+          <ShoppingCart size={27} id="cart" className="cursor-pointer"/>
         </div>
         <div className="bg-primary p-1">
-          <Tooltip
-            anchorSelect="#profile"
-            content="Profile"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <User size={27} id="profile" />
+            <ToolTipPopUp id="#profile" content="Profile"/>
+          <User size={27} id="profile" className="cursor-pointer"/>
         </div>
                <div className="bg-primary p-1">
-          <Tooltip
-            anchorSelect="#search"
-            content="Search"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <Search size={27} id="search" />
+            <ToolTipPopUp id="#search" content="Search"/>
+          <Search size={27} id="search" className="cursor-pointer"/>
         </div>
         <div className="bg-primary p-1">
-          <Tooltip
-            anchorSelect="#Recent-views"
-            content="Recent views"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <Eye size={27} id="Recent-views" />
+           <ToolTipPopUp id="#Recent-views" content="Recent Views"/>
+          <Eye size={27} id="Recent-views" className="cursor-pointer"/>
         </div>
         <div className="bg-primary p-1">
-          <Tooltip
-            anchorSelect="#scroll-to-top"
-            content="Scroll to top"
-            place="left"
-            className="dark:!bg-primary "
-          />
-          <ChevronsUp size={27} id="scroll-to-top" />
+           <ToolTipPopUp id="#scroll-to-top" content="Scroll To Top"/>
+          <ChevronsUp size={27} id="scroll-to-top" className="cursor-pointer"/>
         </div>
       </div>
     </aside>

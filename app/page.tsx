@@ -1,19 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {ShoppingCart,Headset,Rocket,Banknote} from "lucide-react"
+import { ShoppingCart, Headset, Rocket, Banknote } from "lucide-react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import dbConnect from "@/lib/dbConnect";
+import FeaturedCamera from "@/components/featured/Camera";
+import FeaturedLaptop from "@/components/featured/Laptop";
+import FeaturedMonitor from "@/components/featured/Monitor";
 
 export default async function Home() {
-await dbConnect()
   return (
     <>
       {/* Hero section */}
       <section className="grid grid-cols-2 bg-accent px-5 mt-0">
         <div className="self-center">
           <h1 className="text-6xl font-bold leading-tight">
-            Discover Our Latest <br /> <span>Stylish Watches</span>
+            Discover Our Latest <br /> <span>Stylish Monitors</span>
           </h1>
           <p className="my-4 font-semibold text-xl">
             Experience sophistication with our latest watch collection
@@ -34,11 +35,12 @@ await dbConnect()
         </div>
         <div className="relative">
           <Image
-            src="/watch.png"
+            src="/monitor.png"
             width={550}
             height={550}
             sizes="(max-width:768px) 100vw, 550px"
-            alt="New Arrival Watch"
+            alt="New Arrival Monitor"
+            priority
           />
         </div>
       </section>
@@ -83,14 +85,15 @@ await dbConnect()
       <section className="flex  shadow-2xl rounded-lg">
         <div className="bg-accent p-5">
           <Image
-            src="/samsung.png"
+            src="/hp.png"
             width={550}
             height={550}
             sizes="(max-width:768px) 100vw, 550px"
             alt="New Arrival Phone"
+            priority
           />
           <h1 className="text-xl font-bold leading-tight">
-            Samsung Galaxy Series Phone
+            High Quality Hp Laptops
           </h1>
           <p className="font-medium my-3">
             Up to{" "}
@@ -132,6 +135,7 @@ await dbConnect()
               height={550}
               sizes="(max-width:768px) 100vw, 550px"
               alt="canon camera"
+              priority
             />
           </div>
         </div>
@@ -142,43 +146,28 @@ await dbConnect()
         <h1 className="text-center font-bold text-2xl mt-10 mb-5">
           Featured Products
         </h1>
-        <Tabs defaultValue="camera" className="">
+        <Tabs defaultValue="camera" className="mx-5">
           <TabsList className="flex gap-3 mb-8 bg-transparent rounded-none">
             <TabsTrigger value="camera">Camera</TabsTrigger>
             <TabsTrigger value="laptop">Laptop</TabsTrigger>
-            <TabsTrigger value="smartphone">Smartphone</TabsTrigger>
-            <TabsTrigger value="watch">Watch</TabsTrigger>
+            <TabsTrigger value="monitor">Monitor</TabsTrigger>
           </TabsList>
           <TabsContent value="camera">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
-            veniam eum id fuga a qui deleniti corrupti, inventore ullam
-            accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.
+        
+              <FeaturedCamera />
+        
           </TabsContent>
           <TabsContent value="laptop">
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
-            veniam eum id fuga a qui deleniti corrupti, inventore ullam
-            accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.
+        
+              <FeaturedLaptop />
+        
           </TabsContent>
-          <TabsContent value="smartphone">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
-            veniam eum id fuga a qui deleniti corrupti, inventore ullam
-            accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.
-          </TabsContent>
-          <TabsContent value="watch">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil
-            veniam eum id fuga a qui deleniti corrupti, inventore ullam
-            accusamus odio unde error pariatur minima dolore reprehenderit
-            necessitatibus distinctio. Make changes to your account here.
+          <TabsContent value="monitor">
+        
+              <FeaturedMonitor />
+        
           </TabsContent>
         </Tabs>
-        <img
-          src="https://ik.imagekit.io/bhn8xrk7f/canon/EOS%207D_4.png?updatedAt=1715736524693"
-          alt=""
-        />
       </section>
     </>
   );

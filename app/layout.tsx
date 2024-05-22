@@ -4,7 +4,9 @@ import NavBar from "@/components/navigation/NavBar";
 import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
+import "@smastrom/react-rating/style.css";
 import "./globals.css";
+import TanstackQueryClientProvider from "@/components/shared/TanstackQueryClientProvider";
 
 const bai_Jamjuree = Bai_Jamjuree({
   subsets: ["latin"],
@@ -27,13 +29,15 @@ export default function RootLayout({
       <body className={`${bai_Jamjuree.className} text-lg`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
-          <main className=""> {children}</main>
-          <SideNavigation/>
+          <TanstackQueryClientProvider>
+            <NavBar />
+            <main className=""> {children}</main>
+            <SideNavigation />
+          </TanstackQueryClientProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -22,25 +22,25 @@ export const categories = [
     ],
   },
   {
-    category: "Smartphone",
+    category: "Monitor",
     items: [
-      { name: "Apple",  },
       { name: "Samsung", },
-      { name: "Xiaomi", },
+      // { name: "Apple",  },
+      // { name: "Xiaomi", },
       // { name: "One Plus",  },
       // { name: "Huawei",  },
       // { name: "Motorola",  },
     ],
   },
-  {
-    category: "Watch",
-    items: [
-      { name: "Rolex", },
-      { name: "Tudor",  },
-      { name: "Panerai",  },
-      // { name: "Breitling", },
-      // { name: "Omega", },
-      // { name: "Cartier", },
-    ],
-  },
+  // {
+  //   category: "Watch",
+  //   items: [
+  //     { name: "Rolex", },
+  //     { name: "Tudor",  },
+  //     { name: "Panerai",  },
+  //     // { name: "Breitling", },
+  //     // { name: "Omega", },
+  //     // { name: "Cartier", },
+  //   ],
+  // },
 ];

@@ -19,8 +19,8 @@ import Link from "next/link"
 const categories = [
   { category: "Camera", icon: <Camera className="inline-flex mr-2" /> },
   { category: "Laptop", icon: <Laptop className="inline-flex mr-2" /> },
-  { category: "Smartphone", icon: <Smartphone className="inline-flex mr-2" /> },
-  { category: "Watch", icon: <Watch className="inline-flex mr-2" /> },
+  { category: "Monitor", icon: <Smartphone className="inline-flex mr-2" /> },
+  // { category: "Watch", icon: <Watch className="inline-flex mr-2" /> },
 ];
 
 const Categories = () => {

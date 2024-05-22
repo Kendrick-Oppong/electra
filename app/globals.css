@@ -48,9 +48,8 @@
       --ring: 253 91% 58%;
     }
   } */
-  
-  
- @layer base {
+
+@layer base {
   :root {
     --background: 229 57% 100%;
     --foreground: 229 63% 4%;
@@ -65,7 +64,7 @@
     --primary: 229 100% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 229 30.74% 76.68%;
-      --secondary-foreground: 229 20% 30%;
+    --secondary-foreground: 229 20% 30%;
     --accent: 229 28% 85%;
     --accent-foreground: 229 28% 25%;
     --destructive: 3 100% 50%;
@@ -84,18 +83,18 @@
     --card: 229 41% 5%;
     --card-foreground: 0 0% 100%;
     --border: 215 27.9% 16.9%;
-   --primary: 229 100% 62%;
-      --primary-foreground: 0 0% 100%;
+    --primary: 229 100% 62%;
     --primary-foreground: 0 0% 100%;
-     --secondary: 229 14% 8%;
-      --secondary-foreground: 229 14% 68%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 229 14% 8%;
+    --secondary-foreground: 229 14% 68%;
     --accent: 229 23% 17%;
     --accent-foreground: 229 23% 77%;
     --destructive: 3 89% 54%;
     --destructive-foreground: 0 0% 100%;
     --ring: 229 100% 62%;
   }
-}  
+}
 
 @layer utilities {
   .dark-red {
@@ -108,6 +107,10 @@
   .border-gray {
     @apply border border-gray-500;
   }
+  .grid-template {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
 }
 
 @layer base {
@@ -119,10 +122,10 @@
   }
 
   span {
-    @apply text-primary
+    @apply text-primary;
   }
 
   section {
-    @apply my-8
+    @apply my-8;
   }
 }
