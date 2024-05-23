@@ -1,11 +1,11 @@
 "use client";
 import GetFeaturedProducts from "@/lib/getFeaturedProducts";
-import { MonitorSchemaProps } from "@/types/monitorSchema";
+import { MonitorSchemaProps } from "@/types";
 import FeaturedCard from "./FeaturedCard";
-import LoadingSkeleton from "../shared/LoadingSkeleton";
+import { LoadingSkeleton, ErrorMessage } from "../../shared";
 
 const FeaturedMonitor = () => {
-  const { data, error, isError, isLoading } =
+  const { data, error, isError, isLoading, refetch } =
     GetFeaturedProducts<MonitorSchemaProps>({
       url: "samsung",
       queryKey: "featured-samsung",
@@ -14,7 +14,8 @@ const FeaturedMonitor = () => {
 
   if (isLoading) return <LoadingSkeleton />;
 
-  if (isError) return <p>Error</p>;
+  if (isError)
+    return <ErrorMessage message={error!.message} refetch={refetch} />;
 
   return (
     <div className="grid-template gap-4 justify-center ">

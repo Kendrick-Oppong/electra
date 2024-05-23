@@ -1,11 +1,11 @@
 "use client";
 import GetFeaturedProducts from "@/lib/getFeaturedProducts";
-import { LaptopSchemaProps } from "@/types/laptopSchema";
+import { LaptopSchemaProps } from "@/types";
 import FeaturedCard from "./FeaturedCard";
-import LoadingSkeleton from "../shared/LoadingSkeleton";
+import { LoadingSkeleton, ErrorMessage } from "../../shared";
 
 const FeaturedLaptop = () => {
-  const { data, error, isError, isLoading } =
+  const { data, error, isError, isLoading, refetch } =
     GetFeaturedProducts<LaptopSchemaProps>({
       url: "hp",
       queryKey: "featured-hp",
@@ -14,7 +14,9 @@ const FeaturedLaptop = () => {
 
   if (isLoading) return <LoadingSkeleton />;
 
-  if (isError) return <p>Error</p>;
+  if (isError)
+    return <ErrorMessage message={error!.message} refetch={refetch} />;
+
   return (
     <div className="grid-template gap-4 justify-center ">
       {slicedfeaturedHp &&

@@ -1,11 +1,11 @@
 "use client";
 import GetFeaturedProducts from "@/lib/getFeaturedProducts";
-import { CameraSchemaProps } from "@/types/cameraSchema";
+import { CameraSchemaProps } from "@/types";
 import FeaturedCard from "./FeaturedCard";
-import LoadingSkeleton from "../shared/LoadingSkeleton";
+import { LoadingSkeleton, ErrorMessage } from "../../shared";
 
 const FeaturedCamera = () => {
-  const { data, error, isError, isLoading } =
+  const { data, error, isError, isLoading, refetch } =
     GetFeaturedProducts<CameraSchemaProps>({
       url: "nikon",
       queryKey: "featured-nikon",
@@ -14,7 +14,8 @@ const FeaturedCamera = () => {
 
   if (isLoading) return <LoadingSkeleton />;
 
-  if (isError) return <p>{error.message}</p>;
+  if (isError)
+    return <ErrorMessage message={error!.message} refetch={refetch} />;
 
   return (
     <div className="grid-template gap-4 justify-center ">

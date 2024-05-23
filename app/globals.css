@@ -111,6 +111,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
+
+  .text-subtitle {
+    @apply text-center font-bold text-4xl mt-10 mb-6
+  }
 }
 
 @layer base {
@@ -126,6 +130,6 @@
   }
 
   section {
-    @apply my-8;
+    @apply my-8 mx-5;
   }
 }

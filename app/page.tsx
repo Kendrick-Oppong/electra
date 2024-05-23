@@ -1,17 +1,20 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Headset, Rocket, Banknote } from "lucide-react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import FeaturedCamera from "@/components/featured/Camera";
-import FeaturedLaptop from "@/components/featured/Laptop";
-import FeaturedMonitor from "@/components/featured/Monitor";
+import {
+  FeaturedCamera,
+  FeaturedLaptop,
+  FeaturedMonitor,
+} from "@/components/home/featured";
+import { ButtonLink } from "@/components/shared";
+import {NewArrival} from "@/components/home/newArrival";
 
 export default async function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="grid grid-cols-2 bg-accent px-5 mt-0">
+      <section className="grid grid-cols-2 bg-accent px-5 mt-0 mx-0">
         <div className="self-center">
           <h1 className="text-6xl font-bold leading-tight">
             Discover Our Latest <br /> <span>Stylish Monitors</span>
@@ -26,12 +29,10 @@ export default async function Home() {
             </span>{" "}
             Off!
           </p>
-          <Button
-            size="lg"
-            className="text-lg mt-6 border hover:bg-secondary hover:border-primary hover:text-black  shadow-2xl"
-          >
+          <ButtonLink>
+            {" "}
             Explore Now <ShoppingCart className="inline-flex ml-2" />
-          </Button>
+          </ButtonLink>
         </div>
         <div className="relative">
           <Image
@@ -82,7 +83,7 @@ export default async function Home() {
       </section>
 
       {/* Hot deals */}
-      <section className="flex  shadow-2xl rounded-lg">
+      <section className="flex shadow-2xl rounded-lg mx-5">
         <div className="bg-accent p-5">
           <Image
             src="/hp.png"
@@ -92,9 +93,9 @@ export default async function Home() {
             alt="New Arrival Phone"
             priority
           />
-          <h1 className="text-xl font-bold leading-tight">
+          <h2 className="text-2xl font-bold leading-tight">
             High Quality Hp Laptops
-          </h1>
+          </h2>
           <p className="font-medium my-3">
             Up to{" "}
             <span className="text-destructive font-semibold text-2xl animate-pulse mx-2">
@@ -102,9 +103,10 @@ export default async function Home() {
             </span>{" "}
             Off!
           </p>
-          <Button size="lg" className="text-lg mt-2 shadow-2xl">
+          <ButtonLink>
+            {" "}
             Shop Now <ShoppingCart className="inline-flex ml-2" />
-          </Button>
+          </ButtonLink>
         </div>
         <div className="bg-secondary grid grid-cols-2">
           <div className="self-center p-4">
@@ -114,9 +116,9 @@ export default async function Home() {
             >
               Exclusive Weekend Offer
             </Badge>
-            <h1 className="text-4xl font-bold leading-tight">
+            <h2 className="text-4xl font-bold leading-tight">
               High-Performance Digital Camera
-            </h1>
+            </h2>
             <p className="font-medium my-3">
               Last call for up to{" "}
               <span className="text-destructive font-semibold text-2xl animate-pulse mx-2">
@@ -124,9 +126,9 @@ export default async function Home() {
               </span>{" "}
               Off!
             </p>
-            <Button size="lg" className="text-lg mt-2 shadow-2xl">
+            <ButtonLink>
               Shop Now <ShoppingCart className="inline-flex ml-2" />
-            </Button>
+            </ButtonLink>
           </div>
           <div className="my-auto">
             <Image
@@ -143,9 +145,7 @@ export default async function Home() {
 
       {/* Featured Products */}
       <section>
-        <h1 className="text-center font-bold text-2xl mt-10 mb-5">
-          Featured Products
-        </h1>
+        <h1 className="text-subtitle">Featured Products</h1>
         <Tabs defaultValue="camera" className="mx-5">
           <TabsList className="flex gap-3 mb-8 bg-transparent rounded-none">
             <TabsTrigger value="camera">Camera</TabsTrigger>
@@ -153,22 +153,53 @@ export default async function Home() {
             <TabsTrigger value="monitor">Monitor</TabsTrigger>
           </TabsList>
           <TabsContent value="camera">
-        
-              <FeaturedCamera />
-        
+            <FeaturedCamera />
           </TabsContent>
           <TabsContent value="laptop">
-        
-              <FeaturedLaptop />
-        
+            <FeaturedLaptop />
           </TabsContent>
           <TabsContent value="monitor">
-        
-              <FeaturedMonitor />
-        
+            <FeaturedMonitor />
           </TabsContent>
         </Tabs>
       </section>
+
+      {/* Categories */}
+      <section className="mx-5">
+        <h1 className="text-subtitle">Categories</h1>
+        <div className="flex flex-wrap gap-4">
+          <div className="bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1">
+            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full ">
+              <h2 className="opacity-1">Camera</h2>
+              <ButtonLink>View Collection</ButtonLink>
+            </div>
+          </div>
+          <div className="bg-[url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
+            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
+              <h2 className="opacity-1">Laptop</h2>
+              <ButtonLink>View Collection</ButtonLink>
+            </div>
+          </div>
+          <div className="bg-[url('https://images.unsplash.com/photo-1551645120-d70bfe84c826?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
+            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
+              <h2 className="opacity-1">Monitor</h2>
+              <ButtonLink>View Collection</ButtonLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Arrivals */}
+      <section>
+        <h1 className="text-subtitle">New Arrivals</h1>
+        <NewArrival/>
+      </section>
+
+{/* Testimonials */}
+<section>
+  <h1 className="text-center w-fit py-1 px-2 mx-auto text-xl font-bold bg-accent rounded-lg ">Testimonials</h1>
+  <h1 className="text-subtitle !mt-1">What Customers Say About Us</h1>
+</section>
     </>
   );
 }

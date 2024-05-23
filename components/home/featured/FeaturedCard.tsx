@@ -1,13 +1,13 @@
 import React from "react";
-import ProductRating from "../shared/ProductRating";
+import ProductRating from "../../shared/ProductRating";
 import Image from "next/image";
 import { Camera } from "@/types/cameraSchema";
 import { Laptop } from "@/types/laptopSchema";
 import { Monitor } from "@/types/monitorSchema";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
 import ToolTipPopUp from "@/components/shared/ToolTipPopUp";
-import LazyLoadImage from "../shared/LazyLoadImage";
-import ImagePlaceholderSkeleton from "../shared/ImagePlaceholderSkeleton";
+import LazyLoadImage from "../../shared/LazyLoadImage";
+import ImagePlaceholderSkeleton from "../../shared/ImagePlaceholderSkeleton";
 
 type ProductType = Camera | Laptop | Monitor;
 
@@ -18,11 +18,11 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
 
   return (
     <div className="relative border border-primary rounded-lg p-3 text-center shadow-lg">
-      <LazyLoadImage 
-      src={mainImage} 
-      placeholder={<ImagePlaceholderSkeleton/>}
-      imageClassName="w-44 h-44 mx-auto cursor-pointer"
-       />
+      <LazyLoadImage
+        src={mainImage}
+        placeholder={<ImagePlaceholderSkeleton />}
+        imageClassName="w-44 h-44 mx-auto cursor-pointer"
+      />
 
       {/* <Image
         src={mainImage}

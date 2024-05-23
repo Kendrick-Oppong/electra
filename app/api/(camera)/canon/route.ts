@@ -1,5 +1,6 @@
 import dbConnect from "@/lib/dbConnect";
 import Canon from "@/models/camera/Canon";
+import { MongooseError } from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, res: Response) {
@@ -12,6 +13,9 @@ export async function GET(req: Request, res: Response) {
      }
        return NextResponse.json({ data: canon, count: canon.length }, { status: 200 });
    } catch (error) {
+       if (error instanceof MongooseError) {
+        return NextResponse.json({ error: "Database error" },{status:500});
+       }
      console.error("An error occurred while fetching data:", error);
      return  NextResponse.json({ error: "Internal Server Error" },{status:500});
    }
