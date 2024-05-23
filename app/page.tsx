@@ -9,6 +9,8 @@ import {
 } from "@/components/home/featured";
 import { ButtonLink } from "@/components/shared";
 import {NewArrival} from "@/components/home/newArrival";
+import {TestimonyCarousel} from "@/components/home/testimonial";
+
 
 export default async function Home() {
   return (
@@ -50,7 +52,7 @@ export default async function Home() {
       <section className="flex flex-wrap gap-6 mx-10">
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
           <Rocket className="text-primary " size={70} />
-          <h2 className="text-primary font-bold my-3">
+          <h2 className="text-xl font-bold my-3">
             Effortless Shipping & Delivery
           </h2>
           <p>
@@ -61,7 +63,7 @@ export default async function Home() {
         </div>
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
           <Banknote className="text-primary " size={70} />
-          <h2 className="text-primary font-bold my-3">
+          <h2 className="text-xl font-bold my-3">
             Guaranteed Satisfaction
           </h2>
           <p>
@@ -72,7 +74,7 @@ export default async function Home() {
         </div>
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
           <Headset className="text-primary " size={70} />
-          <h2 className="text-primary font-bold my-3">24/7 Customer Support</h2>
+          <h2 className="text-xl font-bold my-3">24/7 Customer Support</h2>
           <p>
             Access our round-the-clock customer support whenever you need
             assistance. Our knowledgeable team is here to address your inquiries
@@ -146,7 +148,7 @@ export default async function Home() {
       {/* Featured Products */}
       <section>
         <h1 className="text-subtitle">Featured Products</h1>
-        <Tabs defaultValue="camera" className="mx-5">
+        <Tabs defaultValue="camera" className="">
           <TabsList className="flex gap-3 mb-8 bg-transparent rounded-none">
             <TabsTrigger value="camera">Camera</TabsTrigger>
             <TabsTrigger value="laptop">Laptop</TabsTrigger>
@@ -174,13 +176,13 @@ export default async function Home() {
               <ButtonLink>View Collection</ButtonLink>
             </div>
           </div>
-          <div className="bg-[url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
+          <div className="bg-[url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
             <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
               <h2 className="opacity-1">Laptop</h2>
               <ButtonLink>View Collection</ButtonLink>
             </div>
           </div>
-          <div className="bg-[url('https://images.unsplash.com/photo-1551645120-d70bfe84c826?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
+          <div className="bg-[url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
             <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
               <h2 className="opacity-1">Monitor</h2>
               <ButtonLink>View Collection</ButtonLink>
@@ -192,14 +194,18 @@ export default async function Home() {
       {/* New Arrivals */}
       <section>
         <h1 className="text-subtitle">New Arrivals</h1>
-        <NewArrival/>
+        <NewArrival />
       </section>
 
-{/* Testimonials */}
-<section>
-  <h1 className="text-center w-fit py-1 px-2 mx-auto text-xl font-bold bg-accent rounded-lg ">Testimonials</h1>
-  <h1 className="text-subtitle !mt-1">What Customers Say About Us</h1>
-</section>
+      {/* Testimonials */}
+      <section className="mt-16">
+        <h1 className="text-center w-fit py-1 px-2 mx-auto text-xl font-bold bg-accent rounded-lg ">
+          Testimonials
+        </h1>
+        <h1 className="text-subtitle !mt-1 ">What Customers Say About Us</h1>
+
+        <TestimonyCarousel/>
+      </section>
     </>
   );
 }

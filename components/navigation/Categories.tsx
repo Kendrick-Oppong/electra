@@ -10,11 +10,8 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import { Camera, Laptop, Smartphone, Watch, Menu } from "lucide-react";
+import { Camera, Laptop, Smartphone, Menu } from "lucide-react";
 import Link from "next/link"
-
-
-
 
 const categories = [
   { category: "Camera", icon: <Camera className="inline-flex mr-2" /> },
@@ -33,8 +30,7 @@ const Categories = () => {
               <Menu className="inline-flex mr-2" />
               Categories
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="shadow-2xl border">
-              
+            <NavigationMenuContent className="shadow-2xl ">
               {categories.map((category) => (
                 <Link href="" key={category.category} legacyBehavior passHref>
                   <NavigationMenuLink
