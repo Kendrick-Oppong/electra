@@ -8,17 +8,16 @@ import {
   FeaturedMonitor,
 } from "@/components/home/featured";
 import { ButtonLink } from "@/components/shared";
-import {NewArrival} from "@/components/home/newArrival";
-import {TestimonyCarousel} from "@/components/home/testimonial";
-
+import { NewArrival } from "@/components/home/newArrival";
+import { TestimonyCarousel } from "@/components/home/testimonial";
 
 export default async function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="grid grid-cols-2 bg-accent px-5 mt-0 mx-0">
+      <section className="grid md:grid-cols-2 bg-accent px-5 mt-0 mx-0">
         <div className="self-center">
-          <h1 className="text-6xl font-bold leading-tight">
+          <h1 className="text-5xl pt-7 md:text-4xl lg:text-6xl md:pt-0   font-bold leading-tight">
             Discover Our Latest <br /> <span>Stylish Monitors</span>
           </h1>
           <p className="my-4 font-semibold text-xl">
@@ -32,7 +31,6 @@ export default async function Home() {
             Off!
           </p>
           <ButtonLink>
-            {" "}
             Explore Now <ShoppingCart className="inline-flex ml-2" />
           </ButtonLink>
         </div>
@@ -49,10 +47,10 @@ export default async function Home() {
       </section>
 
       {/* Services */}
-      <section className="flex flex-wrap gap-6 mx-10">
+      <section className="space-y-7 sm:space-y-0 sm:flex flex-wrap gap-6 mx-10">
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
-          <Rocket className="text-primary " size={70} />
-          <h2 className="text-xl font-bold my-3">
+          <Rocket className="text-primary" size={70} />
+          <h2 className="text-xl sm:min-w-max md:min-w-full font-bold my-3">
             Effortless Shipping & Delivery
           </h2>
           <p>
@@ -62,8 +60,8 @@ export default async function Home() {
           </p>
         </div>
         <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
-          <Banknote className="text-primary " size={70} />
-          <h2 className="text-xl font-bold my-3">
+          <Banknote className="text-primary" size={70} />
+          <h2 className="text-xl sm:min-w-max md:min-w-full  font-bold my-3">
             Guaranteed Satisfaction
           </h2>
           <p>
@@ -85,15 +83,16 @@ export default async function Home() {
       </section>
 
       {/* Hot deals */}
-      <section className="flex shadow-2xl rounded-lg mx-5">
-        <div className="bg-accent p-5">
+      <section className="md:flex mx-0 shadow-2xl rounded-lg">
+        <div className="basis-1/3 bg-accent p-5">
           <Image
             src="/hp.png"
-            width={550}
-            height={550}
-            sizes="(max-width:768px) 100vw, 550px"
+            width={400}
+            height={400}
+            sizes="(max-width:768px) 100vw, 400px"
             alt="New Arrival Phone"
             priority
+            className=""
           />
           <h2 className="text-2xl font-bold leading-tight">
             High Quality Hp Laptops
@@ -105,20 +104,19 @@ export default async function Home() {
             </span>{" "}
             Off!
           </p>
-          <ButtonLink>
-            {" "}
+          <ButtonLink className="mb-6 md:mb-0">
             Shop Now <ShoppingCart className="inline-flex ml-2" />
           </ButtonLink>
         </div>
-        <div className="bg-secondary grid grid-cols-2">
-          <div className="self-center p-4">
+        <div className="flex-1 bg-secondary grid md:grid-cols-2 w-full">
+          <div className="self-center p-4 order-1 md:order-none">
             <Badge
               variant="destructive"
               className="p-2 text-base mb-8 rounded-lg"
             >
               Exclusive Weekend Offer
             </Badge>
-            <h2 className="text-4xl font-bold leading-tight">
+            <h2 className="text-2xl lg:text-4xl font-bold leading-tight">
               High-Performance Digital Camera
             </h2>
             <p className="font-medium my-3">
@@ -132,12 +130,12 @@ export default async function Home() {
               Shop Now <ShoppingCart className="inline-flex ml-2" />
             </ButtonLink>
           </div>
-          <div className="my-auto">
+          <div className="my-auto ">
             <Image
               src="/camera.png"
-              width={550}
-              height={550}
-              sizes="(max-width:768px) 100vw, 550px"
+              width={400}
+              height={400}
+              sizes="(max-width:768px) 100vw, 400px"
               alt="canon camera"
               priority
             />
@@ -204,7 +202,7 @@ export default async function Home() {
         </h1>
         <h1 className="text-subtitle !mt-1 ">What Customers Say About Us</h1>
 
-        <TestimonyCarousel/>
+        <TestimonyCarousel />
       </section>
     </>
   );

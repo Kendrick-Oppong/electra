@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bai_Jamjuree } from "next/font/google";
 import NavBar from "@/components/navigation/NavBar";
+import {Footer} from "@/components/footer";
+
 import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
@@ -38,6 +40,7 @@ export default function RootLayout({
             <main className=""> {children}</main>
             <SideNavigation />
           </TanstackQueryClientProvider>
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

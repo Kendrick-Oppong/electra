@@ -7,7 +7,7 @@ export const laptopSchema = new Schema({
   price: { type: Number, required: true },
   shortDescription: { type: String, required: true },
   brand: { type: String, required: true },
-  videoUrl: { type: String, },
+  videoUrl: { type: String },
   fullDescription: { type: String, required: true },
 
   // Stock Information

@@ -1,16 +1,15 @@
 "use client";
 import { CameraSchemaProps } from "@/types";
-import FeaturedCard from "../../shared/FeaturedCard";
-import { LoadingSkeleton, ErrorMessage } from "../../shared";
+import { LoadingSkeleton, ErrorMessage,FeaturedCard } from "@/components/shared";
 import { useFetchQueryHook } from "@/hooks";
 
-const FeaturedCamera = () => {
+const CanonPage = () => {
   const { data, error, isError, isLoading, refetch } =
     useFetchQueryHook<CameraSchemaProps>({
-      url: "nikon",
-      queryKey: "featured-nikon",
+      url: "canon",
+      queryKey: "canon",
     });
-  const slicedfeaturedCamera = data?.data.slice(0, 4);
+ 
 
   if (isLoading) return <LoadingSkeleton />;
 
@@ -19,12 +18,12 @@ const FeaturedCamera = () => {
 
   return (
     <div className="grid-template gap-4 justify-center ">
-      {slicedfeaturedCamera &&
-        slicedfeaturedCamera.map((product) => (
+      {data &&
+        data.data.map((product) => (
           <FeaturedCard key={product._id} product={product} />
         ))}
     </div>
   );
 };
 
-export default FeaturedCamera;
+export default CanonPage;

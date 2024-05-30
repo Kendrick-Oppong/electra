@@ -1,11 +1,11 @@
 "use client";
 
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { useQuery } from "@tanstack/react-query";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-const fetcher = (url: string) =>
+const fetcher = <T,>(url: string): Promise<T> =>
   axios
     .get(`${baseUrl}/${url}`)
     .then((res) => res.data)
@@ -17,22 +17,20 @@ const fetcher = (url: string) =>
       throw error;
     });
 
-function GetFeaturedProducts<T>({
+function useFetchQueryHook<T>({
   url,
   queryKey,
 }: {
   url: string;
   queryKey: string;
-}) {
-  const { data, isLoading, isError, error, refetch } = useQuery<T>({
+}): UseQueryResult<T, Error>{
+  return useQuery<T, Error>({
     queryKey: [queryKey],
-    queryFn: () => fetcher(url),
+    queryFn: () => fetcher<T>(url),
     retry: 3,
     staleTime: 0,
     refetchOnWindowFocus: true,
   });
+};
 
-  return { data, isLoading, isError, error, refetch };
-}
-
-export default GetFeaturedProducts;
+export default useFetchQueryHook;

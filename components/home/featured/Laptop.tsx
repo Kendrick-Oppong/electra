@@ -1,12 +1,12 @@
 "use client";
-import GetFeaturedProducts from "@/lib/getFeaturedProducts";
+import { useFetchQueryHook } from "@/hooks";
 import { LaptopSchemaProps } from "@/types";
-import FeaturedCard from "./FeaturedCard";
+import FeaturedCard from "../../shared/FeaturedCard";
 import { LoadingSkeleton, ErrorMessage } from "../../shared";
 
 const FeaturedLaptop = () => {
   const { data, error, isError, isLoading, refetch } =
-    GetFeaturedProducts<LaptopSchemaProps>({
+    useFetchQueryHook<LaptopSchemaProps>({
       url: "hp",
       queryKey: "featured-hp",
     });

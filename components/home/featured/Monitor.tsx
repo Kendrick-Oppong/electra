@@ -1,12 +1,12 @@
 "use client";
-import GetFeaturedProducts from "@/lib/getFeaturedProducts";
+import { useFetchQueryHook } from "@/hooks";
 import { MonitorSchemaProps } from "@/types";
-import FeaturedCard from "./FeaturedCard";
+import FeaturedCard from "../../shared/FeaturedCard";
 import { LoadingSkeleton, ErrorMessage } from "../../shared";
 
 const FeaturedMonitor = () => {
   const { data, error, isError, isLoading, refetch } =
-    GetFeaturedProducts<MonitorSchemaProps>({
+    useFetchQueryHook<MonitorSchemaProps>({
       url: "samsung",
       queryKey: "featured-samsung",
     });

@@ -25,7 +25,6 @@ const ShopCategories = () => {
               {categories.map((category) => (
                 <div key={category.category} className="">
                   <h2 className="mb-2 font-bold text-center">
-                    {" "}
                     {category.category}
                   </h2>
                   {category.items.map((subCategory) => (

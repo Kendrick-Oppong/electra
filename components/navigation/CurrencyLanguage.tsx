@@ -1,6 +1,6 @@
-import German from "@/public/germany-svgrepo-com.svg"
-import UK from "@/public/united-kingdom-svgrepo-com.svg"
-import Image from "next/image"
+import German from "@/public/germany-svgrepo-com.svg";
+import UK from "@/public/united-kingdom-svgrepo-com.svg";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -12,36 +12,52 @@ import { Euro, PoundSterling, DollarSign } from "lucide-react";
 
 const CurrencyLanguage = () => {
   return (
-    <Select >
+    <Select>
+      <SelectTrigger className="w-[180px] text-base">
+        <SelectValue
+          placeholder="English"
+          className="text-base text-black dark:text-white"
+        />
+      </SelectTrigger>
+      <SelectContent className="border-gray">
+        <SelectItem value="en" className="text-base">
+          <p className="text-black dark:text-white">
+            <Image src={UK} className="inline-flex mr-2" alt="" /> English
+          </p>
+        </SelectItem>
+        <SelectItem value="de" className="text-base">
+          <p className="text-black dark:text-white">
+            <Image src={German} className="inline-flex mr-2" alt="" /> German
+          </p>
+        </SelectItem>
+      </SelectContent>
+
+      <Select>
         <SelectTrigger className="w-[180px] text-base">
-          <SelectValue placeholder="English" className="text-base" />
+          <SelectValue
+            placeholder="US Dollar"
+            className="text-base text-black dark:text-white"
+          />
         </SelectTrigger>
-        <SelectContent >
-          <SelectItem value="en" className="text-base">
-           <Image src={UK} className="inline-flex mr-2" alt=""/> English
+        <SelectContent className="border-gray">
+          <SelectItem value="EUR" className="text-base ">
+            <p className="text-black dark:text-white">
+              <Euro className="inline-flex mr-2" /> Euro
+            </p>
           </SelectItem>
-          <SelectItem value="de" className="text-base">
-            <Image src={German} className="inline-flex mr-2" alt=""/> German 
+          <SelectItem value="GBP" className="text-base">
+            <p className="text-black dark:text-white">
+              <PoundSterling className="inline-flex mr-2" /> Pound Sterling
+            </p>
+          </SelectItem>
+          <SelectItem value="USD" className="text-base">
+            <p className="text-black dark:text-white">
+              <DollarSign className="inline-flex mr-2" /> US Dollar
+            </p>
           </SelectItem>
         </SelectContent>
-
-        <Select>
-          <SelectTrigger className="w-[180px] text-base">
-            <SelectValue placeholder="US Dollar" className="text-base"/>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="EUR"  className="text-base">
-              <Euro className="inline-flex mr-2" /> Euro
-            </SelectItem>
-            <SelectItem value="GBP"  className="text-base">
-              <PoundSterling className="inline-flex mr-2" /> Pound Sterling
-            </SelectItem>
-            <SelectItem value="USD"  className="text-base">
-              <DollarSign  className="inline-flex mr-2"/> US Dollar
-            </SelectItem>
-          </SelectContent>
-        </Select>
       </Select>
+    </Select>
   );
 };
 

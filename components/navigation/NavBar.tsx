@@ -1,19 +1,17 @@
-import { X, ShoppingCart, Search } from "lucide-react";
+import { ShoppingCart, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import CurrencyLanguage from "./CurrencyLanguage";
 import Categories from "./Categories";
 import ShopCategories from "./ShopCategories";
 import ModeToggle from "./ModeToggle";
-
 import Link from "next/link";
+import { navLinks } from "@/constants/navLinks";
 
 const NavBar = () => {
   return (
     <header>
-      <div
-        className="flex justify-between bg-primary items-center px-5 py-2"
-      >
+      <div className="flex justify-between bg-primary items-center px-5 py-2">
         <div className="flex justify-between gap-4 text-white">
           <p>Call us: +233 5521 99556</p>
           <p> or email:Electra@gmail.com</p>
@@ -24,15 +22,16 @@ const NavBar = () => {
       </div>
       <nav className="px-5 my-5">
         <div className="flex justify-between items-center gap-4">
-          <div>
-            <X />
+          <div className="text-4xl font-black">
+            <h1>              <span>Elec</span>tra
+            </h1>
           </div>
           <div className="relative w-full flex items-center">
             <Search className="absolute left-4 top-2.5 opacity-50" />
             <Input
               type="search"
               placeholder="Search product"
-              className="h-11 ring-1 pl-14 rounded-tr-none rounded-br-none"
+              className="h-11 ring-1 pl-14  border border-primary focus-visible:ring-2  rounded-tr-none rounded-br-none"
             />
             <Button className=" h-12 px-10 rounded-tl-none rounded-bl-none rounded-tr-xl rounded-br-xl ">
               Search
@@ -55,34 +54,15 @@ const NavBar = () => {
               <li>Home</li>
             </Link>
             <ShopCategories />
-            <Link
-              href=""
-              className="hover:text-primary transition ease-in duration-300"
-            >
-              <li>Login</li>
-            </Link>
-            <Link
-              href=""
-              className="hover:text-primary transition ease-in duration-300"
-            >
-              <li>Collection</li>
-            </Link>
-            <Link
-              href=""
-              className="hover:text-primary transition ease-in duration-300"
-            >
-              <li>About Us</li>
-            </Link>
-            <Link
-              href=""
-              className="hover:text-primary transition ease-in duration-300"
-            >
-              <li>FAQS</li>
-            </Link>
-            <Link
-              href=""
-              className="hover:text-primary transition ease-in duration-300"
-            ></Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="hover:text-primary transition ease-in duration-300"
+              >
+                <li>{link.label}</li>
+              </Link>
+            ))}
           </ul>
         </div>
       </nav>
