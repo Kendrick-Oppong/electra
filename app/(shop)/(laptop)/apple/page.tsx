@@ -1,15 +1,18 @@
 "use client";
 import { CameraSchemaProps } from "@/types";
-import { LoadingSkeleton, ErrorMessage,FeaturedCard } from "@/components/shared";
+import {
+  LoadingSkeleton,
+  ErrorMessage,
+  FeaturedCard,
+} from "@/components/shared";
 import { useFetchQueryHook } from "@/hooks";
 
-const CanonPage = () => {
+const NikonPage = () => {
   const { data, error, isError, isLoading, refetch } =
     useFetchQueryHook<CameraSchemaProps>({
-      url: "canon",
-      queryKey: "canon",
+      url: "apple",
+      queryKey: "apple",
     });
- 
 
   if (isLoading) return <LoadingSkeleton />;
 
@@ -26,4 +29,4 @@ const CanonPage = () => {
   );
 };
 
-export default CanonPage;
+export default NikonPage;

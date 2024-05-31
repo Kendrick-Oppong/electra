@@ -16,7 +16,7 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
   const discountedPrice = product.price;
 
   return (
-    <div className="relative border border-primary rounded-lg p-3 text-center shadow-lg">
+    <div className="relative border border-primary rounded-lg p-3 pb-24  text-center shadow-lg">
       <LazyLoadImage
         src={mainImage}
         placeholder={<ImagePlaceholderSkeleton />}
@@ -24,8 +24,9 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
       />
 
       <h2 className="font-bold my-4 cursor-pointer">{product.title}</h2>
-      <ProductRating rating={product.rating} />
-      <div className="flex justify-between items-center px-4 my-4">
+      <ProductRating rating={product.rating} className="mb-5"/>
+
+      <div className="absolute bottom-2 flex w-full left-0 right-0  justify-between items-center px-4 my-4">
         <p className="font-bold text-destructive my-3 text-xl">
           ${discountedPrice}{" "}
           <span className="text-secondary dark:text-primary dark:opacity-50 line-through font-normal ml-2 text-lg">

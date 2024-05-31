@@ -20,7 +20,7 @@ const ShopLayout = ({
           <p>
             <ChevronRight />
           </p>
-          <p>Nikon </p>
+          <p>Nikon</p>
         </div>
       </div>
       <div className="flex gap-4 mt-10">
@@ -36,21 +36,20 @@ const ShopLayout = ({
           </div>
           <div className="mb-8">
             <h2 className="text-primary font-semibold mt-8 mb-2">
-              {" "}
               Filter By Price
             </h2>
             <div className="flex gap-4">
               <Input
                 type="number"
                 min="300"
-                max="8000"
+                max="9000"
                 defaultValue={300}
                 className="w-full rounded-lg  cursor-pointer"
               />
               <Input
                 type="number"
                 min="300"
-                max="8000"
+                max="9000"
                 defaultValue={8000}
                 className="w-full rounded-lg  cursor-pointer"
               />
@@ -63,11 +62,10 @@ const ShopLayout = ({
             />
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="font-semibold text-xl my-4">Camera - Nikon</h2>
-          <div className="flex justify-between font-semibold mb-6">
+        <div className="flex-1 px-5">
+          <div className="flex justify-between font-semibold my-8">
             <p>
-              Showing 1 - 12 of <span>12</span> items
+              Showing 1 - <span className="text-destructive">12</span> of <span>12</span> items
             </p>
             <div className="flex gap-2 items-center">
               <p>Sort By:</p>
@@ -77,6 +75,7 @@ const ShopLayout = ({
           <div>{children}</div>
         </div>
       </div>
+
     </>
   );
 };

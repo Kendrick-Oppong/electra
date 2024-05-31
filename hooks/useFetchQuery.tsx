@@ -1,7 +1,12 @@
 "use client";
 
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import {
+  useQuery,
+  UseQueryResult,
+  keepPreviousData,
+} from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
+
 
 const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -23,14 +28,15 @@ function useFetchQueryHook<T>({
 }: {
   url: string;
   queryKey: string;
-}): UseQueryResult<T, Error>{
+}): UseQueryResult<T, Error> {
   return useQuery<T, Error>({
     queryKey: [queryKey],
     queryFn: () => fetcher<T>(url),
     retry: 3,
     staleTime: 0,
+    placeholderData: keepPreviousData,
     refetchOnWindowFocus: true,
   });
-};
+}
 
 export default useFetchQueryHook;

@@ -5,7 +5,7 @@ const LoadingSkeleton = () => {
       {arr.map((skeleton) => (
         <div
           key={skeleton}
-          className="relative w-[289px] h-[340px] border border-gray rounded-lg p-3 text-center shadow-lg animate-pulse"
+          className="relative  border border-gray rounded-lg p-3 text-center shadow-lg animate-pulse"
         >
           <div className="w-44 h-44 mx-auto bg-gray-300 rounded"></div>
           <div className="font-bold my-4 h-6 bg-gray-300 rounded w-3/4 mx-auto"></div>
