@@ -8,7 +8,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { categories } from "@/constants/shopCategories";
+import { categories } from "@/constants";
 import Link from "next/link";
 
 
@@ -30,10 +30,10 @@ const ShopCategories = () => {
                   {category.items.map((subCategory) => (
                     <Link
                       key={subCategory.name}
-                      href=""
+                      href={subCategory.href}
                       legacyBehavior
                       passHref
-                      className="w-full "
+                      className="w-full"
                     >
                       <NavigationMenuLink
                         className={`${navigationMenuTriggerStyle()} my-2`}

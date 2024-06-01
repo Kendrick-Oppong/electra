@@ -1,8 +1,6 @@
 import React from "react";
 import ProductRating from "./ProductRating";
-import { Camera } from "@/types/cameraSchema";
-import { Laptop } from "@/types/laptopSchema";
-import { Monitor } from "@/types/monitorSchema";
+import { Camera ,Laptop,Monitor} from "@/types";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
 import ToolTipPopUp from "@/components/shared/ToolTipPopUp";
 import LazyLoadImage from "./LazyLoadImage";
@@ -24,7 +22,7 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
       />
 
       <h2 className="font-bold my-4 cursor-pointer">{product.title}</h2>
-      <ProductRating rating={product.rating} className="mb-5"/>
+      <ProductRating rating={product.rating} className="mb-5" />
 
       <div className="absolute bottom-2 flex w-full left-0 right-0  justify-between items-center px-4 my-4">
         <p className="font-bold text-destructive my-3 text-xl">

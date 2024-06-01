@@ -8,7 +8,10 @@ import ModeToggle from "./ModeToggle";
 import Link from "next/link";
 import { navLinks } from "@/constants/navLinks";
 
+
 const NavBar = () => {
+
+
   return (
     <header>
       <div className="flex justify-between bg-primary items-center px-5 py-2">
@@ -23,7 +26,9 @@ const NavBar = () => {
       <nav className="px-5 my-5">
         <div className="flex justify-between items-center gap-4">
           <div className="text-4xl font-black">
-            <h1>              <span>Elec</span>tra
+            <h1>
+              {" "}
+              <span>Elec</span>tra
             </h1>
           </div>
           <div className="relative w-full flex items-center">
@@ -58,7 +63,7 @@ const NavBar = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="hover:text-primary transition ease-in duration-300"
+                className={`hover:text-primary transition ease-in duration-300`}
               >
                 <li>{link.label}</li>
               </Link>

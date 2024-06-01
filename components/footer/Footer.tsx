@@ -106,7 +106,7 @@ const Footer = () => {
       </div>
       <div className="bg-secondary text-center py-10 ">
         <p className="border-t-2 border-t-accent pt-6">
-          <span className="text-black mr-1">&copy;</span>Copyright - Electra | All Rights
+          <span className="text-black dark:text-white mr-1">&copy;</span>Copyright - Electra | All Rights
           Reserved
         </p>
       </div>

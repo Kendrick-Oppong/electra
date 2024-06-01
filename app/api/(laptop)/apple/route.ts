@@ -6,7 +6,15 @@ import { MongooseError } from "mongoose";
 export async function GET(req: Request, res: Response) {
   try {
     await dbConnect();
-      const apple = await Apple.find({});
+    const url = new URL(req.url);
+    const pageQuery = url.searchParams.get("page");
+   const page = pageQuery ? Math.max(parseInt(pageQuery), 1) : 1;
+    const limit = 4;
+    const skip = (page - 1) * limit;
+
+    const apple = await Apple.find({}).skip(skip).limit(limit);
+
+
     if (!apple.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }

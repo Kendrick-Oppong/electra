@@ -85,6 +85,11 @@ export interface Monitor {
   reviews?: string[];
 }
 
-export interface MonitorSchemaProps {
+export interface MonitorPage {
   data: Monitor[];
+  count: number;
+}
+export interface MonitorSchemaProps {
+  pages: MonitorPage[];
+  pageParams: number[];
 }

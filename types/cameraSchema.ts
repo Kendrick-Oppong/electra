@@ -42,6 +42,12 @@ export interface Camera {
   }[];
 }
 
-export interface CameraSchemaProps {
+export interface CameraPage {
   data: Camera[];
+  count: number;
+}
+
+export interface CameraSchemaProps {
+  pages: CameraPage[];
+  pageParams: number[];
 }

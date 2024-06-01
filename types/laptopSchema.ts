@@ -95,6 +95,12 @@ export interface Laptop {
   reviews?: string[];
 }
 
-export interface LaptopSchemaProps {
+
+export interface LaptopPage {
   data: Laptop[];
+  count: number;
+}
+export interface LaptopSchemaProps {
+  pages: LaptopPage[];
+  pageParams: number[];
 }

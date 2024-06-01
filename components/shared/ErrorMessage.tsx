@@ -1,22 +1,15 @@
-import { RefetchOptions, QueryObserverResult } from "@tanstack/react-query";
-import { CameraSchemaProps,LaptopSchemaProps,MonitorSchemaProps } from "@/types/";
+import { RefetchOptions,UseQueryResult } from "@tanstack/react-query";
 import { AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-type UseQueryResultsProps =
-  | CameraSchemaProps
-  | LaptopSchemaProps
-  | MonitorSchemaProps;
 
 interface ErrorMessageProps {
   message: string;
   refetch: (
     options?: RefetchOptions
-  ) => Promise<QueryObserverResult<UseQueryResultsProps, Error>>;
+  ) => Promise<UseQueryResult>;
 }
 
 const ErrorMessage = ({ message, refetch }: ErrorMessageProps) => {
-  //   if (message) handleFetchErrorToast(message);
   const handleRetry = () => {
     refetch();
   };

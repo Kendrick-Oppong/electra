@@ -115,6 +115,10 @@
   .text-subtitle {
     @apply text-center font-bold text-4xl mt-10 mb-6
   }
+
+  .activeLink {
+    @apply bg-secondary p-1 rounded-lg
+  }
 }
 
 @layer base {

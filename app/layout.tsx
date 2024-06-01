@@ -12,8 +12,8 @@ import TanstackQueryClientProvider from "@/components/shared/TanstackQueryClient
 
 const bai_Jamjuree = Bai_Jamjuree({
   subsets: ["latin"],
-  display: "swap",
   weight: ["200", "300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

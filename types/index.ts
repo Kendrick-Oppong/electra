@@ -1,5 +1,5 @@
-export type { CameraSchemaProps, Camera } from "./cameraSchema";
+export type { CameraSchemaProps, Camera ,CameraPage} from "./cameraSchema";
 
-export type { LaptopSchemaProps, Laptop } from "./laptopSchema";
+export type { LaptopSchemaProps, Laptop ,LaptopPage} from "./laptopSchema";
 
-export type { MonitorSchemaProps, Monitor } from "./monitorSchema";
+export type { MonitorSchemaProps, Monitor, MonitorPage } from "./monitorSchema";

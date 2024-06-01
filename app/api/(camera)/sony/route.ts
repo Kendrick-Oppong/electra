@@ -6,7 +6,13 @@ import { MongooseError } from "mongoose";
 export async function GET(req: Request, res: Response) {
    try {
      await dbConnect();
-       const sony = await Sony.find({})
+     const url = new URL(req.url);
+    const pageQuery = url.searchParams.get("page");
+   const page = pageQuery ? Math.max(parseInt(pageQuery), 1) : 1;
+    const limit = 4;
+    const skip = (page - 1) * limit;
+
+    const sony = await Sony.find({}).skip(skip).limit(limit);
        
      if(!sony.length){
         return NextResponse.json({message:"No data found "}, { status: 404 });
@@ -21,3 +27,6 @@ export async function GET(req: Request, res: Response) {
    }
      
 }
+
+
+

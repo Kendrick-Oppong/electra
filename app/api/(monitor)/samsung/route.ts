@@ -5,7 +5,13 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request, res: Response) {
   try {
     await dbConnect();
-    const samsung = await Samsung.find({});
+    const url = new URL(req.url);
+    const pageQuery = url.searchParams.get("page");
+   const page = pageQuery ? Math.max(parseInt(pageQuery), 1) : 1;
+    const limit = 4;
+    const skip = (page - 1) * limit;
+
+    const samsung = await Samsung.find({}).skip(skip).limit(limit);
 
     if (!samsung.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });

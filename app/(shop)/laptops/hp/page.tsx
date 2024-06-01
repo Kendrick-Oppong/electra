@@ -1,13 +1,13 @@
 import { LaptopSchemaProps } from "@/types";
 import {FeaturedProducts} from "@/components/shared";
 
-const FeaturedMonitor = () => {
+const HpPage = () => {
   return (
     <FeaturedProducts<LaptopSchemaProps>
-      url="samsung"
-      queryKey="featured-samsung"
+      url="hp"
+      queryKey="hp"
     />
   );
 };
 
-export default FeaturedMonitor;
+export default HpPage;
