@@ -1,5 +1,4 @@
-import { ChevronRight } from "lucide-react";
-import { SortProduct } from "@/components/shared";
+import { SortProduct,ShopCategoryBanner } from "@/components/shared";
 import {
   StarRatingRadioGroup,
   ColorsRatingRadioGroup,
@@ -13,16 +12,7 @@ const ShopLayout = ({
 }>) => {
   return (
     <>
-      <div className="bg-secondary min-h-32 flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold text-primary">Shop</h1>
-        <div className="flex items-center font-semibold gap-1 mt-2">
-          <p className="">Camera</p>
-          <p>
-            <ChevronRight />
-          </p>
-          <p>Nikon</p>
-        </div>
-      </div>
+      <ShopCategoryBanner/>
       <div className="flex gap-4 mt-10">
         <div className="basis-1/5 divide-secondary divide-y-2  px-5 shadow-xl">
           <div className="my-8">
