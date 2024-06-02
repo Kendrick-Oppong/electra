@@ -13,12 +13,13 @@ export async function GET(req: Request, res: Response) {
     const skip = (page - 1) * limit;
 
     const hp = await Hp.find({}).skip(skip).limit(limit);
+    const totalCount = await Hp.countDocuments();
 
     if (!hp.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
     return NextResponse.json(
-      { data: hp, count: hp.length },
+      { data: hp, count: hp.length, totalCount },
       { status: 200 }
     );
   } catch (error) {

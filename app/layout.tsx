@@ -7,8 +7,8 @@ import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
 import "@smastrom/react-rating/style.css";
-import "./globals.css";
 import TanstackQueryClientProvider from "@/components/shared/TanstackQueryClientProvider";
+import "./globals.css";
 
 const bai_Jamjuree = Bai_Jamjuree({
   subsets: ["latin"],

@@ -13,12 +13,14 @@ export async function GET(req: Request, res: Response) {
     const skip = (page - 1) * limit;
 
     const apple = await Apple.find({}).skip(skip).limit(limit);
+    const totalCount = await Apple.countDocuments();
 
 
     if (!apple.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
-    return NextResponse.json({ data: apple, count: apple.length }, { status: 200 });
+    return NextResponse.json({ data: apple, count: apple.length, totalCount }, { status: 200 });
+    
   } catch (error) {
     if (error instanceof MongooseError) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });

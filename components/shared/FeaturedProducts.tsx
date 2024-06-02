@@ -29,8 +29,6 @@ const FeaturedProducts = <T,>({ url, queryKey }: FeaturedProductsProps) => {
 
   if (isLoading) return <LoadingSkeleton />;
 
-
-
   if (isError)
     return <ErrorMessage message={error!.message} refetch={refetch} />;
 
@@ -39,7 +37,7 @@ const FeaturedProducts = <T,>({ url, queryKey }: FeaturedProductsProps) => {
     <div className="grid-template gap-4 justify-center">
       {data?.pages?.map((page, pageIndex) => (
         <React.Fragment key={pageIndex}>
-          {(page as any)?.data.map((product: ProductType, index: number) => (
+          {(page as any)?.data.map((product: ProductType) => (
             <FeaturedCard key={product._id} product={product} />
           ))}
         </React.Fragment>

@@ -26,10 +26,12 @@ const NavBar = () => {
       <nav className="px-5 my-5">
         <div className="flex justify-between items-center gap-4">
           <div className="text-4xl font-black">
-            <h1>
-              {" "}
-              <span>Elec</span>tra
-            </h1>
+            <Link href="/">
+              <h1>
+                {" "}
+                <span>Elec</span>tra
+              </h1>
+            </Link>
           </div>
           <div className="relative w-full flex items-center">
             <Search className="absolute left-4 top-2.5 opacity-50" />
@@ -53,7 +55,7 @@ const NavBar = () => {
           <Categories />
           <ul className="flex justify-between items-center font-medium gap-8">
             <Link
-              href=""
+              href="/"
               className="hover:text-primary transition ease-in duration-300"
             >
               <li>Home</li>

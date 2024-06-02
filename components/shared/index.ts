@@ -9,4 +9,4 @@ export { default as ShopCategoryBanner } from "./ShopCategoryBanner";
 export { default as TanstackQueryClientProvider } from "./TanstackQueryClientProvider";
 export { default as ToolTipPopUp } from "./ToolTipPopUp";
 export { default as ButtonLink } from "./ButtonLink";
-export { default as SortProduct } from "./SortProduct";
+

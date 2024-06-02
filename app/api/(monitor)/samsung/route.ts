@@ -12,12 +12,14 @@ export async function GET(req: Request, res: Response) {
     const skip = (page - 1) * limit;
 
     const samsung = await Samsung.find({}).skip(skip).limit(limit);
+    const totalCount = await Samsung.countDocuments();
+
 
     if (!samsung.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
     return NextResponse.json(
-      { data: samsung, count: samsung.length },
+      { data: samsung, count: samsung.length, totalCount },
       { status: 200 }
     );
   } catch (error) {

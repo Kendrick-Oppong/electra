@@ -14,12 +14,13 @@ export async function GET(req: Request, res: Response) {
     const skip = (page - 1) * limit;
 
     const canon = await Canon.find({}).skip(skip).limit(limit);
+    const totalCount = await Canon.countDocuments();
 
     if (!canon.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
     return NextResponse.json(
-      { data: canon, count: canon.length },
+      { data: canon, count: canon.length,totalCount },
       { status: 200 }
     );
   } catch (error) {

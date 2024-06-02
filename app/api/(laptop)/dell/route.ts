@@ -13,12 +13,13 @@ export async function GET(req: Request, res: Response) {
     const skip = (page - 1) * limit;
 
     const dell = await Dell.find({}).skip(skip).limit(limit);
+    const totalCount = await Dell.countDocuments();
 
     if (!dell.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
     return NextResponse.json(
-      { data: dell, count: dell.length },
+      { data: dell, count: dell.length, totalCount },
       { status: 200 }
     );
   } catch (error) {

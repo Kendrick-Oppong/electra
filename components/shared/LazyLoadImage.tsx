@@ -10,7 +10,6 @@ interface LazyLoadImageProps {
   alt?: string;
   placeholder: React.ReactElement;
   imageClassName?: string;
-  tag?: React.ReactElement;
 }
 
 const LazyLoadImage = ({
