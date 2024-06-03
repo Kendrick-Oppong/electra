@@ -1,13 +1,16 @@
 "use client";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-
+import { useSearchParams } from "next/navigation";
 const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-
-const fetcher = <T,>(url: string, pageParam: number = 1): Promise<T> =>
+const fetcher = <T,>(
+  url: string,
+  pageParam: number = 1,
+  sortQuery: string | null,
+): Promise<T> =>
   axios
-    .get(`${baseUrl}/${url}?page=${pageParam}`)
+    .get(`${baseUrl}/${url}?page=${pageParam}&sort=${sortQuery}`)
     .then((res) => res.data)
     .catch((error) => {
       if (error instanceof AxiosError) {
@@ -23,17 +26,27 @@ function useFetchQueryHook<T>({
 }: {
   url: string;
   queryKey: string;
-}){
+}) {
+  const searchParams = useSearchParams();
+
+  const sortQuery = searchParams.get("sort");
+  console.log(sortQuery);
   return useInfiniteQuery<T, Error>({
-    queryKey: [queryKey],
-    queryFn: ({ pageParam = 1 }) => fetcher<T>(url, pageParam as number),
+    queryKey: [queryKey, `${queryKey}-${sortQuery}`],
+    queryFn: ({ pageParam = 1 }) =>
+      fetcher<T>(url, pageParam as number, sortQuery),
     retry: 3,
     staleTime: 0,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       const lastPageData = lastPage as any;
-      const totalFetchedItems = allPages.reduce((total, page:any) => total + page.data.length, 0);
-      return totalFetchedItems < lastPageData.totalCount ? allPages.length + 1 : undefined;
+      const totalFetchedItems = allPages.reduce(
+        (total, page: any) => total + page.data.length,
+        0,
+      );
+      return totalFetchedItems < lastPageData.totalCount
+        ? allPages.length + 1
+        : undefined;
     },
     refetchOnWindowFocus: true,
   });

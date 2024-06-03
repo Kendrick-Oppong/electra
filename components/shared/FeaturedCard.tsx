@@ -22,7 +22,10 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
       />
 
       <h2 className="font-bold my-4 cursor-pointer">{product.title}</h2>
-      <ProductRating rating={product.rating} className="mb-5" />
+      <div className="flex items-center justify-center gap-3 mb-5">
+      <ProductRating rating={product.rating} className="!mx-0" />
+<p>{product.rating}</p>
+      </div>
 
       <div className="absolute bottom-2 flex w-full left-0 right-0  justify-between items-center px-4 my-4">
         <p className="font-bold text-destructive my-3 text-xl">

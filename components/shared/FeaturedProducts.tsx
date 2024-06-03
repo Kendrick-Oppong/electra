@@ -14,8 +14,11 @@ interface FeaturedProductsProps {
 
 type ProductType = Camera | Laptop | Monitor;
 
-const FeaturedProducts = <T,>({ url, queryKey }: FeaturedProductsProps) => {
-  const pathname = usePathname()
+const FeaturedProducts = <T,>({
+  url,
+  queryKey,
+}: FeaturedProductsProps) => {
+  const pathname = usePathname();
   const {
     data,
     error,
@@ -34,16 +37,16 @@ const FeaturedProducts = <T,>({ url, queryKey }: FeaturedProductsProps) => {
 
   return (
     <>
-    <div className="grid-template gap-4 justify-center">
-      {data?.pages?.map((page, pageIndex) => (
-        <React.Fragment key={pageIndex}>
-          {(page as any)?.data.map((product: ProductType) => (
-            <FeaturedCard key={product._id} product={product} />
-          ))}
-        </React.Fragment>
-      ))}
-    </div>
-      {pathname !== '/' &&
+      <div className="grid-template justify-center gap-4">
+        {data?.pages?.map((page, pageIndex) => (
+          <React.Fragment key={pageIndex}>
+            {(page as any)?.data.map((product: ProductType) => (
+              <FeaturedCard key={product._id} product={product} />
+            ))}
+          </React.Fragment>
+        ))}
+      </div>
+      {pathname !== "/" && (
         <div className="text-center">
           <ButtonLink
             onClick={() => fetchNextPage()}
@@ -60,8 +63,8 @@ const FeaturedProducts = <T,>({ url, queryKey }: FeaturedProductsProps) => {
             )}
           </ButtonLink>
         </div>
-      }
-      </>
+      )}
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 export const colorOptions = [
-  { value: "black", label: "Black" },
-  { value: "grey", label: "Grey" },
-  { value: "white", label: "White" },
-  { value: "silver", label: "Silver" },
+  { value: "Black", label: "Black" },
+  { value: "Grey", label: "Grey" },
+  { value: "White", label: "White" },
+  { value: "Silver", label: "Silver" },
 ];
