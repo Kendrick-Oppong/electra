@@ -1,12 +1,12 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const PageNotFound = () => {
   return (
-    <div className="grid place-content-center px-4 mt-10">
+    <div className="mt-10 grid place-content-center px-4">
       <div className="text-center">
         <h1 className="text-9xl font-black text-gray-400">404</h1>
 
-        <p className="text-2xl font-bold tracking-tight sm:text-4xl my-4">
+        <p className="my-4 text-2xl font-bold tracking-tight sm:text-4xl">
           Uh-oh!
         </p>
 
@@ -21,8 +21,6 @@ const PageNotFound = () => {
       </div>
     </div>
   );
-}
+};
 
-export default PageNotFound
-
-
+export default PageNotFound;

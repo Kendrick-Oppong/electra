@@ -26,7 +26,7 @@
 //     if (error instanceof MongooseError) {
 //       return NextResponse.json({ error: "Database error" }, { status: 500 });
 //     }
-//     console.error("An error occurred while fetching data:", error);
+//     console.error("An error occurred while product:", error);
 //     return NextResponse.json(
 //       { error: "Internal Server Error" },
 //       { status: 500 },
@@ -52,7 +52,7 @@ export async function GET(req: Request, res: Response) {
     const sortQuery = url.searchParams.get("sort");
 
     // Handle sort query
-     const sort = getUrlSortOptions(sortQuery);
+    const sort = getUrlSortOptions(sortQuery);
 
     const nikon = await Nikon.find({}).sort(sort).skip(skip).limit(limit);
     const totalCount = await Nikon.countDocuments();
@@ -69,7 +69,7 @@ export async function GET(req: Request, res: Response) {
     if (error instanceof MongooseError) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
-    console.error("An error occurred while fetching data:", error);
+    console.error("An error occurred while product:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 },

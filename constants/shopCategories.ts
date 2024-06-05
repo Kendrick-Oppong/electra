@@ -2,9 +2,9 @@ export const categories = [
   {
     category: "Camera",
     items: [
-      { name: "Nikon", href: "/cameras/nikon" },
-      { name: "Canon", href: "/cameras/canon" },
-      { name: "Sony", href: "/cameras/sony" },
+      { name: "Nikon", href: "/shop/cameras/nikon" },
+      { name: "Canon", href: "/shop/cameras/canon" },
+      { name: "Sony", href: "/shop/cameras/sony" },
       // { name: "Pentax", },
       // { name: "Phase", },
       // { name: "Fujifilm",  },
@@ -13,9 +13,9 @@ export const categories = [
   {
     category: "Laptop",
     items: [
-      { name: "Dell", href: "/laptops/dell" },
-      { name: "HP", href: "/laptops/hp" },
-      { name: "Apple", href: "/laptops/apple" },
+      { name: "Dell", href: "/shop/laptops/dell" },
+      { name: "HP", href: "/shop/laptops/hp" },
+      { name: "Apple", href: "/shop/laptops/apple" },
       // { name: "Lenovo", },
       // { name: "Asus", },
       // { name: "Acer", },
@@ -24,7 +24,7 @@ export const categories = [
   {
     category: "Monitor",
     items: [
-       { name: "Samsung", href: "/monitors/samsung" },
+       { name: "Samsung", href: "/shop/monitors/samsung" },
       // { name: "Apple",  },
       // { name: "Xiaomi", },
       // { name: "One Plus",  },

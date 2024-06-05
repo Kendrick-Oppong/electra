@@ -30,7 +30,6 @@ function useFetchQueryHook<T>({
   const searchParams = useSearchParams();
 
   const sortQuery = searchParams.get("sort");
-  console.log(sortQuery);
   return useInfiniteQuery<T, Error>({
     queryKey: [queryKey, `${queryKey}-${sortQuery}`],
     queryFn: ({ pageParam = 1 }) =>

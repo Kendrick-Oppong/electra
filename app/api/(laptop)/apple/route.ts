@@ -24,16 +24,18 @@ export async function GET(req: Request, res: Response) {
     if (!apple.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
-    return NextResponse.json({ data: apple, count: apple.length, totalCount }, { status: 200 });
-    
+    return NextResponse.json(
+      { data: apple, count: apple.length, totalCount },
+      { status: 200 },
+    );
   } catch (error) {
     if (error instanceof MongooseError) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
-    console.error("An error occurred while fetching data:", error);
+    console.error("An error occurred while product:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

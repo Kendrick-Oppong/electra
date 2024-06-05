@@ -16,23 +16,22 @@ export async function GET(req: Request, res: Response) {
 
     // Handle sort query
     const sort = getUrlSortOptions(sortQuery);
-    
+
     const samsung = await Samsung.find({}).sort(sort).skip(skip).limit(limit);
     const totalCount = await Samsung.countDocuments();
-
 
     if (!samsung.length) {
       return NextResponse.json({ message: "No data found " }, { status: 404 });
     }
     return NextResponse.json(
       { data: samsung, count: samsung.length, totalCount },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
-    console.error("An error occurred while fetching data:", error);
+    console.error("An error occurred while product:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
