@@ -1,4 +1,3 @@
-import React from "react";
 import ProductRating from "./ProductRating";
 import { Camera, Laptop, Monitor } from "@/types";
 import { ShoppingCart, Heart, Eye } from "lucide-react";

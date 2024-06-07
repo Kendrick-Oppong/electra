@@ -33,7 +33,7 @@ const SortProduct = () => {
   return (
     <div >
       <Select defaultValue="name-asc" onValueChange={(e)=>handleSortChange(e)}>
-        <SelectTrigger className="w-[180px] border-gray   focus-visible:border-primary rounded-lg">
+        <SelectTrigger className="w-[200px] border-gray   focus-visible:border-primary rounded-lg">
           <SelectValue
             placeholder="Default (A - Z)"
             className="text-black dark:text-white"
