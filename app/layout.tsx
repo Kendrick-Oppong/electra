@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bai_Jamjuree.className} 2xl:max-w-[92%] mx-auto text-lg`}>
+      <body className={`relative ${bai_Jamjuree.className} 2xl:text-xl mx-auto text-lg`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

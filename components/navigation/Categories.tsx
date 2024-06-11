@@ -11,13 +11,24 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { Camera, Laptop, Smartphone, Menu } from "lucide-react";
-import Link from "next/link"
+import Link from "next/link";
 
 const categories = [
-  { category: "Camera", icon: <Camera className="inline-flex mr-2" /> },
-  { category: "Laptop", icon: <Laptop className="inline-flex mr-2" /> },
-  { category: "Monitor", icon: <Smartphone className="inline-flex mr-2" /> },
-  // { category: "Watch", icon: <Watch className="inline-flex mr-2" /> },
+  {
+    category: "Camera",
+    href: "/shop/cameras",
+    icon: <Camera className="mr-2 inline-flex" />,
+  },
+  {
+    category: "Laptop",
+    href: "/shop/laptops",
+    icon: <Laptop className="mr-2 inline-flex" />,
+  },
+  {
+    category: "Monitor",
+    href: "/shop/monitors",
+    icon: <Smartphone className="mr-2 inline-flex" />,
+  },
 ];
 
 const Categories = () => {
@@ -27,12 +38,17 @@ const Categories = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-lg">
-              <Menu className="inline-flex mr-2" />
+              <Menu className="mr-2 inline-flex" />
               Categories
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="shadow-2xl ">
+            <NavigationMenuContent className="shadow-2xl">
               {categories.map((category) => (
-                <Link href="" key={category.category} legacyBehavior passHref>
+                <Link
+                  href={category.href}
+                  key={category.category}
+                  legacyBehavior
+                  passHref
+                >
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} `}
                   >

@@ -6,6 +6,7 @@ const FeaturedMonitor = () => {
     <FeaturedProducts<LaptopSchemaProps>
       url="samsung"
       queryKey="featured-samsung"
+      showLoadMore={false}
     />
   );
 };

@@ -6,6 +6,7 @@ const NewArrival = () => {
     <FeaturedProducts<LaptopSchemaProps>
       url="apple"
       queryKey="featured-apple"
+      showLoadMore={false}
     />
   );
 };

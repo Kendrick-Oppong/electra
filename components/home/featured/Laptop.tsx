@@ -7,6 +7,7 @@ const FeaturedLaptop = () => {
     <FeaturedProducts<LaptopSchemaProps>
         url="hp"
         queryKey="featured-hp"
+        showLoadMore={false}
       />
   );
 };

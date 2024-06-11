@@ -4,6 +4,7 @@ import {
   ShoppingCart,
   User,
   Eye,
+  Settings,
   ChevronsUp,
   Search,
 } from "lucide-react";
@@ -21,10 +22,7 @@ const handleScrollToTop = ()=> {
   return (
     <aside className="fixed z-50 flex flex-col justify-center right-1 top-0 bottom-0 ">
       <div className="relative text-white divide-y-4">
-        <div className="bg-primary p-1">
-          <ToolTipPopUp id="#menu" content="Categories" />
-          <Menu size={27} id="menu" />
-        </div>
+        
         <div className="bg-primary dark:bg-primary p-1">
           <ToolTipPopUp id="#cart" content="Cart" />
           <ShoppingCart size={27} id="cart" className="cursor-pointer" />
@@ -40,10 +38,11 @@ const handleScrollToTop = ()=> {
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#Recent-views" content="Recent Views" />
           <Eye size={27} id="Recent-views" className="cursor-pointer" />
-        </div>
+        </div> 
+
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#scroll-to-top" content="Scroll To Top" />
-          <ChevronsUp size={27} id="scroll-to-top" className="cursor-pointer" onClick={handleScrollToTop}/>
+          <ChevronsUp size={28} id="scroll-to-top" className="cursor-pointer animate-bounce" onClick={handleScrollToTop}/>
         </div>
       </div>
     </aside>

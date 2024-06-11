@@ -6,6 +6,7 @@ const FeaturedCamera = () => {
     <FeaturedProducts<CameraSchemaProps>
       url="nikon"
       queryKey="featured-nikon"
+      showLoadMore={false}
     />
   );
 };

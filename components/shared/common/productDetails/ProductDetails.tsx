@@ -2,7 +2,8 @@ import {
   ProductRating,
   ButtonLink,
   ProductDetailImageGallery,
-  ProductDetailSpecifications
+  ProductDetailSpecifications,
+  RelatedProducts
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -188,9 +189,11 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
         </Tabs>
       </section>
 
-      <section>
-        <h1 className="text-subtitle">Related Products</h1>
-      </section>
+      {/* Related products */}
+    {product.brand &&  <section>
+        <h1 className="text-subtitle">You May Also Like</h1>
+        <RelatedProducts brand={product?.brand}/>
+      </section>}
     </>
   );
 };

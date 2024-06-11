@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation'
 interface FeaturedProductsProps {
   url: string;
   queryKey: string;
+  showLoadMore?:boolean
 }
 
 type ProductType = Camera | Laptop | Monitor;
@@ -17,6 +18,7 @@ type ProductType = Camera | Laptop | Monitor;
 const FeaturedProducts = <T,>({
   url,
   queryKey,
+  showLoadMore = true
 }: FeaturedProductsProps) => {
   const pathname = usePathname();
   const {
@@ -46,7 +48,7 @@ const FeaturedProducts = <T,>({
           </React.Fragment>
         ))}
       </div>
-      {pathname !== "/" && (
+      {(pathname !== "/" || showLoadMore !== false) && (
         <div className="text-center">
           <ButtonLink
             onClick={() => fetchNextPage()}

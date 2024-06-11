@@ -27,6 +27,15 @@ export const getShopCategoryBanner = (pathname: string) => {
       category = "Camera";
       brand = "Canon";
       break;
+    case pathname.includes("/cameras"):
+      category = "Camera";
+      break;
+    case pathname.includes("/laptops"):
+      category = "Laptop";
+      break;
+    case pathname.includes("/monitors"):
+      category = "Monitor";
+      break;
     case pathname.includes("/cameras/sony"):
       category = "Camera";
       brand = "Sony";

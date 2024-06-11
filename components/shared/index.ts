@@ -14,6 +14,7 @@ export { default as CameraDetailSpecifications } from "./common/productDetails/C
 export { default as ProductDetailSpecifications } from "./common/productDetails/ProductDetailSpecifications";
 export { default as MonitorDetailSpecifications } from "./common/productDetails/MonitorDetailSpecifications";
 export { default as LaptopDetailSpecifications } from "./common/productDetails/LaptopDetailSpecifications";
+export { default as RelatedProducts } from "./common/productDetails/RelatedProducts";
 export { default as ShopCategoryBanner } from "./ShopCategoryBanner";
 export { default as TanstackQueryClientProvider } from "./TanstackQueryClientProvider";
 export { default as ToolTipPopUp } from "./ToolTipPopUp";

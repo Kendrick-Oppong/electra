@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Headset, Rocket, Banknote } from "lucide-react";
 import Image from "next/image";
@@ -15,24 +16,26 @@ export default async function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="grid md:grid-cols-2 bg-accent px-5 mt-0 mx-0">
+      <section className="mx-0 mt-0 grid bg-accent px-5 md:grid-cols-2">
         <div className="self-center">
-          <h1 className="text-5xl pt-7 md:text-4xl lg:text-6xl md:pt-0   font-bold leading-tight">
+          <h1 className="pt-7 text-5xl font-bold leading-tight md:pt-0 md:text-4xl lg:text-6xl">
             Discover Our Latest <br /> <span>Stylish Monitors</span>
           </h1>
-          <p className="my-4 font-semibold text-xl">
+          <p className="my-4 text-xl font-semibold">
             Experience sophistication with our latest watch collection
           </p>
           <p className="font-medium">
             Don&apos;t Miss Out: Limited Time Offer - Up to{" "}
-            <span className="text-destructive font-semibold text-2xl animate-pulse mx-2">
+            <span className="mx-2 animate-pulse text-2xl font-semibold text-destructive">
               25%{" "}
             </span>{" "}
             Off!
           </p>
-          <ButtonLink>
-            Explore Now <ShoppingCart className="inline-flex ml-2" />
-          </ButtonLink>
+          <Link href="/shop/monitors/samsung">
+            <ButtonLink>
+              Explore Now <ShoppingCart className="ml-2 inline-flex" />
+            </ButtonLink>
+          </Link>
         </div>
         <div className="relative">
           <Image
@@ -47,10 +50,10 @@ export default async function Home() {
       </section>
 
       {/* Services */}
-      <section className="space-y-7 sm:space-y-0 sm:flex flex-wrap gap-6 mx-10">
-        <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
+      <section className="mx-10 flex-wrap gap-6 space-y-7 sm:flex sm:space-y-0">
+        <div className="flex-1 rounded-lg border border-primary p-4 shadow-2xl hover:bg-secondary">
           <Rocket className="text-primary" size={70} />
-          <h2 className="text-xl sm:min-w-max md:min-w-full font-bold my-3">
+          <h2 className="my-3 text-xl font-bold sm:min-w-max md:min-w-full">
             Effortless Shipping & Delivery
           </h2>
           <p>
@@ -59,9 +62,9 @@ export default async function Home() {
             your satisfaction is our priority
           </p>
         </div>
-        <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
+        <div className="flex-1 rounded-lg border border-primary p-4 shadow-2xl hover:bg-secondary">
           <Banknote className="text-primary" size={70} />
-          <h2 className="text-xl sm:min-w-max md:min-w-full  font-bold my-3">
+          <h2 className="my-3 text-xl font-bold sm:min-w-max md:min-w-full">
             Guaranteed Satisfaction
           </h2>
           <p>
@@ -70,9 +73,9 @@ export default async function Home() {
             satisfied, we&apos;ll refund your purchase hassle-free
           </p>
         </div>
-        <div className="flex-1 border border-primary rounded-lg shadow-2xl p-4 hover:bg-secondary">
-          <Headset className="text-primary " size={70} />
-          <h2 className="text-xl font-bold my-3">24/7 Customer Support</h2>
+        <div className="flex-1 rounded-lg border border-primary p-4 shadow-2xl hover:bg-secondary">
+          <Headset className="text-primary" size={70} />
+          <h2 className="my-3 text-xl font-bold">24/7 Customer Support</h2>
           <p>
             Access our round-the-clock customer support whenever you need
             assistance. Our knowledgeable team is here to address your inquiries
@@ -83,7 +86,7 @@ export default async function Home() {
       </section>
 
       {/* Hot deals */}
-      <section className="md:flex mx-0 shadow-2xl rounded-lg">
+      <section className="mx-0 rounded-lg shadow-2xl md:flex">
         <div className="basis-1/3 bg-accent p-5">
           <Image
             src="/hp.png"
@@ -97,40 +100,44 @@ export default async function Home() {
           <h2 className="text-2xl font-bold leading-tight">
             High Quality Hp Laptops
           </h2>
-          <p className="font-medium my-3">
+          <p className="my-3 font-medium">
             Up to{" "}
-            <span className="text-destructive font-semibold text-2xl animate-pulse mx-2">
+            <span className="mx-2 animate-pulse text-2xl font-semibold text-destructive">
               50%{" "}
             </span>{" "}
             Off!
           </p>
-          <ButtonLink className="mb-6 md:mb-0">
-            Shop Now <ShoppingCart className="inline-flex ml-2" />
-          </ButtonLink>
+          <Link href="/shop/laptops/hp">
+            <ButtonLink className="mb-6 md:mb-0">
+              Shop Now <ShoppingCart className="ml-2 inline-flex" />
+            </ButtonLink>
+          </Link>
         </div>
-        <div className="flex-1 bg-secondary grid md:grid-cols-2 w-full">
-          <div className="self-center p-4 order-1 md:order-none">
+        <div className="grid w-full flex-1 bg-secondary md:grid-cols-2">
+          <div className="order-1 self-center p-4 md:order-none">
             <Badge
               variant="destructive"
-              className="p-2 text-base mb-8 rounded-lg"
+              className="mb-8 rounded-lg p-2 text-base"
             >
               Exclusive Weekend Offer
             </Badge>
-            <h2 className="text-2xl lg:text-4xl font-bold leading-tight">
+            <h2 className="text-2xl font-bold leading-tight lg:text-4xl">
               High-Performance Digital Camera
             </h2>
-            <p className="font-medium my-3">
+            <p className="my-3 font-medium">
               Last call for up to{" "}
-              <span className="text-destructive font-semibold text-2xl animate-pulse mx-2">
+              <span className="mx-2 animate-pulse text-2xl font-semibold text-destructive">
                 25%{" "}
               </span>{" "}
               Off!
             </p>
-            <ButtonLink>
-              Shop Now <ShoppingCart className="inline-flex ml-2" />
-            </ButtonLink>
+            <Link href="/shop/cameras/sony">
+              <ButtonLink>
+                Shop Now <ShoppingCart className="ml-2 inline-flex" />
+              </ButtonLink>
+            </Link>
           </div>
-          <div className="my-auto ">
+          <div className="my-auto">
             <Image
               src="/camera.png"
               width={400}
@@ -147,7 +154,7 @@ export default async function Home() {
       <section>
         <h1 className="text-subtitle">Featured Products</h1>
         <Tabs defaultValue="camera" className="">
-          <TabsList className="flex gap-3 mb-8 bg-transparent rounded-none">
+          <TabsList className="mb-8 flex gap-3 rounded-none bg-transparent">
             <TabsTrigger value="camera">Camera</TabsTrigger>
             <TabsTrigger value="laptop">Laptop</TabsTrigger>
             <TabsTrigger value="monitor">Monitor</TabsTrigger>
@@ -168,22 +175,28 @@ export default async function Home() {
       <section className="mx-5">
         <h1 className="text-subtitle">Categories</h1>
         <div className="flex flex-wrap gap-4">
-          <div className="bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1">
-            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full ">
+          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Camera</h2>
-              <ButtonLink>View Collection</ButtonLink>
+              <Link href="/shop/cameras">
+                <ButtonLink>View Collection</ButtonLink>
+              </Link>
             </div>
           </div>
-          <div className="bg-[url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
-            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
+          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Laptop</h2>
-              <ButtonLink>View Collection</ButtonLink>
+              <Link href="/shop/laptops">
+                <ButtonLink>View Collection</ButtonLink>
+              </Link>
             </div>
           </div>
-          <div className="bg-[url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] min-h-72  backdrop-blur-sm bg-cover bg-no-repeat bg-center flex-1 ">
-            <div className="flex flex-col justify-center items-center  bg-[#00000045]  backdrop-blur-sm text-3xl text-white h-full  ">
+          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Monitor</h2>
-              <ButtonLink>View Collection</ButtonLink>
+              <Link href="/shop/monitors">
+                <ButtonLink>View Collection</ButtonLink>
+              </Link>
             </div>
           </div>
         </div>
@@ -194,14 +207,13 @@ export default async function Home() {
         <h1 className="text-subtitle">New Arrival</h1>
         <NewArrival />
       </section>
-      
 
       {/* Testimonials */}
       <section className="mt-16">
-        <h1 className="text-center w-fit py-1 px-2 mx-auto text-xl font-bold bg-accent rounded-lg ">
+        <h1 className="mx-auto w-fit rounded-lg bg-accent px-2 py-1 text-center text-xl font-bold">
           Testimonials
         </h1>
-        <h1 className="text-subtitle !mt-1 ">What Customers Say About Us</h1>
+        <h1 className="text-subtitle !mt-1">What Customers Say About Us</h1>
 
         <TestimonyCarousel />
       </section>
