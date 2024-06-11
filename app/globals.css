@@ -69,6 +69,38 @@
   .text-subtitle {
     @apply mb-6 mt-10 text-center text-4xl font-bold;
   }
+
+  /* global loading component css styles */
+  .custom-loader {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  border:4px solid #0000;
+  border-radius: 50%;
+  border-color:#E4E4ED #0000;
+  animation: s6 1s infinite linear;
+}
+.custom-loader::before,
+.custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  margin:2px;
+  border:inherit;
+  border-radius: 50%;
+}
+.custom-loader::before {
+  border-color:#766DF4 #0000;
+  animation:inherit; 
+  animation-duration: .5s;
+  animation-direction: reverse;
+}
+.custom-loader::after {
+  margin:8px;
+}
+
+@keyframes s6 { 
+  100%{transform: rotate(1turn)}
+}
 }
 
 @layer base {
@@ -81,6 +113,10 @@
 
   span {
     @apply text-primary;
+  }
+
+  td {
+    @apply !text-lg
   }
 
   section {

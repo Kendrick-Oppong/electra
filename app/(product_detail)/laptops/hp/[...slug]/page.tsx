@@ -1,4 +1,4 @@
-import { LaptopSchemaProps } from "@/types";
+import { Laptop } from "@/types";
 import { FetchProductDetails } from "@/components/shared";
 
 interface ParamsProps {
@@ -10,7 +10,7 @@ interface ParamsProps {
 const HpDetailsPage = ({ params }: ParamsProps) => {
   const [productName, id] = params.slug;
   return (
-    <FetchProductDetails<LaptopSchemaProps>
+    <FetchProductDetails<Laptop>
       url={`hp/${id}`}
       queryKey={`${productName}-${id}`}
     />

@@ -191,9 +191,10 @@ export default async function Home() {
 
       {/* New Arrivals */}
       <section>
-        <h1 className="text-subtitle">New Arrivals</h1>
+        <h1 className="text-subtitle">New Arrival</h1>
         <NewArrival />
       </section>
+      
 
       {/* Testimonials */}
       <section className="mt-16">

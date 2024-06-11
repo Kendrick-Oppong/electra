@@ -8,15 +8,25 @@ import ReactPlayer from "react-player/youtube"
 import {Loader,SquarePlay} from "lucide-react"
 
 const YoutubeVideoPlayer = ({url}:{url:string})=> {
-    console.log(url)
-return (<Dialog>
-  <DialogTrigger> 
-      <SquarePlay size={70} strokeWidth={1} />
-  </DialogTrigger>
-  <DialogContent className="max-w-3xl mx-auto bg-secondary">
-    <ReactPlayer url={url} controls={true} style={{marginInline:"auto"}} fallback={<Loader className="animate-spin"/>}/>
-  </DialogContent>
-</Dialog>)
+return (
+  <Dialog>
+    <DialogTrigger>
+      <SquarePlay
+        size={60}
+        strokeWidth={1}
+        className="h-[50px] w-[50px] md:w-[60px] cursor-pointer"
+      />
+    </DialogTrigger>
+    <DialogContent className="mx-auto max-w-3xl bg-accent">
+      <ReactPlayer
+        url={url}
+        controls={true}
+        style={{ marginInline: "auto", width: "100% !important" }}
+        fallback={<Loader className="animate-spin" />}
+      />
+    </DialogContent>
+  </Dialog>
+);
 
 }
 

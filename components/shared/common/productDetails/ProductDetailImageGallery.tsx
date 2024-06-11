@@ -1,12 +1,12 @@
 
 "use client"
 import { useState } from "react";
-import { Camera, Laptop, Monitor } from "@/types";
 import {YoutubeVideoPlayer} from "@/components/shared"
 import ImageGallery from "react-image-gallery";
 import Image from "next/image"
 import "react-image-gallery/styles/css/image-gallery.css";
 
+import { Camera, Laptop, Monitor } from "@/types";
 type ProductType = Camera | Laptop | Monitor;
 
 const ProductDetailImageGallery = ({ product }: { product: ProductType }) => {
@@ -26,17 +26,19 @@ const ProductDetailImageGallery = ({ product }: { product: ProductType }) => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative rounded-lg border border-primary p-1">
         <Image
-        src={mainImageUrl}
-        width={500}
-        height={500}
-        alt=""
-        className="mx-auto cursor-pointer"
-        onClick={() => setShowGallery(true)}
+          src={mainImageUrl}
+          width={300}
+          height={300}
+          alt=""
+          priority
+          sizes="(min-width: 768px) 500px, 100vw"
+          className="mx-auto w-[250px] cursor-pointer lg:w-[300px] xl:w-[400px]"
+          onClick={() => setShowGallery(true)}
         />
       </div>
-      <div className="mt-8 flex justify-center gap-3">
+      <div className="mt-8 flex justify-center items-center gap-3">
         {allImages &&
           allImages.map((img) => (
             <div
@@ -44,12 +46,12 @@ const ProductDetailImageGallery = ({ product }: { product: ProductType }) => {
               className="rounded-lg border border-primary p-2"
               onClick={() => handleImageClick(img)}
             >
-              <Image width={70} height={70} src={img} alt=""/>
+              <Image width={60} height={60} priority src={img} alt="" className="w-[50px] md:w-[60px] cursor-pointer"/>
             </div>
           ))}
 
-        <div className="rounded-lg border border-primary p-2 text-primary">
-      {product.videoUrl && <YoutubeVideoPlayer url={product.videoUrl}/>}
+        <div className="flex justify-center rounded-lg border border-primary p-2 text-primary">
+          {product.videoUrl && <YoutubeVideoPlayer url={product.videoUrl} />}
         </div>
       </div>
       {showGallery && (

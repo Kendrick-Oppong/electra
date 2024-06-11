@@ -1,4 +1,4 @@
-import { MonitorSchemaProps } from "@/types";
+import { Monitor } from "@/types";
 import { FetchProductDetails } from "@/components/shared";
 
 interface ParamsProps {
@@ -10,8 +10,7 @@ interface ParamsProps {
 const SamsungDetailsPage = ({params}:ParamsProps) => {
   const [productName,id] = params.slug
   return (
-  
-   <FetchProductDetails<MonitorSchemaProps> url={`samsung/${id}`} queryKey={`${productName}-${id}`} />
+   <FetchProductDetails<Monitor> url={`samsung/${id}`} queryKey={`${productName}-${id}`} />
   );
 };
 

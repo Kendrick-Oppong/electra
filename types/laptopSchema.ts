@@ -4,7 +4,7 @@ interface Dimensions {
   height: number;
 }
 
-interface Display {
+export interface Display {
   color: string;
   dimensions: Dimensions;
   panelType: string;
@@ -13,7 +13,7 @@ interface Display {
   refreshRate?: string;
 }
 
-interface ProcessorDetails {
+export interface ProcessorDetails {
   processor: string;
   cpu: string;
   l3Cache: string;
@@ -27,7 +27,7 @@ interface ProcessorDetails {
   eccMemory?: boolean;
 }
 
-interface IoDetails {
+export interface IoDetails {
   audioIO: string;
   networkIO?: string;
   builtInSpeakers?: boolean;
@@ -35,7 +35,7 @@ interface IoDetails {
   mediaMemoryCardSlot: string;
 }
 
-interface Communications {
+export interface Communications {
   wifi: string;
   bluetooth: string;
   cellularSupport?: boolean;
@@ -52,7 +52,7 @@ interface KeyboardMouse {
   pointingDevice: string;
 }
 
-interface GeneralDetails {
+export interface GeneralDetails {
   security: string[];
   powerSupply: string;
   dimensions: string;

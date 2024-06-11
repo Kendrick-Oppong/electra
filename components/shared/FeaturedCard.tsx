@@ -5,25 +5,11 @@ import ToolTipPopUp from "@/components/shared/ToolTipPopUp";
 import LazyLoadImage from "./LazyLoadImage";
 import ImagePlaceholderSkeleton from "./ImagePlaceholderSkeleton";
 import Link from "next/link";
+import { getLinkUrlCategory } from "@/lib/getUrlCategory";
 
 type ProductType = Camera | Laptop | Monitor;
 
-const getLinkUrlCategory = (brand: string) => {
-  switch (brand) {
-    case "nikon":
-    case "sony":
-    case "canon":
-      return "cameras";
-    case "hp":
-    case "dell":
-    case "apple":
-      return "laptops";
-    case "samsung":
-      return "monitors";
-    default:
-      return "";
-  }
-};
+
 
 const FeaturedCard = ({ product }: { product: ProductType }) => {
   const brand = product.brand.toLowerCase();

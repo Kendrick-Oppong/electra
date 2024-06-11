@@ -2,6 +2,7 @@ import {
   ProductRating,
   ButtonLink,
   ProductDetailImageGallery,
+  ProductDetailSpecifications
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -17,24 +18,23 @@ import { Input } from "@/components/ui/input";
 import { Camera, Laptop, Monitor } from "@/types";
 
 
-type ProductType = Camera | Laptop | Monitor;
+type ProductType = Camera | Laptop | Monitor ;
 
 const ProductDetails = ({ product }: { product: ProductType }) => {
   const originalPrice = Math.round(product.price * 1.5);
   const discountedPrice = product.price;
 
- 
+
   return (
     <>
-      <section className="grid grid-cols-2">
+      <section className="grid lg:grid-cols-2 gap-5">
         <div>
           <ProductDetailImageGallery product={product}/>
         </div>
-        <div>
+        <div className="mt-8 lg:mt-0">
           <h1 className="mb-4 text-3xl font-bold text-primary">
             {product.title}
           </h1>
-
           <div className="mb-5 flex items-center gap-3">
             <ProductRating rating={product.rating} className="!mx-0" />
             <p>{product.rating}</p>
@@ -48,7 +48,6 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             </span>
           </p>
           <div>
-            {" "}
             <p>{product.shortDescription}</p>
           </div>
 
@@ -167,22 +166,23 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
           <TabsContent value="description">
-            Vntroducing the PhotonSync X1, a cutting-edge smart home hub that
-            seamlessly integrates all your electronic devices for a connected
-            and efficient lifestyle. With its sleek design and intuitive
-            interface, the PhotonSync X1 acts as the central command center,
-            allowing you to effortlessly control your lights, thermostat,
-            security cameras, and more with a single touch or voice command.
-            Equipped with advanced AI, it learns your preferences over time,
-            optimizing your environment for comfort, energy efficiency, and
-            security. Stay in control and enhance your living experience with
-            the PhotonSync X1 – the future of smart home technology.
+            <div>
+              <h2 className="font-bold mb-2 text-primary">
+                Short Description
+              </h2>
+              <p>{product.shortDescription}</p>
+            </div>
+
+            <div className="mt-5">
+              <h2 className="font-bold mb-2 text-primary">
+                Full Description
+              </h2>
+              <p>{product.fullDescription}</p>
+            </div>
+        
           </TabsContent>
           <TabsContent value="specifications">
-            Equipped with advanced AI, it learns your preferences over time,
-            optimizing your environment for comfort, energy efficiency, and
-            security. Stay in control and enhance your living experience with
-            the PhotonSync X1 – the future of smart home technology.
+           <ProductDetailSpecifications product={product}/>
           </TabsContent>
           <TabsContent value="reviews">No reviews</TabsContent>
         </Tabs>

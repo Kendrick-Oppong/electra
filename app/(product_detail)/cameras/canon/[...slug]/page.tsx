@@ -1,4 +1,4 @@
-import { CameraSchemaProps } from "@/types";
+import { Camera } from "@/types";
 import { FetchProductDetails } from "@/components/shared";
 
 interface ParamsProps {
@@ -10,7 +10,7 @@ interface ParamsProps {
 const CanonDetailsPage = ({ params }: ParamsProps) => {
   const [productName, id] = params.slug;
   return (
-    <FetchProductDetails<CameraSchemaProps>
+    <FetchProductDetails<Camera>
       url={`canon/${id}`}
       queryKey={`${productName}-${id}`}
     />
