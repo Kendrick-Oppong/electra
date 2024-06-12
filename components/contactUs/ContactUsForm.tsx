@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 
 
-const ContactUsForm = ()=> {
+const ContactUsForm = () => {
  const form = useForm<z.infer<typeof contactUsSchema>>({
     resolver: zodResolver(contactUsSchema),
     defaultValues: {
@@ -177,7 +177,7 @@ const ContactUsForm = ()=> {
               type="submit"
             //   onClick={() => handleErrorToast(isValid)}
             >
-                Send message
+                Send Message
               {/* {isSending ? (
                 <>
                   Sending message

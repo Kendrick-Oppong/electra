@@ -6,17 +6,11 @@ const ContactUsPage = ()=> {
       <>
         <section>
           <div
-            className={`flex flex-col items-center justify-center bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbHxlbnwwfDB8MHx8fDA%3D')] bg-cover bg-no-repeat`}
+            className={`flex flex-col rounded-lg items-center justify-center bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FsbHxlbnwwfDB8MHx8fDA%3D')] bg-cover bg-no-repeat`}
           >
-            <div className="flex h-full min-h-80 w-full flex-col items-center justify-center bg-[#00000065] text-white backdrop-blur-sm">
-              <h1 className="text-4xl font-bold text-primary">Contact Us</h1>
-              <div className="mt-2 flex items-center gap-1 text-xl font-semibold">
-                {/* <p>{category}</p>
-                <p>
-                  <ChevronRight />
-                </p>
-                <p className="text-destructive">{brand}</p> */}
-              </div>
+            <div className="flex h-full rounded-lg min-h-80 w-full flex-col items-center justify-center bg-[#00000065] text-white backdrop-blur-sm">
+              <h1 className="text-4xl font-bold text-white">Contact Us</h1>
+             
             </div>
           </div>
         </section>
