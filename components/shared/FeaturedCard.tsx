@@ -1,15 +1,11 @@
-import ProductRating from "./ProductRating";
+
 import { Camera, Laptop, Monitor } from "@/types";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
-import ToolTipPopUp from "@/components/shared/ToolTipPopUp";
-import LazyLoadImage from "./LazyLoadImage";
-import ImagePlaceholderSkeleton from "./ImagePlaceholderSkeleton";
+import {ToolTipPopUp,LazyLoadImage,ImagePlaceholderSkeleton,ProductRating,FavoriteIcon} from "@/components/shared";
 import Link from "next/link";
 import { getLinkUrlCategory } from "@/lib/getUrlCategory";
 
 type ProductType = Camera | Laptop | Monitor;
-
-
 
 const FeaturedCard = ({ product }: { product: ProductType }) => {
   const brand = product.brand.toLowerCase();
@@ -54,10 +50,7 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
       </div>
 
       <div className="absolute right-4 top-5 flex flex-col gap-5">
-        <div className="cursor-pointer rounded-full border border-secondary p-1.5 hover:border-destructive hover:text-destructive">
-          <ToolTipPopUp id="#heart" content="Add To Favorite" />
-          <Heart id="heart" size={17} />
-        </div>
+        <FavoriteIcon product={ product} />
         <div className="cursor-pointer rounded-full border border-secondary p-1.5 hover:border-destructive hover:text-destructive">
           <ToolTipPopUp id="#eye" content="Quick View" />
           <Eye id="eye" size={17} />

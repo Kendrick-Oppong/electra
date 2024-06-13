@@ -4,6 +4,7 @@ export { default as ImagePlaceholderSkeleton } from "./ImagePlaceholderSkeleton"
 export { default as LazyLoadImage } from "./LazyLoadImage";
 export { default as ProductRating } from "./ProductRating";
 export { default as FeaturedCard } from "./FeaturedCard";
+export { default as FavoriteIcon } from "./FavoriteIcon";
 export { default as FeaturedProducts } from "./FeaturedProducts";
 export { default as ProductDetails } from "./common/productDetails/ProductDetails";
 export { default as FetchProductDetails } from "./common/productDetails/FetchProductDetails";
