@@ -1,10 +1,9 @@
 "use client";
 import {
-  Menu,
+  
   ShoppingCart,
   User,
-  Eye,
-  Settings,
+  View,
   ChevronsUp,
   Search,
 } from "lucide-react";
@@ -37,7 +36,7 @@ const handleScrollToTop = ()=> {
         </div>
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#Recent-views" content="Recent Views" />
-          <Eye size={27} id="Recent-views" className="cursor-pointer" />
+          <View size={27} id="Recent-views" className="cursor-pointer" />
         </div> 
 
         <div className="bg-primary p-1">

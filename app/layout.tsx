@@ -7,7 +7,7 @@ import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
 import "@smastrom/react-rating/style.css";
-import TanstackQueryClientProvider from "@/components/shared/TanstackQueryClientProvider";
+import {TanstackQueryClientProvider,ReduxStoreProvider} from "@/context";
 import "./globals.css";
 
 const bai_Jamjuree = Bai_Jamjuree({
@@ -28,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`relative ${bai_Jamjuree.className} 2xl:text-xl mx-auto text-lg`}>
+      <body
+        className={`relative ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -36,9 +38,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TanstackQueryClientProvider>
-            <NavBar />
-            <main className=""> {children}</main>
-            <SideNavigation />
+            <ReduxStoreProvider>
+              <NavBar />
+              <main className=""> {children}</main>
+              <SideNavigation />
+            </ReduxStoreProvider>
           </TanstackQueryClientProvider>
           <Footer />
         </ThemeProvider>

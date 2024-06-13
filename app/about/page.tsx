@@ -17,15 +17,15 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      <section className="">
+      <section className="text-center">
         <div className="mt-14 flex flex-col justify-center">
           <Badge
             variant="default"
-            className="mb-3 w-fit rounded-sm p-2 text-base"
+            className="mb-3 w-fit mx-auto rounded-sm p-2 text-base"
           >
             Our Statistics
           </Badge>
-          <h1 className="text-subtitle !mt-0 !text-left text-primary">
+          <h1 className="text-subtitle !mt-0  text-primary">
             Top-tier Service and Care
           </h1>
           <p className="mb-6 text-lg font-semibold">
@@ -37,7 +37,7 @@ const AboutUsPage = () => {
 
           <StatisticsCountUp />
         </div>
-        <div className="grid-template mt-8 px-5 gap-6 mx-auto">
+        <div className="grid-template mt-8 gap-6 mx-auto">
           <Image
             src="/about-1.jpg"
             width={400}
@@ -80,7 +80,7 @@ const AboutUsPage = () => {
       <h1 className="mx-auto mt-16 w-fit rounded-lg bg-accent px-2 py-1 text-center text-xl font-bold">
         Why Choose Us?
       </h1>
-      <section className="mx-10 flex-wrap gap-6 space-y-7 sm:flex sm:space-y-0">
+      <section className="mx-5 flex-wrap gap-6 space-y-7 sm:flex sm:space-y-0">
         <div className="flex-1 rounded-lg border border-primary p-4 shadow-2xl hover:bg-secondary">
           <Rocket className="text-primary" size={70} />
           <h2 className="my-3 text-xl font-bold sm:min-w-max md:min-w-full">

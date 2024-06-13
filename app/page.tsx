@@ -50,7 +50,7 @@ export default async function Home() {
       </section>
 
       {/* Services */}
-      <section className="mx-10 flex-wrap gap-6 space-y-7 sm:flex sm:space-y-0">
+      <section className="flex-wrap gap-6 space-y-7 sm:flex sm:space-y-0">
         <div className="flex-1 rounded-lg border border-primary p-4 shadow-2xl hover:bg-secondary">
           <Rocket className="text-primary" size={70} />
           <h2 className="my-3 text-xl font-bold sm:min-w-max md:min-w-full">
@@ -172,7 +172,7 @@ export default async function Home() {
       </section>
 
       {/* Categories */}
-      <section className="mx-5">
+      <section className="">
         <h1 className="text-subtitle">Categories</h1>
         <div className="flex flex-wrap gap-4">
           <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">

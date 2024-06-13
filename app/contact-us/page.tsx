@@ -63,8 +63,8 @@ const ContactUsPage = ()=> {
             </div>
           </div>
         </section>
-        <section className="border-gray mx-auto max-w-6xl rounded-lg p-1">
-          <MapLocation />
+        <section className="border-gray sm:mx-auto max-w-6xl rounded-lg p-1">
+            <MapLocation />
         </section>
         <section>
           <h1 className="text-subtitle text-primary">Got Any Questions?</h1>
