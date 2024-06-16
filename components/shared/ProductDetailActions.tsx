@@ -1,0 +1,45 @@
+"use client"
+import { ShoppingCart, CreditCard, Trash } from "lucide-react";
+import { ButtonLink } from "@/components/shared";
+import { Camera, Laptop, Monitor } from "@/types";
+import {
+  addCart,
+  getAllLocalStorageCartProduct,
+  removeCart,
+} from "@/redux/features/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+
+type ProductType = Camera | Laptop | Monitor;
+
+
+const ProductDetailActions = ({ product }: { product: ProductType }) => {
+  const dispatch = useAppDispatch();
+  const localStorageItems = useAppSelector(getAllLocalStorageCartProduct);
+
+  const handleAddCart = (product: ProductType) => {
+    dispatch(addCart(product));
+  };
+  const handleRemoveCart = (product: ProductType) => {
+    dispatch(removeCart(product._id));
+  };
+  return (
+    <>
+
+     {localStorageItems?.find(item=>item._id === product._id) ? (
+        <ButtonLink type="button" className="bg-destructive hover:bg-destructive hover:text-white hover:border-none" onClick={() => handleRemoveCart(product)}>
+       Remove from cart <Trash className="ml-2 inline-flex" />
+      </ButtonLink>
+      ) : ( 
+        <ButtonLink type="button"  onClick={() => handleAddCart(product)}>
+        Add to cart <ShoppingCart className="ml-2 inline-flex" />
+      </ButtonLink>
+      )}
+
+      <ButtonLink type="button">
+        Buy now <CreditCard className="ml-2 inline-flex" />
+      </ButtonLink>
+    </>
+  );
+};
+
+export default ProductDetailActions;

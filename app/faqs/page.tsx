@@ -53,7 +53,7 @@ const FaqPage = () => {
         {
           question: "What payment methods do you accept?",
           answer:
-            "We accept various payment methods including credit/debit cards, PayPal, and bank transfers. All transactions are securely processed.",
+            "We accept various payment methods including credit/debit cards, PayPal, bank transfers and pay on delivery. All transactions are securely processed.",
         },
         {
           question: "Is it safe to use my credit card on your website?",
@@ -73,7 +73,7 @@ const FaqPage = () => {
         {
           question: "Do you have a physical store?",
           answer:
-            "No, we currently operate exclusively online to keep our prices competitive and provide the best possible value to our customers.",
+            "Yes, we also operate  online to keep our prices competitive and provide the best possible value to our customers.",
         },
         {
           question: "Can I get a discount for bulk purchases?",

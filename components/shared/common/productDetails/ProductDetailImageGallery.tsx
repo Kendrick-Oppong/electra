@@ -38,7 +38,7 @@ const ProductDetailImageGallery = ({ product }: { product: ProductType }) => {
           onClick={() => setShowGallery(true)}
         />
       </div>
-      <div className="mt-8 flex justify-center items-center gap-3">
+      <div className="mt-8 flex flex-wrap justify-center items-center gap-3">
         {allImages &&
           allImages.map((img) => (
             <div

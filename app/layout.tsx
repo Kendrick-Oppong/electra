@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bai_Jamjuree } from "next/font/google";
 import NavBar from "@/components/navigation/NavBar";
 import { Footer } from "@/components/footer";
-
+import { Toaster } from "react-hot-toast";
 import SideNavigation from "@/components/navigation/SideNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
@@ -40,6 +40,20 @@ export default function RootLayout({
           <TanstackQueryClientProvider>
             <ReduxStoreProvider>
               <NavBar />
+              <Toaster
+                containerStyle={{
+                  top: 40,
+                }}
+                toastOptions={{
+                  className: "",
+                  style: {
+                    border: "1px solid #713200",
+                    color: "#713200",
+                  },
+                }}
+                position="top-center"
+                reverseOrder={false}
+              />
               <main className=""> {children}</main>
               <SideNavigation />
             </ReduxStoreProvider>

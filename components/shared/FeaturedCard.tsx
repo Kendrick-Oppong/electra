@@ -1,7 +1,7 @@
 
 import { Camera, Laptop, Monitor } from "@/types";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
-import {ToolTipPopUp,LazyLoadImage,ImagePlaceholderSkeleton,ProductRating,FavoriteIcon} from "@/components/shared";
+import {ToolTipPopUp,LazyLoadImage,ImagePlaceholderSkeleton,ProductRating,FavoriteIcon,ProductDetailQuickView,CartIcon} from "@/components/shared";
 import Link from "next/link";
 import { getLinkUrlCategory } from "@/lib/getUrlCategory";
 
@@ -43,18 +43,18 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
             ${originalPrice}
           </span>
         </p>
-        <div className="cursor-pointer rounded-lg bg-accent p-2 text-destructive hover:bg-destructive hover:text-white">
-          <ToolTipPopUp id="#addToCart" content="Add To Cart" />
-          <ShoppingCart size={30} id="addToCart" />
-        </div>
+      <CartIcon product={product}/>
       </div>
 
       <div className="absolute right-4 top-5 flex flex-col gap-5">
         <FavoriteIcon product={ product} />
-        <div className="cursor-pointer rounded-full border border-secondary p-1.5 hover:border-destructive hover:text-destructive">
+        <ProductDetailQuickView product={product}>
+
+        <div role="button" className="cursor-pointer rounded-full border border-secondary p-1.5 hover:border-destructive hover:text-destructive">
           <ToolTipPopUp id="#eye" content="Quick View" />
           <Eye id="eye" size={17} />
         </div>
+        </ProductDetailQuickView>
       </div>
     </div>
   );

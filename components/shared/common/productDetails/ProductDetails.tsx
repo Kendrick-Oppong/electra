@@ -3,14 +3,14 @@ import {
   ButtonLink,
   ProductDetailImageGallery,
   ProductDetailSpecifications,
-  RelatedProducts
+  RelatedProducts,
+  ProductDetailActions
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   CircleCheck,
   ShoppingCart,
   CreditCard,
-  Heart,
   Plus,
   Minus,
 } from "lucide-react";
@@ -65,7 +65,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
 
           <div className="flex items-center gap-2 border-b border-secondary pb-4 font-semibold text-green-600">
             <CircleCheck />
-            <p>In stock ({product.stockQuantity})</p>
+            <p>In stock ({product.stockQuantity} remaining) </p>
           </div>
 
           <div className="relative my-4 flex items-center gap-3">
@@ -81,17 +81,11 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
               <Plus className="absolute right-1 top-2.5" />
             </div>
           </div>
+
           <div className="flex gap-3">
-            <ButtonLink>
-              Add to cart <ShoppingCart className="ml-2 inline-flex" />
-            </ButtonLink>
-            <ButtonLink>
-              Buy now <CreditCard className="ml-2 inline-flex" />
-            </ButtonLink>
+            <ProductDetailActions product={product}/>
           </div>
-          <div className="my-6 flex cursor-pointer items-center gap-2 hover:border-destructive hover:text-destructive">
-            <Heart className="" /> <p>Add To Wishlist</p>
-          </div>
+
           <div className="my-4 flex items-center gap-2">
             <div>
               <p>Share:</p>
@@ -166,7 +160,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             <TabsTrigger value="specifications">Specifications</TabsTrigger>
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
-          <TabsContent value="description">
+          <TabsContent value="description" className="divide-y-2">
             <div>
               <h2 className="font-bold mb-2 text-primary">
                 Short Description
@@ -174,7 +168,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
               <p>{product.shortDescription}</p>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 pt-3">
               <h2 className="font-bold mb-2 text-primary">
                 Full Description
               </h2>
