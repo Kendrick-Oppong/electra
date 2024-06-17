@@ -1,7 +1,6 @@
 "use client"
 import { ShoppingCart, CreditCard, Trash } from "lucide-react";
 import { ButtonLink } from "@/components/shared";
-import { Camera, Laptop, Monitor } from "@/types";
 import {
   addCart,
   getAllLocalStorageCartProduct,
@@ -9,6 +8,7 @@ import {
 } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
+import { Camera, Laptop, Monitor } from "@/types";
 type ProductType = Camera | Laptop | Monitor;
 
 
@@ -17,8 +17,9 @@ const ProductDetailActions = ({ product }: { product: ProductType }) => {
   const localStorageItems = useAppSelector(getAllLocalStorageCartProduct);
 
   const handleAddCart = (product: ProductType) => {
-    dispatch(addCart(product));
+      dispatch(addCart(product));
   };
+
   const handleRemoveCart = (product: ProductType) => {
     dispatch(removeCart(product._id));
   };
@@ -33,6 +34,7 @@ const ProductDetailActions = ({ product }: { product: ProductType }) => {
         <ButtonLink type="button"  onClick={() => handleAddCart(product)}>
         Add to cart <ShoppingCart className="ml-2 inline-flex" />
       </ButtonLink>
+        
       )}
 
       <ButtonLink type="button">

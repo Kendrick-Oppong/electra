@@ -36,6 +36,9 @@ const FavoriteIcon = ({ product }: { product: ProductType }) => {
           <HeartOff id="heartoff" size={17} />
         </div>
       ) : (
+
+<>
+      
         <div
           role="button"
           className="cursor-pointer rounded-full border border-secondary p-1.5 hover:border-destructive hover:text-destructive"
@@ -44,6 +47,10 @@ const FavoriteIcon = ({ product }: { product: ProductType }) => {
           <ToolTipPopUp id="#heart" content="Add To Wishlist" />
           <Heart id="heart" size={17} />
         </div>
+ 
+</>
+
+
       )}
     </>
   );

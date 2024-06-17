@@ -4,7 +4,8 @@ import {
   ProductDetailImageGallery,
   ProductDetailSpecifications,
   RelatedProducts,
-  ProductDetailActions
+  ProductDetailActions,
+  ProductQuantitySelector
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -68,19 +69,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             <p>In stock ({product.stockQuantity} remaining) </p>
           </div>
 
-          <div className="relative my-4 flex items-center gap-3">
-            <p className="font-semibold">Quantity:</p>
-            <div className="relative w-48">
-              <Minus className="absolute left-1 top-2.5" />
-              <Input
-                type="number"
-                defaultValue={1}
-                min={1}
-                className="h-11 border-primary text-center"
-              />
-              <Plus className="absolute right-1 top-2.5" />
-            </div>
-          </div>
+         <ProductQuantitySelector productId={product._id}/>
 
           <div className="flex gap-3">
             <ProductDetailActions product={product}/>

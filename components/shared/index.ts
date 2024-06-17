@@ -9,6 +9,7 @@ export { default as FavoriteIcon } from "./FavoriteIcon";
 export { default as CartIcon } from "./CartIcon";
 export { default as YoutubeVideoPlayer } from "./YoutubeVideoPlayer";
 export { default as ProductDetailActions } from "./ProductDetailActions";
+export { default as ProductQuantitySelector } from "./ProductQuantitySelector";
 
 export { default as ToolTipPopUp } from "./ToolTipPopUp";
 export { default as ButtonLink } from "./ButtonLink";
