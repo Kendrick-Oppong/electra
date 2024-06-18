@@ -113,3 +113,6 @@ export const laptopSchema = new Schema({
     },
   ],
 });
+
+
+laptopSchema.index({ title: 'text', shortDescription: 'text', fullDescription: 'text' });

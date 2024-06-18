@@ -98,4 +98,6 @@ export const monitorSchema = new Schema({
   ],
 });
 
+monitorSchema.index({ title: 'text', shortDescription: 'text', fullDescription: 'text' });
+
 export default monitorSchema;

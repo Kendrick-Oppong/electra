@@ -81,3 +81,5 @@ export const cameraSchema = new Schema(
     ],
   },
 );
+
+cameraSchema.index({ title: 'text', shortDescription: 'text', fullDescription: 'text' });
