@@ -2,9 +2,13 @@
 import React from "react";
 import { ShoppingCart, User, View, ChevronsUp, Search } from "lucide-react";
 import { ToolTipPopUp } from "@/components/shared";
-import {CartSheet} from ".";
+import { CartSheet } from ".";
+import { toggleSearch } from "@/redux/features/searchToggleSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 const SideNavigation = () => {
+  const dispatch = useAppDispatch();
+
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -29,7 +33,12 @@ const SideNavigation = () => {
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#search" content="Search" />
-          <Search size={27} id="search" className="cursor-pointer" />
+          <Search
+            size={27}
+            id="search"
+            className="cursor-pointer"
+            onClick={() => dispatch(toggleSearch())}
+          />
         </div>
 
         <div className="bg-primary p-1">

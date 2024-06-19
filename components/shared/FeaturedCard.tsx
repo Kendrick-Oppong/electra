@@ -1,6 +1,6 @@
 
 import { Camera, Laptop, Monitor } from "@/types";
-import { ShoppingCart, Heart, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import {ToolTipPopUp,LazyLoadImage,ImagePlaceholderSkeleton,ProductRating,FavoriteIcon,ProductDetailQuickView,CartIcon} from "@/components/shared";
 import Link from "next/link";
 import { getLinkUrlCategory } from "@/lib/getUrlCategory";

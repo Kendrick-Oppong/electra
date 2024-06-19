@@ -98,7 +98,7 @@ export interface Laptop {
 
 export interface LaptopPage {
   data: Laptop[];
-  count: number;
+  count?: number;
 }
 export interface LaptopSchemaProps {
   pages: LaptopPage[];

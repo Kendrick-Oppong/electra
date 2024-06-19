@@ -87,7 +87,7 @@ export interface Monitor {
 
 export interface MonitorPage {
   data: Monitor[];
-  count: number;
+  count?: number;
 }
 export interface MonitorSchemaProps {
   pages: MonitorPage[];

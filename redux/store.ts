@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import favoritesReducer from "./features/favoriteSlice"
 import cartReducer from "./features/cartSlice"
+import searchToggleReducer from "./features/searchToggleSlice"
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       favorites:favoritesReducer,
-      cart:cartReducer
+      cart:cartReducer,
+      searchToggle:searchToggleReducer
     },
   });
 };

@@ -44,7 +44,7 @@ export interface Camera {
 
 export interface CameraPage {
   data: Camera[];
-  count: number;
+  count?: number;
 }
 
 export interface CameraSchemaProps {
