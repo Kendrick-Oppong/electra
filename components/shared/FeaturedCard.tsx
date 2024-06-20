@@ -13,6 +13,7 @@ const FeaturedCard = ({ product }: { product: ProductType }) => {
   const originalPrice = Math.round(product.price * 1.5);
   const discountedPrice = product.price;
 
+  
   return (
     <div className="relative rounded-lg border border-primary p-3 pb-24 text-center shadow-lg">
       <Link

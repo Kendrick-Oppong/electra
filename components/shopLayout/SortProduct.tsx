@@ -31,15 +31,24 @@ const SortProduct = () => {
 
 
   return (
-    <div>
+
+    
+  <div className="my-8 flex justify-between font-semibold">
+    <p>
+      Showing 1 - <span className="text-destructive">12</span> of{" "}
+      <span>12</span> items
+    </p>
+    <div className="flex items-center gap-2">
+      <p>Sort By:</p>
+      <div>
       <Select defaultValue="name-asc" onValueChange={(e)=>handleSortChange(e)}>
-        <SelectTrigger className="w-[200px] border-gray   focus-visible:border-primary rounded-lg">
+        <SelectTrigger className="w-[200px] border-gray   focus-visible:border-primary rounded-md">
           <SelectValue
             placeholder="Default (A - Z)"
             className="text-black dark:text-white"
           />
         </SelectTrigger>
-        <SelectContent className="border-gray rounded-lg">
+        <SelectContent className="border-gray rounded-md">
           {sortingOptions.map((option) => (
             <SelectItem key={option.label} value={option.value}>
               <p className="text-black dark:text-white">{option.label}</p>
@@ -48,7 +57,11 @@ const SortProduct = () => {
         </SelectContent>
       </Select>
     </div>
+    </div>
+  </div>
+   
   );
 };
 
 export default SortProduct;
+

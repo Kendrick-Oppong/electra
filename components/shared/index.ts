@@ -13,6 +13,7 @@ export { default as ProductQuantitySelector } from "./ProductQuantitySelector";
 
 export { default as ToolTipPopUp } from "./ToolTipPopUp";
 export { default as ButtonLink } from "./ButtonLink";
+export { default as CookieAnnouncement } from "./CookieAnnouncement";
 
 export { default as ProductDetailSpecifications } from "./common/productDetails/ProductDetailSpecifications";
 export { default as MonitorDetailSpecifications } from "./common/productDetails/MonitorDetailSpecifications";

@@ -4,10 +4,11 @@ import NavBar from "@/components/navigation/NavBar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import SideNavigation from "@/components/navigation/SideNavigation";
+import { CookieAnnouncement } from "@/components/shared";
 import { ThemeProvider } from "@/components/theme-provider";
 import "react-tooltip/dist/react-tooltip.css";
 import "@smastrom/react-rating/style.css";
-import {TanstackQueryClientProvider,ReduxStoreProvider} from "@/context";
+import { TanstackQueryClientProvider, ReduxStoreProvider } from "@/context";
 import "./globals.css";
 
 const bai_Jamjuree = Bai_Jamjuree({
@@ -56,6 +57,7 @@ export default function RootLayout({
               />
               <main className=""> {children}</main>
               <SideNavigation />
+              <CookieAnnouncement />
             </ReduxStoreProvider>
           </TanstackQueryClientProvider>
           <Footer />

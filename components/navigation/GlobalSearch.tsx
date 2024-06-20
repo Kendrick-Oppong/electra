@@ -1,7 +1,7 @@
  "use client";
  import { useRouter, useSearchParams } from "next/navigation";
  import React, { useState, useRef, useCallback, KeyboardEvent } from "react";
- import { Search, X, Loader } from "lucide-react";
+ import { Search, X, Loader,Lightbulb } from "lucide-react";
  import { Input } from "@/components/ui/input";
  import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -21,6 +21,7 @@
    toggleSearch,
  } from "@/redux/features/searchToggleSlice";
  import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import toast from "react-hot-toast";
 
  const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -41,8 +42,8 @@ const GlobalSearch: React.FC = () => {
   // Handle brand selection
   const handleBrandSelect = (value: string) => {
     setSelectedBrand(value);
+    toast.success(`${value} category selected`)
     fetchSuggestions(searchQuery, value); // Trigger refetch when brand changes
-    // No need to update URL params here
   };
 
   // Handle search input change with debounce
@@ -100,6 +101,7 @@ const GlobalSearch: React.FC = () => {
         console.error("Error fetching suggestions:", error);
         setSuggestions([]);
       }
+      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -121,88 +123,91 @@ const GlobalSearch: React.FC = () => {
   };
 
   return (
-        <div className="relative">
-       <div
-         role="button"
-         className="cursor-pointer"
-         onClick={() => dispatch(toggleSearch())}
-       >
-         <Search size={30} />
-       </div>
-       {isExpanded && (
-         <div className="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md">
-           <div className="w-full bg-accent px-5 py-16 shadow-md sm:px-10">
-             <div
-               role="button"
-               className="absolute right-6 top-5 cursor-pointer"
-               onClick={() => dispatch(setSearchExpanded(false))}
-             >
-               <X size={30} />
-             </div>
-             <div className="relative flex w-full flex-col items-center gap-3 md:flex-row">
-               <div className="w-full md:basis-[30%]">
-                 <Select onValueChange={(value) => handleBrandSelect(value)}>
-                   <SelectTrigger className="py-[1.3rem]">
-                     <SelectValue placeholder="Search By" />
-                   </SelectTrigger>
-                   <SelectContent className="border-gray">
-                     <SelectGroup>
-                       {brands.map((searchCategory) => (
-                         <SelectItem value={searchCategory} key={searchCategory}>
-                           <p className="text-black dark:text-white">
-                             Category: {searchCategory}
-                           </p>
-                         </SelectItem>
-                       ))}
-                     </SelectGroup>
-                   </SelectContent>
-                 </Select>
-               </div>
-               <div className="relative w-full">
-                 <Search className="absolute left-4 top-2.5 opacity-50" />
-                 <div>
-                   <Input
-                     value={searchQuery}
-                     onChange={(e) => handleGlobalSearch(e)}
-                     onKeyDown={handleKeyDown}
-                     type="search"
-                     placeholder="Search Product..."
-                     className="h-11 w-full rounded-md border border-primary pl-14"
-                   />
-                   {loading && (
-                     <div className="w-full">
-                       <Loader className="mx-auto animate-spin" />
-                     </div>
-                   )}
-                   {suggestions.length > 0 ? (
-                     <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent shadow-lg">
-                       <ScrollArea className="h-[400px]">
-                         {suggestions.map((suggestion, index) => (
-                           <div
-                             role="button"
-                             key={index}
-                             className="cursor-pointer p-2 hover:bg-secondary"
-                             onClick={() =>
-                               handleSuggestionClick(suggestion.title)
-                             }
-                           >
-                             {suggestion.title}
-                           </div>
-                         ))}
-                       </ScrollArea>
-                     </div>
-                   ) : (
-                     <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
-                       <p className="text-center">No product found</p>
-                     </div>
-                   )}
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       )}
-     </div>
+    <div className="relative">
+      <div
+        role="button"
+        className="cursor-pointer"
+        onClick={() => dispatch(toggleSearch())}
+      >
+        <Search size={30} />
+      </div>
+      {isExpanded && (
+        <div className="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md">
+          <div className="w-full bg-accent px-5 py-16 shadow-md sm:px-10">
+            <div
+              role="button"
+              className="absolute right-6 top-5 cursor-pointer"
+              onClick={() => dispatch(setSearchExpanded(false))}
+            >
+              <X size={30} />
+            </div>
+            <div className="relative flex w-full flex-col items-center gap-3 md:flex-row">
+              <div className="w-full md:basis-[30%]">
+                <Select onValueChange={(value) => handleBrandSelect(value)}>
+                  <SelectTrigger className="py-[1.3rem]">
+                    <SelectValue placeholder="Search By" />
+                  </SelectTrigger>
+                  <SelectContent className="border-gray">
+                    <SelectGroup>
+                      {brands.map((searchCategory) => (
+                        <SelectItem value={searchCategory} key={searchCategory}>
+                          <p className="text-black dark:text-white">
+                            Category: {searchCategory}
+                          </p>
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="relative w-full">
+                <Search className="absolute left-4 top-2.5 opacity-50" />
+                <div>
+                  <Input
+                    value={searchQuery}
+                    onChange={(e) => handleGlobalSearch(e)}
+                    onKeyDown={handleKeyDown}
+                    type="search"
+                    placeholder="Search Product..."
+                    className="h-11 w-full rounded-md border border-primary pl-14"
+                  />
+                  {loading && (
+                    <div className="w-full">
+                      <Loader className="mx-auto animate-spin" />
+                    </div>
+                  )}
+                  {suggestions.length > 0 ? (
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent shadow-lg">
+                      <ScrollArea className="h-[400px]">
+                        {suggestions.map((suggestion, index) => (
+                          <div
+                            role="button"
+                            key={index}
+                            className="cursor-pointer p-2 hover:bg-secondary"
+                            onClick={() =>
+                              handleSuggestionClick(suggestion.title)
+                            }
+                          >
+                            {suggestion.title}
+                          </div>
+                        ))}
+                      </ScrollArea>
+                    </div>
+                  ) : (
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
+                      <p className="flex justify-center items-center gap-1">
+                        <Lightbulb className="text-[#ff7900]"/>
+                        Try searching by product or category
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
