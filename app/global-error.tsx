@@ -1,5 +1,6 @@
-'use client'
- import { useEffect } from 'react'
+'use client';
+import { ButtonLink } from '@/components/shared';
+ import { useEffect } from 'react';
 
 export default function GlobalError({
   error,
@@ -16,9 +17,9 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+      <body className="text-center text-lg mt-8">
+        <h2 className="text-lg">Something went wrong!</h2>
+        <ButtonLink onClick={() => reset()}>Try again</ButtonLink>
       </body>
     </html>
   )

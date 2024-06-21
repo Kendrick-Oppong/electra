@@ -1,5 +1,4 @@
 "use client"
-
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -12,8 +11,10 @@ const customMarker = L.icon({
 });
 
  const MapLocation = () => {
+
+
   return (
-    <MapContainer
+  <MapContainer
       style={{ height: "400px" }}
       center={[5.5728, -0.1801]}
       zoom={16}

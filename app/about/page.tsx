@@ -30,7 +30,7 @@ const AboutUsPage = () => {
           </h1>
           <p className="mb-6 text-lg font-semibold">
             At our eCommerce store, we are dedicated to providing the best
-            technology products with exceptional service. Whether you&apos;re a
+            technology products with exceptional service. <br/> Whether you&apos;re a
             professional photographer, a gaming enthusiast, or just need a
             reliable laptop, we have the right products for you
           </p>

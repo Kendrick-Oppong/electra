@@ -1,14 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import favoritesReducer from "./features/favoriteSlice"
-import cartReducer from "./features/cartSlice"
-import searchToggleReducer from "./features/searchToggleSlice"
+import favoritesReducer from "./features/favoriteSlice";
+import cartReducer from "./features/cartSlice";
+import searchToggleReducer from "./features/searchToggleSlice";
+import modalNewsLetterReducer from "./features/modalNewsLetterSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      favorites:favoritesReducer,
-      cart:cartReducer,
-      searchToggle:searchToggleReducer
+      favorites: favoritesReducer,
+      cart: cartReducer,
+      searchToggle: searchToggleReducer,
+      modalNewsletter: modalNewsLetterReducer,
     },
   });
 };

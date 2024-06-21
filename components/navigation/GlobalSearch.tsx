@@ -34,7 +34,7 @@ const GlobalSearch: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceTimeoutRef = useRef<any | null>(null);
   const cancelTokenSourceRef = useRef<ReturnType<
     typeof axios.CancelToken.source
   > | null>(null);

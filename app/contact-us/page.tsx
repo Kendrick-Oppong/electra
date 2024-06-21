@@ -1,7 +1,16 @@
-import {MapLocation,ContactUsForm} from "@/components/contactUs"
+import dynamic from "next/dynamic";
+import { Loader } from 'lucide-react';
+import {ContactUsForm} from "@/components/contactUs"
 import Image from "next/image"
-const ContactUsPage = ()=> {
 
+const MapLocation = dynamic(
+  () => import("@/components/contactUs/MapLocation"),
+  {
+    loading: () => <p className="flex justify-center items-center gap-1 text-primary">Loading Map <Loader className="animate-spin"/></p>,
+  },
+);
+
+const ContactUsPage = ()=> {
     return (
       <>
         <section>

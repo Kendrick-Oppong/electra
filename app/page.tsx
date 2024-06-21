@@ -8,7 +8,7 @@ import {
   FeaturedLaptop,
   FeaturedMonitor,
 } from "@/components/home/featured";
-import { ButtonLink } from "@/components/shared";
+import { ButtonLink,ModalNewsLetter } from "@/components/shared";
 import { NewArrival } from "@/components/home/newArrival";
 import { TestimonyCarousel } from "@/components/home/testimonial";
 
@@ -207,6 +207,8 @@ export default async function Home() {
         <h1 className="text-subtitle">New Arrival</h1>
         <NewArrival />
       </section>
+
+      <ModalNewsLetter/>
 
       {/* Testimonials */}
       <section className="mt-16">

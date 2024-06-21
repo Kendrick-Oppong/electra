@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Bai_Jamjuree } from "next/font/google";
 import NavBar from "@/components/navigation/NavBar";
@@ -28,7 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+     <html lang="en">
       <body
         className={`relative ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
       >
@@ -63,6 +65,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
-    </html>
+     </html>
+    </ClerkProvider>
   );
 }
