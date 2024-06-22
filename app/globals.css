@@ -65,7 +65,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   }
-  
+
   .grid-template-search {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -75,7 +75,9 @@
     @apply mb-6 mt-10 text-center text-4xl font-bold;
   }
 
-  /* global loading component css styles */
+
+
+
   .custom-loader {
     width: 50px;
     height: 50px;
@@ -84,6 +86,7 @@
     border-radius: 50%;
     border-color: #e4e4ed #0000;
     animation: s6 1s infinite linear;
+   
   }
   .custom-loader::before,
   .custom-loader::after {
@@ -168,3 +171,132 @@
   height: 70px !important;
   width: 60px !important;
 }
+
+
+
+/* custom clerk provider css tyles */
+.cl-formButtonPrimary {
+    @apply inline-flex h-9 items-center justify-center whitespace-nowrap rounded-sm  px-3 text-base font-medium 
+     border hover:bg-accent hover:text-black  shadow-2xl  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50;
+}
+
+
+
+
+.cl-headerSubtitle,
+.cl-dividerText,
+.cl-footerActionText,
+.cl-alertText,
+.cl-formFieldInfoText,
+.cl-formFieldSuccessText,
+.cl-identityPreviewText,
+.cl-userButtonPopoverActionButton,
+.cl-userButtonPopoverActionButton svg,
+.cl-userButtonPopoverActionButtonText,
+.cl-userButtonPopoverFooter p,
+.cl-userButtonPopoverFooter a,
+.cl-formHeaderSubtitle,
+.cl-breadcrumbsItem,
+.cl-breadcrumbsItemDivider,
+.cl-fileDropAreaHint,
+.cl-fileDropAreaFooterHint,
+.cl-form
+    p[data-localization-key='userProfile.emailAddressPage.emailCode.formHint'],
+p[data-localization-key='userProfile.profilePage.successMessage'] {
+    @apply text-muted-foreground;
+}
+
+.cl-dividerLine {
+    @apply bg-border;
+}
+
+.cl-formFieldInput[type='text'],
+.cl-formFieldInput[type='email'],
+.cl-formFieldInput[type='password'] {
+    @apply flex h-11 w-full rounded-sm border border-input px-3 py-2  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.cl-footerActionLink {
+    @apply text-primary underline ;
+}
+
+.cl-otpCodeFieldInput {
+    @apply border border-b-input text-foreground;
+}
+
+.cl-formResendCodeLink {
+    @apply text-primary disabled:opacity-90;
+}
+
+.cl-selectSearchInput__countryCode {
+    @apply flex h-11 w-full rounded-md border border-b border-input bg-background text-foreground ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.cl-selectOptionsContainer__countryCode {
+    @apply border border-input bg-background;
+}
+
+.cl-internal-icon,
+.cl-userPreviewSecondaryIdentifier__userButton {
+    @apply text-foreground;
+}
+
+.cl-profileSectionTitle {
+    @apply border-b border-input;
+}
+
+button[data-localization-key='userProfile.start.dangerSection.deleteAccountButton'] {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+}
+
+.cl-fileDropAreaBox {
+    @apply dark:bg-gray-900;
+}
+
+.cl-fileDropAreaIconBox {
+    @apply dark:bg-gray-800;
+}
+
+.cl-fileDropAreaIcon {
+    @apply dark:text-gray-400;
+}
+
+.cl-fileDropAreaButtonPrimary {
+    @apply h-10 px-4 py-2 text-foreground transition-colors hover:bg-secondary hover:text-accent-foreground;
+}
+
+.cl-userButtonPopoverActionButton,
+.cl-profileSectionPrimaryButton,
+.cl-accordionTriggerButton,
+.cl-navbarButton {
+    @apply hover:bg-accent hover:text-accent-foreground;
+}
+
+.cl-card {
+    @apply rounded-md shadow-md;
+}
+
+.cl-userButtonPopoverCard {
+    @apply rounded-sm;
+}
+
+.cl-userButtonPopoverFooter a {
+    @apply hover:text-muted-foreground;
+}
+
+.cl-badge {
+    @apply rounded-full px-2.5 py-0.5 text-xs;
+}
+
+.cl-badge[data-localization-key='badge__unverified'] {
+    @apply border bg-transparent text-destructive dark:text-red-500;
+}
+
+.cl-userButton-root {
+  @apply !mt-0
+}
+
+.cl-formButtonReset {
+    @apply  hover:bg-popover;
+}
+

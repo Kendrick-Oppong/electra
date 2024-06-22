@@ -29,43 +29,52 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-     <html lang="en">
-      <body
-        className={`relative ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "hsl(229 100% 50%)",
+          fontSize:"16px",
+          
+        },
+      
+      }}
+    >
+      <html lang="en">
+        <body
+          className={`relative ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
         >
-          <TanstackQueryClientProvider>
-            <ReduxStoreProvider>
-              <NavBar />
-              <Toaster
-                containerStyle={{
-                  top: 40,
-                }}
-                toastOptions={{
-                  className: "",
-                  style: {
-                    border: "1px solid #713200",
-                    color: "#713200",
-                  },
-                }}
-                position="top-center"
-                reverseOrder={false}
-              />
-              <main className=""> {children}</main>
-              <SideNavigation />
-              <CookieAnnouncement />
-            </ReduxStoreProvider>
-          </TanstackQueryClientProvider>
-          <Footer />
-        </ThemeProvider>
-      </body>
-     </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TanstackQueryClientProvider>
+              <ReduxStoreProvider>
+                <NavBar />
+                <Toaster
+                  containerStyle={{
+                    top: 40,
+                  }}
+                  toastOptions={{
+                    className: "",
+                    style: {
+                      border: "1px solid #713200",
+                      color: "#713200",
+                    },
+                  }}
+                  position="top-center"
+                  reverseOrder={false}
+                />
+                <main className=""> {children}</main>
+                <SideNavigation />
+                {/* <CookieAnnouncement /> */}
+              </ReduxStoreProvider>
+            </TanstackQueryClientProvider>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

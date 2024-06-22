@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import { Camera, Laptop, Smartphone, Menu } from "lucide-react";
+import { Camera, Laptop, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 const categories = [
@@ -38,7 +38,6 @@ const Categories = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-lg">
-              <Menu className="mr-2 inline-flex" />
               Categories
             </NavigationMenuTrigger>
             <NavigationMenuContent className="shadow-2xl">

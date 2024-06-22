@@ -1,9 +1,13 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
 import ButtonLink from "./ButtonLink";
 
 const CookieAnnouncement = () => {
+  const [hideCookie,setHideCookie]= useState(true)
+  
   return (
-    <div className="">
+   hideCookie && <div className="">
       <section className="fixed z-[100] bottom-4 left-0 right-0 my-0 mx-auto flex w-full max-w-4xl gap-3 rounded-lg bg-accent p-6 shadow-lg">
         <div className="flex-1">
           <div className="mb-4 flex items-center gap-2">
@@ -23,10 +27,10 @@ const CookieAnnouncement = () => {
 
         <div className="space-y-2">
           <div>
-            <ButtonLink className="w-full bg-destructive mt-0 hover:bg-popover">Necessary Cookies</ButtonLink>
+            <ButtonLink className="w-full bg-destructive mt-0 hover:bg-popover" onClick={()=> setHideCookie(prev=> !prev)}>Necessary Cookies</ButtonLink>
           </div>
           <div>
-            <ButtonLink className="w-full mt-0">Accept All</ButtonLink>
+            <ButtonLink className="w-full mt-0" onClick={()=> setHideCookie(prev=> !prev)}>Accept All</ButtonLink>
           </div>
         </div>
       </section>
