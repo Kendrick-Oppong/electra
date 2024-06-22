@@ -41,7 +41,7 @@ const GlobalSearch: React.FC = () => {
 
   // Handle brand selection
   const handleBrandSelect = (value: string) => {
-    setSelectedBrand(value);
+    setSelectedBrand(value === "Default" ? "" : value);
     toast.success(`${value} category selected`)
     fetchSuggestions(searchQuery, value); // Trigger refetch when brand changes
   };
@@ -152,7 +152,7 @@ const GlobalSearch: React.FC = () => {
                       {brands.map((searchCategory) => (
                         <SelectItem value={searchCategory} key={searchCategory}>
                           <p className="text-black dark:text-white">
-                            Category: {searchCategory}
+                           {searchCategory === "Default" ? "Category: All ": `Category: ${searchCategory}`}
                           </p>
                         </SelectItem>
                       ))}
@@ -197,7 +197,7 @@ const GlobalSearch: React.FC = () => {
                     <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
                       <p className="flex justify-center items-center gap-1">
                         <Lightbulb className="text-[#ff7900]"/>
-                        Try searching by product or category
+                        Try searching by product or changing category
                       </p>
                     </div>
                   )}

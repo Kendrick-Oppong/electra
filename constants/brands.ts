@@ -1,6 +1,7 @@
-// brands.ts
+
 
 export const brands = [
+  "Default",
   "Canon",
   "Sony",
   "Nikon",

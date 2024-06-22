@@ -176,7 +176,7 @@
 
 /* custom clerk provider css tyles */
 .cl-formButtonPrimary {
-    @apply inline-flex h-9 items-center justify-center whitespace-nowrap rounded-sm  px-3 text-base font-medium 
+    @apply inline-flex bg-secondary h-9 items-center justify-center whitespace-nowrap rounded-sm  px-3 text-base font-medium 
      border hover:bg-accent hover:text-black  shadow-2xl  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50;
 }
 

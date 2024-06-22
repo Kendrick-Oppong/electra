@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { ShoppingCart, User, View, ChevronsUp, Search } from "lucide-react";
+import Link from "next/link";
+import { ShoppingCart, LayoutDashboard, View, ChevronsUp, Search } from "lucide-react";
 import { ToolTipPopUp } from "@/components/shared";
 import { CartSheet } from ".";
 import { toggleSearch } from "@/redux/features/searchToggleSlice";
@@ -27,9 +27,12 @@ const SideNavigation = () => {
         </CartSheet>
 
         <div className="bg-primary p-1">
-          <ToolTipPopUp id="#profile" content="Profile" />
-          <User size={27} id="profile" className="cursor-pointer" />
+          <ToolTipPopUp id="#dashboard" content="Dashboard" />
+          <Link href="/cart">
+          <LayoutDashboard size={27} id="dashboard" className="cursor-pointer" />
+          </Link>
         </div>
+        
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#search" content="Search" />

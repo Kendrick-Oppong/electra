@@ -14,6 +14,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { navLinks } from "@/constants/navLinks";
+import { LayoutDashboard } from "lucide-react";
 
 const NavBar = () => {
   return (
@@ -69,6 +70,12 @@ const NavBar = () => {
               <FavoriteCartIcons />
             </SignedOut>
             <SignedIn>
+              <Link
+                href="/dashboard"
+                className={`flex items-center transition duration-300 ease-in hover:text-primary`}
+              >
+                <LayoutDashboard />
+              </Link>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </div>

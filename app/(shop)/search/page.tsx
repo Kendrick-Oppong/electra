@@ -41,11 +41,23 @@ const GlobalSearchPage = () => {
     <>
       {data &&
         (data.data.length > 0 ? (
-          <section className="grid-template-search justify-center gap-4">
-            {data.data.map((searchProduct: Camera | Laptop | Monitor) => (
-              <FeaturedCard key={searchProduct._id} product={searchProduct} />
-            ))}
-          </section>
+          <>
+            <h1 className="mt-3 px-5 text-center font-semibold">
+              Found{" "}
+              {data.data.length > 1 ? (
+                <span className="text-destructive">{data.data.length}</span>
+              ) : (
+                <span className="text-destructive">1</span>
+              )}{" "}
+              {data.data.length > 1 ? "items" : "item"} matching{" "}
+              <span>&quote;{query}&quote;</span>
+            </h1>
+            <section className="grid-template-search justify-center gap-4">
+              {data.data.map((searchProduct: Camera | Laptop | Monitor) => (
+                <FeaturedCard key={searchProduct._id} product={searchProduct} />
+              ))}
+            </section>
+          </>
         ) : (
           <h1 className="flex items-center justify-center gap-2 font-bold">
             <AlertTriangle className="text-destructive" /> No product found for{" "}

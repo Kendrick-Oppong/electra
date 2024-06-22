@@ -15,6 +15,7 @@ import { ShoppingCart } from "lucide-react";
 import { useAppSelector } from "@/redux/hooks";
 import { getAllLocalStorageCartProduct } from "@/redux/features/cartSlice";
 import { ButtonLink } from "@/components/shared";
+import Link from "next/link";
 
 interface CartSheetProps {
   children: React.ReactNode;
@@ -73,9 +74,11 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
         {cartItems.length > 0 && (
           <SheetFooter className="mt-[30px] sm:mt-[50px] lg:mt-[15px]  flex-wrap md:flex-nowrap items-center !justify-center gap-3 ">
             <SheetClose asChild>
-              <ButtonLink type="button" className="mt-0 w-full">
-                View Cart
-              </ButtonLink>
+              <Link href="/dashboard">
+                <ButtonLink type="button" className="mt-0 w-full">
+                  View Cart
+                </ButtonLink>
+              </Link>
             </SheetClose>
             <SheetClose asChild>
               <ButtonLink type="button" className="mt-0 !mx-0 w-full">

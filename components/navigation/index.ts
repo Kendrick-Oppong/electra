@@ -5,4 +5,3 @@ export {default as ModeToggle} from "./ModeToggle";
 export {default as ShopCategories} from "./ShopCategories";
 export {default as SideNavigation} from "./SideNavigation";
 export {default as CartSheet} from "./CartSheet";
-export {default as UserProfile} from "./UserProfile";

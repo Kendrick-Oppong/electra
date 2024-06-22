@@ -8,7 +8,7 @@ const MONGODB_URI = process.env.MONGODB_URI!;
 
 if (!MONGODB_URI) {
   throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local"
+    "Please define the MONGODB_URI environment variable inside .env.local",
   );
 }
 
@@ -31,8 +31,8 @@ async function dbConnect() {
     });
   }
   try {
-      cached.conn = await cached.promise;
-      console.log("db connected...")
+    cached.conn = await cached.promise;
+    console.log("db connected...");
   } catch (e) {
     cached.promise = null;
     throw e;
