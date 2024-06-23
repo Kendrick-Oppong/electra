@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Electra
 
-## Getting Started
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Screenshots](#screenshots)
+- [Contact](#contact)
 
-First, run the development server:
+<hr style="border:1px solid gray">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
+Electra is an advanced online shopping platform specializing in cameras, laptops, and monitors. Built with Next.js, React Query, Redux Toolkit, and other modern technologies, Electra provides users with a smooth and enjoyable shopping experience. Whether you're looking for the latest camera, a high-performance laptop, or a top-quality monitor, Electra has you covered.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<hr style="border:1px solid gray">
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Explore Electra
+- **Add to Cart**: Seamlessly add items to your cart for a streamlined shopping experience.
+- **Add to Wishlist**: Save your favorite items for later with the wishlist feature.
+- **Authentication**: Secure and easy user authentication with Clerk.
+- **Profile Management**: Update your profile, including image uploads, with robust validation.
+- **Search Functionality**: Enjoy an intelligent search function with auto-suggestions based on your input.
+- **Product Detail Viewing**: Get detailed information about each product.
+- **Product Quick View**: Quickly view essential product details without leaving the current page.
+- **Dashboard**: Manage your orders, cart, and wishlist from a centralized dashboard.
+- **Stripe Payment**: Secure online payments through Stripe.
+- **Responsive Design**: Fully responsive design, including a dark mode switch for a better user experience.
+- **Newsletter**: Stay updated with the latest news and offers by subscribing to our newsletter.
+- **Contact Page**: Reach out to us with any questions or feedback.
+- **Sorting**: Sort products by various criteria to find exactly what you need.
+- **Infinite Scroll**: Enjoy a seamless browsing experience with infinite scroll.
 
-## Learn More
+<hr style="border:1px solid gray">
 
-To learn more about Next.js, take a look at the following resources:
+## Technology Stack
+- **Frontend**: Next.js, React, Typescript, TailwindCSS, Shadcn
+- **State Management**: Redux Toolkit, React Query
+- **Forms**: React Hook Form
+- **Authentication**: Clerk
+- **Database**: MongoDB
+- **Payments**: Stripe
+- **Other**: Axios (for API requests)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<hr style="border:1px solid gray">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
+![Electra Screenshot 1](./screenshot-1.png)
+![Electra Screenshot 1](./screenshot-2.png)
+![Electra Screenshot 1](./screenshot-4.png)
+![Electra Screenshot 1](./screenshot-3.png)
 
-## Deploy on Vercel
+<hr style="border:1px solid gray">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+If you want to contact me, you can reach me at kendrickoppong94@gmail.com.

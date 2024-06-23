@@ -2,8 +2,14 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent, clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { createUser } from "@/lib/actions/userActions";
+import { createUser, deleteUser, updateUser } from "@/lib/actions/userActions";
 import { signUpSchema } from "@/validators/signUpSchema";
+interface UserProps {
+  clerkId: string;
+  username: string;
+  email: string;
+  photo: string;
+}
 
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
@@ -48,47 +54,89 @@ export async function POST(req: Request) {
     });
   }
 
-  // Do something with the payload
-  // For this guide, you simply log the payload to the console
-  const { id } = evt.data;
   const eventType = evt.type;
-  console.log(evt.data);
-  //   create user in mongodb
-  if (evt.type === "user.created") {
-    const { id, image_url, username, email_addresses } = evt.data;
-    try {
-      const user = {
-        clerkId: id,
-        username: username!,
-        email: email_addresses[0].email_address,
-        photo: image_url,
-      };
 
-      const validatedUser =  signUpSchema.parse(user);
-      const newUser = await createUser(validatedUser);
+  switch (eventType) {
+    case "user.created": {
+      const { id, image_url, username, email_addresses } = evt.data;
+      try {
+        const user = {
+          clerkId: id,
+          username: username,
+          email: email_addresses[0].email_address,
+          photo: image_url,
+        };
 
-      if (newUser) {
-        await clerkClient.users.updateUserMetadata(id, {
-          publicMetadata: { userId: newUser._id },
-        });
+        const validatedUser = signUpSchema.parse(user);
+        const newUser = await createUser(validatedUser);
+
+        if (newUser) {
+          await clerkClient.users.updateUserMetadata(id, {
+            publicMetadata: { userId: newUser._id },
+          });
+        }
+
+        return NextResponse.json(
+          { message: "User successfully created" },
+          { status: 201 },
+        );
+      } catch (err) {
+        console.error("Error creating user:", err);
+        return NextResponse.json(
+          { message: "An error occurred when creating user" },
+          { status: 500 },
+        );
       }
-
-      return NextResponse.json(
-        { message: "User successfully created" },
-        { status: 201 },
-      );
-    } catch (err) {
-      console.error("Error creating user:", err);
-      return NextResponse.json(
-        {
-          message: "An error occurred when creating user",
-        },
-        { status: 500 },
-      );
     }
+
+    case "user.updated": {
+      const updatedData = evt.data;
+      try {
+        const updates: Partial<UserProps> = {};
+        if (updatedData.username) updates.username = updatedData.username;
+        if (updatedData.email_addresses && updatedData.email_addresses[0]) {
+          updates.email = updatedData.email_addresses[0].email_address;
+        }
+        if (updatedData.image_url) updates.photo = updatedData.image_url;
+
+        const updatedUser = await updateUser(updatedData.id, updates);
+
+        return NextResponse.json(
+          { message: "User successfully updated", updatedUser },
+          { status: 200 },
+        );
+      } catch (err) {
+        console.error("Error updating user:", err);
+        return NextResponse.json(
+          { message: "An error occurred when updating user" },
+          { status: 500 },
+        );
+      }
+    }
+
+    case "user.deleted": {
+      const deletedData = evt.data;
+      try {
+        await deleteUser(deletedData.id as string);
+        return NextResponse.json(
+          { message: "User successfully deleted" },
+          { status: 200 },
+        );
+      } catch (err) {
+        console.error("Error deleting user:", err);
+        return NextResponse.json(
+          { message: "An error occurred when deleting user" },
+          { status: 500 },
+        );
+      }
+    }
+
+    default:
+      return NextResponse.json(
+        { message: "Event not handled" },
+        { status: 400 },
+      );
   }
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
 
   return new Response("", { status: 200 });
 }
