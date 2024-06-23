@@ -10,7 +10,7 @@ const fetcher = <T,>(
   sortQuery: string | null,
 ): Promise<T> =>
   axios
-    .get(`${baseUrl}/${url}?page=${pageParam}&sort=${sortQuery}`)
+    .get(`${baseUrl}/api/${url}?page=${pageParam}&sort=${sortQuery}`)
     .then((res) => res.data)
     .catch((error) => {
       if (error instanceof AxiosError) {

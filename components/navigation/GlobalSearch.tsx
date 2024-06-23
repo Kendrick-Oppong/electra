@@ -90,7 +90,7 @@ const GlobalSearch: React.FC = () => {
 
     try {
       const response = await axios.get(
-        `${baseUrl}/search?query=${query}&brand=${brand}`,
+        `${baseUrl}/api/search?query=${query}&brand=${brand}`,
         {
           cancelToken: cancelTokenSource.token,
         },

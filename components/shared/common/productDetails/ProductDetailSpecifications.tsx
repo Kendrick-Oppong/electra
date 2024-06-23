@@ -4,15 +4,11 @@ import {
   LaptopDetailSpecifications,
 } from "@/components/shared";
 import { getLinkUrlCategory } from "@/lib/getUrlCategory";
-import { Camera, Laptop, Monitor } from "@/types";
-type ProductType = Camera | Laptop | Monitor;
 
-const ProductDetailSpecifications = ({ product }: { product: ProductType }) => {
+const ProductDetailSpecifications = ({ product }: { product: any }) => {
   const brand = product.brand.toLowerCase();
   return (
     <div>
-     
-
       {getLinkUrlCategory(brand) === "cameras" && (
         <CameraDetailSpecifications product={product} />
       )}

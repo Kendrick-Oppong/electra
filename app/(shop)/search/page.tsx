@@ -50,7 +50,7 @@ const GlobalSearchPage = () => {
                 <span className="text-destructive">1</span>
               )}{" "}
               {data.data.length > 1 ? "items" : "item"} matching{" "}
-              <span>&quote;{query}&quote;</span>
+              <span>&quot;{query}&quot;</span>
             </h1>
             <section className="grid-template-search justify-center gap-4">
               {data.data.map((searchProduct: Camera | Laptop | Monitor) => (

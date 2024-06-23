@@ -4,7 +4,6 @@ import {
   ModeToggle,
   GlobalSearch,
   FavoriteCartIcons,
-  UserProfile
 } from ".";
 import Link from "next/link";
 import {

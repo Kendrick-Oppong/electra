@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 
 import type {
   Laptop,
@@ -26,58 +26,56 @@ const LaptopDetailSpecifications = ({ product }: { product: Laptop }) => {
   return (
     <div>
       <Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>
-      <h2 className="mb-3 font-bold text-primary">Display</h2>
-    </AccordionTrigger>
-    <AccordionContent>
-      <DisplayFeatures display={display} />
-     
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>
+            <h2 className="mb-3 font-bold text-primary">Display</h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <DisplayFeatures display={display} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Accordion type="single" collapsible>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>
-      <h2 className="mb-3 font-bold text-primary">Processor</h2>
-    </AccordionTrigger>
-    <AccordionContent>
-      <ProcessorDetails processorDetails={processorDetails} />
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+        <AccordionItem value="item-2">
+          <AccordionTrigger>
+            <h2 className="mb-3 font-bold text-primary">Processor</h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <ProcessorDetails processorDetails={processorDetails} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Accordion type="single" collapsible>
-  <AccordionItem value="item-3">
-    <AccordionTrigger>
-    <h2 className="mb-3 font-bold text-primary">Input / Output</h2>
-    
-    </AccordionTrigger>
-    <AccordionContent>
-      <IoDetails ioDetails={ioDetails} />
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>
+            <h2 className="mb-3 font-bold text-primary">Input / Output</h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <IoDetails ioDetails={ioDetails} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Accordion type="single" collapsible>
-  <AccordionItem value="item-4">
-    <AccordionTrigger>
-<h2 className="mb-3 font-bold text-primary">Communications</h2>
-    </AccordionTrigger>
-    <AccordionContent>
-      <Communications communications={communications} />
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+        <AccordionItem value="item-4">
+          <AccordionTrigger>
+            <h2 className="mb-3 font-bold text-primary">Communications</h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <Communications communications={communications} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Accordion type="single" collapsible>
-  <AccordionItem value="item-4">
-    <AccordionTrigger>
-<h2 className="mb-3 font-bold text-primary">General Details</h2>
-    </AccordionTrigger>
-    <AccordionContent>
-      <GeneralDetails generalDetails={generalDetails} />
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
- <div>
+        <AccordionItem value="item-4">
+          <AccordionTrigger>
+            <h2 className="mb-3 font-bold text-primary">General Details</h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <GeneralDetails generalDetails={generalDetails} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <div>
         <h2 className="mb-3 mt-5 font-bold text-primary">
           Supplied Accessories
         </h2>
@@ -87,7 +85,6 @@ const LaptopDetailSpecifications = ({ product }: { product: Laptop }) => {
           ))}
         </ul>
       </div>
-  
     </div>
   );
 };

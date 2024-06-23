@@ -52,7 +52,7 @@ export async function POST(req: Request) {
   // For this guide, you simply log the payload to the console
   const { id } = evt.data;
   const eventType = evt.type;
-
+  console.log(evt.data);
   //   create user in mongodb
   if (evt.type === "user.created") {
     const { id, image_url, username, email_addresses } = evt.data;
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
         photo: image_url,
       };
 
-      const validatedUser = signUpSchema.parse(user);
+      const validatedUser =  signUpSchema.parse(user);
       const newUser = await createUser(validatedUser);
 
       if (newUser) {

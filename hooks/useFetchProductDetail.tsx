@@ -6,7 +6,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
 const fetcher = <T,>(url: string): Promise<T> =>
   axios
-    .get(`${baseUrl}/${url}`)
+    .get(`${baseUrl}/api/${url}`)
     .then((res) => res.data)
     .catch((error) => {
       if (error instanceof AxiosError) {
