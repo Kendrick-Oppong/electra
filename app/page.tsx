@@ -45,6 +45,7 @@ export default async function Home() {
             sizes="(max-width:768px) 100vw, 550px"
             alt="New Arrival Monitor"
             priority
+            className="mx-auto"
           />
         </div>
       </section>

@@ -1,29 +1,29 @@
- "use client";
- import { useRouter, useSearchParams } from "next/navigation";
- import React, { useState, useRef, useCallback, KeyboardEvent } from "react";
- import { Search, X, Loader,Lightbulb } from "lucide-react";
- import { Input } from "@/components/ui/input";
- import { ScrollArea } from "@/components/ui/scroll-area";
+"use client";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState, useRef, useCallback, KeyboardEvent } from "react";
+import { Search, X, Loader, Lightbulb } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
- import {
-   Select,
-   SelectContent,
-   SelectGroup,
-   SelectItem,
-   SelectTrigger,
-   SelectValue,
- } from "@/components/ui/select";
- import { brands } from "@/constants/brands";
- import axios from "axios";
- import {
-   getSearchToggleState,
-   setSearchExpanded,
-   toggleSearch,
- } from "@/redux/features/searchToggleSlice";
- import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { brands } from "@/constants/brands";
+import axios from "axios";
+import {
+  getSearchToggleState,
+  setSearchExpanded,
+  toggleSearch,
+} from "@/redux/features/searchToggleSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import toast from "react-hot-toast";
 
- const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
+const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
 const GlobalSearch: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +42,7 @@ const GlobalSearch: React.FC = () => {
   // Handle brand selection
   const handleBrandSelect = (value: string) => {
     setSelectedBrand(value === "Default" ? "" : value);
-    toast.success(`${value} category selected`)
+    toast.success(`${value} category selected`);
     fetchSuggestions(searchQuery, value); // Trigger refetch when brand changes
   };
 
@@ -123,7 +123,7 @@ const GlobalSearch: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-[1002]">
       <div
         role="button"
         className="cursor-pointer"
@@ -152,7 +152,9 @@ const GlobalSearch: React.FC = () => {
                       {brands.map((searchCategory) => (
                         <SelectItem value={searchCategory} key={searchCategory}>
                           <p className="text-black dark:text-white">
-                           {searchCategory === "Default" ? "Category: All ": `Category: ${searchCategory}`}
+                            {searchCategory === "Default"
+                              ? "Category: All "
+                              : `Category: ${searchCategory}`}
                           </p>
                         </SelectItem>
                       ))}
@@ -195,8 +197,8 @@ const GlobalSearch: React.FC = () => {
                     </div>
                   ) : (
                     <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
-                      <p className="flex justify-center items-center gap-1">
-                        <Lightbulb className="text-[#ff7900]"/>
+                      <p className="flex items-center justify-center gap-1">
+                        <Lightbulb className="text-[#ff7900]" />
                         Try searching by product or changing category
                       </p>
                     </div>

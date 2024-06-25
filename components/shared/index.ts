@@ -28,4 +28,5 @@ export { default as CameraDetailSpecifications } from "./common/productDetails/C
 export { default as LaptopDetailSpecifications } from "./common/productDetails/LaptopDetailSpecifications";
 export { default as RelatedProducts } from "./common/productDetails/RelatedProducts";
 export { default as ProductDetailQuickView } from "./common/productDetails/ProductDetailQuickView";
+export { default as ProductReviews } from "./common/productDetails/ProductReviews";
 
