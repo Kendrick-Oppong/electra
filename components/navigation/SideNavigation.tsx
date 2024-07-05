@@ -28,7 +28,7 @@ const SideNavigation = () => {
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#dashboard" content="Dashboard" />
-          <Link href="/dasboard">
+          <Link href="/dashboard">
           <LayoutDashboard size={27} id="dashboard" className="cursor-pointer" />
           </Link>
         </div>

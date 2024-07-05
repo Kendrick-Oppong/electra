@@ -5,20 +5,19 @@ import {
   RelatedProducts,
   ProductDetailActions,
   ProductQuantitySelector,
-  ProductReviews
+  ProductReviews,
+  AllProductReviews,
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {CircleCheck} from "lucide-react";
+import { CircleCheck } from "lucide-react";
 
 import { Camera, Laptop, Monitor } from "@/types";
 
-
-type ProductType = Camera | Laptop | Monitor ;
+type ProductType = Camera | Laptop | Monitor;
 
 const ProductDetails = ({ product }: { product: ProductType }) => {
   const originalPrice = Math.round(product.price * 1.5);
   const discountedPrice = product.price;
-
 
   return (
     <>
@@ -157,7 +156,14 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             <ProductDetailSpecifications product={product} />
           </TabsContent>
           <TabsContent value="reviews">
-            <ProductReviews productId={product._id} productType={product.brand}/>
+            <AllProductReviews
+              productId={product._id}
+              productType={product.brand}
+            />
+            <ProductReviews
+              productId={product._id}
+              productType={product.brand}
+            />
           </TabsContent>
         </Tabs>
       </section>

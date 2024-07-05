@@ -29,4 +29,5 @@ export { default as LaptopDetailSpecifications } from "./common/productDetails/L
 export { default as RelatedProducts } from "./common/productDetails/RelatedProducts";
 export { default as ProductDetailQuickView } from "./common/productDetails/ProductDetailQuickView";
 export { default as ProductReviews } from "./common/productDetails/ProductReviewsForm";
+export { default as AllProductReviews } from "./common/productDetails/AllProductReviews";
 
