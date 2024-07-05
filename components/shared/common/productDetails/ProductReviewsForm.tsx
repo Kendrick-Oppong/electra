@@ -26,7 +26,7 @@ import { usePathname, redirect } from "next/navigation";
 
 interface ProductProps {
   productId: string;
-  productType: string;
+  productType: any;
 }
 
 const ProductReviews = ({ productId, productType }: ProductProps) => {
