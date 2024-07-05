@@ -1,6 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
 import Review from "@/models/reviews/reviewsSchema";
-import type { NextApiRequest, NextApiResponse } from "next";
 import { currentUser, auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
