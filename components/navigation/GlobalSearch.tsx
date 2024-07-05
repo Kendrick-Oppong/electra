@@ -123,7 +123,7 @@ const GlobalSearch: React.FC = () => {
   };
 
   return (
-    <div className="relative z-[1002]">
+    <div className="relative">
       <div
         role="button"
         className="cursor-pointer"
@@ -132,8 +132,8 @@ const GlobalSearch: React.FC = () => {
         <Search size={30} />
       </div>
       {isExpanded && (
-        <div className="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md">
-          <div className="w-full bg-accent px-5 py-16 shadow-md sm:px-10">
+        <div className="fixed left-0 top-0 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md z-[10000]">
+          <div className="relative w-full bg-accent px-5 py-16 shadow-md sm:px-10 z-[10000]">
             <div
               role="button"
               className="absolute right-6 top-5 cursor-pointer"

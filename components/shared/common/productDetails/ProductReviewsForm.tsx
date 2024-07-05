@@ -1,5 +1,4 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,63 +11,49 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { contactUsSchema } from "@/validators/formSchema";
-import { Asterisk, Loader, Mail, } from "lucide-react";
+import { reviewSchema } from "@/validators/formSchema";
+import { Asterisk, Loader, SendHorizontal } from "lucide-react";
 import { ButtonLink } from "@/components/shared";
 import { Textarea } from "@/components/ui/textarea";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { isError } from "@/lib/isFormFieldError";
 import toast from "react-hot-toast";
-import { sendContactUsMessage } from "@/lib/sendContactUsMessage";
+import { Heart, Rating } from "@smastrom/react-rating";
+import { createSafeReview } from "@/lib/actions/addReviewAction";
+import { useAction } from "next-safe-action/hooks";
+import { useUser } from "@clerk/nextjs";
+import { usePathname, redirect } from "next/navigation";
 
+interface ProductProps {
+  productId: string;
+  productType: string;
+}
 
-  // Define the fields array with correct types
-  const fields: Array<{
-    name: "name" | "email" | "subject" | "message";
-    label: string;
-    type: string;
-    placeholder: string;
-    gridClass: string;
-  }> = [
-    {
-      name: "name",
-      label: "Name",
-      type: "text",
-      placeholder: "Enter your name",
-      gridClass: "sm:col-span-1",
-    },
-    {
-      name: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Enter your email",
-      gridClass: "sm:col-span-1",
-    },
-    {
-      name: "subject",
-      label: "Subject",
-      type: "text",
-      placeholder: "Title of message",
-      gridClass: "sm:col-span-2",
-    },
-  ];
+const ProductReviews = ({ productId, productType }: ProductProps) => {
+  const [rating, setRating] = useState(1);
+  const pathname = usePathname();
+  const { isLoaded, isSignedIn,user } = useUser();
 
-const ContactUsForm = () => {
-  const form = useForm<z.infer<typeof contactUsSchema>>({
-    resolver: zodResolver(contactUsSchema),
+  // In case the user signs out while on the page or is not logged in
+  if (!isLoaded || !isSignedIn) {
+    redirect("/sign-in");
+  }
+
+  const form = useForm<z.infer<typeof reviewSchema>>({
+    resolver: zodResolver(reviewSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
+      name: user.username ?? "",
+      comment: "",
     },
   });
+
+  const { execute, hasSucceeded, hasErrored,isExecuting } = useAction(createSafeReview);
 
   const {
     control,
     handleSubmit,
     reset,
-    formState: { isValid, errors, isSubmitSuccessful, isSubmitting },
+    formState: { isValid, errors, isSubmitSuccessful },
   } = form;
 
   useEffect(() => {
@@ -77,14 +62,22 @@ const ContactUsForm = () => {
     }
   }, [isSubmitSuccessful, reset]);
 
-  async function onSubmit(data: z.infer<typeof contactUsSchema>) {
-    await sendContactUsMessage(data)
+  async function onSubmit(data: z.infer<typeof reviewSchema>) {
+    const dataWithPathname = {
+      ...data,
+      path: pathname,
+      rating,
+      productId,
+      productType,
+    };
+    execute(dataWithPathname);
+    if (hasErrored) {toast.error("Failed to add review")}
+    if (hasSucceeded) {toast.success("Review Successfully Created")}
   }
-
-
 
   return (
     <div className="mx-auto max-w-6xl text-lg">
+      <h1 className="my-4 text-xl font-bold">Add a Review</h1>
       <div className="mx-auto mb-10 rounded-lg border border-primary px-3 pb-10 shadow-2xl">
         <Form {...form}>
           <form
@@ -92,53 +85,20 @@ const ContactUsForm = () => {
             className="mt-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className="mb-6 grid sm:grid-cols-2 sm:gap-4">
-              {fields
-                .slice(0, 2)
-                .map(({ name, label, type, placeholder, gridClass }) => (
-                  <FormField
-                    key={name}
-                    control={control}
-                    name={name}
-                    render={({ field }) => (
-                      <FormItem className={gridClass}>
-                        <FormLabel>
-                          {label}
-                          <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            disabled={isSubmitting}
-                            placeholder={placeholder}
-                            type={type}
-                            className={`${
-                              isError(field.name, errors, form)
-                                ? "border-destructive focus-visible:ring-destructive"
-                                : "border-primary"
-                            }`}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                ))}
-            </div>
             <div>
               <FormField
                 control={control}
-                name="subject"
+                name="name"
                 render={({ field }) => (
                   <FormItem className="sm:col-span-2">
                     <FormLabel>
-                      Subject
+                      Your Name
                       <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
                     </FormLabel>
                     <FormControl>
                       <Input
                         {...field}
-                        disabled={isSubmitting}
+                        disabled={isExecuting}
                         placeholder="Title of message"
                         type="text"
                         className={`${
@@ -156,18 +116,18 @@ const ContactUsForm = () => {
             <div className="mt-6">
               <FormField
                 control={control}
-                name="message"
+                name="comment"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Message
+                      Your Review
                       <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
                     </FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}
-                        disabled={isSubmitting}
-                        placeholder="Write to us..."
+                        disabled={isExecuting}
+                        placeholder="Add your message..."
                         rows={5}
                         maxLength={200}
                         className={`w-full resize-none ${
@@ -197,20 +157,38 @@ const ContactUsForm = () => {
                 )}
               />
             </div>
+            <div className="mt-6">
+              <small className="my-3 font-medium">Rate Product</small>
+              <Rating
+                radius="medium"
+                className={`!w-36`}
+                isRequired
+                value={rating}
+                onChange={setRating}
+                itemStyles={{
+                  itemShapes: Heart,
+                  activeFillColor: "#ff0000",
+                  inactiveFillColor: "#ffd700",
+                }}
+              />
+              {rating} out of 5
+            </div>
             <ButtonLink
-              disabled={isSubmitting}
+              disabled={isExecuting}
               className="mt-4 w-full"
               type="submit"
-              onClick={() => !isValid && toast.error("Please fill all fields")}
+              onClick={() =>
+                isValid === false && toast.error("Please fill all fields")
+              }
             >
-              {isSubmitting ? (
+              {isExecuting ? (
                 <>
-                  Sending message
+                  Adding Review
                   <Loader className="ml-1 h-5 w-5 animate-spin" />
                 </>
               ) : (
                 <>
-                  Send message <Mail className="ml-2" />
+                  Post Review <SendHorizontal className="ml-2" />
                 </>
               )}
             </ButtonLink>
@@ -221,4 +199,4 @@ const ContactUsForm = () => {
   );
 };
 
-export default ContactUsForm;
+export default ProductReviews;

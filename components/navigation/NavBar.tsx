@@ -30,14 +30,14 @@ const NavBar = () => {
           </div>
 
           <div className="flex items-center justify-between">
-            <Categories />
-            <ul className="flex items-center justify-between gap-8 font-medium">
               <Link
                 href="/"
-                className="transition duration-300 ease-in hover:text-primary"
+                className="transition duration-300 ease-in hover:text-primary list-none font-medium"
               >
                 <li>Home</li>
               </Link>
+            <Categories />
+            <ul className="flex items-center justify-between gap-8 font-medium">
               <ShopCategories />
 
               <SignedOut>

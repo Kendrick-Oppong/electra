@@ -5,7 +5,6 @@ const strongPasswordRegex =
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
 export const contactUsSchema = z.object({
   name: z
     .string()
@@ -25,4 +24,26 @@ export const contactUsSchema = z.object({
     .max(200, { message: "Message cannot exceed 200 characters" }),
 });
 
+export const reviewSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: "Name must be at least 2 characters long" })
+    .max(50, { message: "Name cannot exceed 50 characters" }),
+  
+  comment: z
+    .string()
+    .min(2, { message: "Review must be at least 2 characters long" })
+    .max(500, { message: "Review cannot exceed 500 characters" }),
+});
 
+
+
+
+export const ReviewServerDataSchema = z.object({
+  productId: z.string(),
+  productType: z.enum(["Canon", "Sony", "Nikon", "Apple", "Dell", "Hp", "Samsung"]),
+  rating: z.number().min(1).max(5),
+  comment: z.string().min(2).max(500),
+  path:z.string(),
+  name:z.string(),
+});

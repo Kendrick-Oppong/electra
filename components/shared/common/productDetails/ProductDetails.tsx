@@ -1,21 +1,14 @@
 import {
   ProductRating,
-  ButtonLink,
   ProductDetailImageGallery,
   ProductDetailSpecifications,
   RelatedProducts,
   ProductDetailActions,
-  ProductQuantitySelector
+  ProductQuantitySelector,
+  ProductReviews
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  CircleCheck,
-  ShoppingCart,
-  CreditCard,
-  Plus,
-  Minus,
-} from "lucide-react";
-import { Input } from "@/components/ui/input";
+import {CircleCheck} from "lucide-react";
 
 import { Camera, Laptop, Monitor } from "@/types";
 
@@ -29,9 +22,9 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
 
   return (
     <>
-      <section className="grid lg:grid-cols-2 gap-5">
+      <section className="grid gap-5 lg:grid-cols-2">
         <div>
-          <ProductDetailImageGallery product={product}/>
+          <ProductDetailImageGallery product={product} />
         </div>
         <div className="mt-8 lg:mt-0">
           <h1 className="mb-4 text-3xl font-bold text-primary">
@@ -69,10 +62,10 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
             <p>In stock ({product.stockQuantity} remaining) </p>
           </div>
 
-         <ProductQuantitySelector productId={product._id}/>
+          <ProductQuantitySelector productId={product._id} />
 
           <div className="flex gap-3">
-            <ProductDetailActions product={product}/>
+            <ProductDetailActions product={product} />
           </div>
 
           <div className="my-4 flex items-center gap-2">
@@ -151,32 +144,31 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
           </TabsList>
           <TabsContent value="description" className="divide-y-2">
             <div>
-              <h2 className="font-bold mb-2 text-primary">
-                Short Description
-              </h2>
+              <h2 className="mb-2 font-bold text-primary">Short Description</h2>
               <p>{product.shortDescription}</p>
             </div>
 
             <div className="mt-5 pt-3">
-              <h2 className="font-bold mb-2 text-primary">
-                Full Description
-              </h2>
+              <h2 className="mb-2 font-bold text-primary">Full Description</h2>
               <p>{product.fullDescription}</p>
             </div>
-        
           </TabsContent>
           <TabsContent value="specifications">
-           <ProductDetailSpecifications product={product}/>
+            <ProductDetailSpecifications product={product} />
           </TabsContent>
-          <TabsContent value="reviews">No reviews</TabsContent>
+          <TabsContent value="reviews">
+            <ProductReviews productId={product._id} productType={product.brand}/>
+          </TabsContent>
         </Tabs>
       </section>
 
       {/* Related products */}
-    {product.brand &&  <section>
-        <h1 className="text-subtitle">You May Also Like</h1>
-        <RelatedProducts brand={product?.brand}/>
-      </section>}
+      {product.brand && (
+        <section>
+          <h1 className="text-subtitle">You May Also Like</h1>
+          <RelatedProducts brand={product?.brand} />
+        </section>
+      )}
     </>
   );
 };

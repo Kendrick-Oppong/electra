@@ -34,7 +34,7 @@ const favoritesSlice = createSlice({
         } else {
         state.favorites.push(action.payload);
         localStorage.setItem("favorites", JSON.stringify(state.favorites));
-        toast.success("Product successfully added to favorites!")
+        toast.success("Product added to favorites!")
       }
    
      
@@ -45,7 +45,7 @@ const favoritesSlice = createSlice({
         );
       localStorage.setItem("favorites", JSON.stringify(state.favorites));
         state.isInLocalStorage = true;
-        toast.success("Product successfully removed from favorites!");
+        toast.success("Product  removed from favorites!");
     },
   },
 });

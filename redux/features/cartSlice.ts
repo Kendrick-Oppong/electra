@@ -35,7 +35,7 @@ const cartSlice = createSlice({
         toast.success("Product quantity increased in cart!");
       } else {
         state.cart.push({ ...action.payload, quantity: 1 });
-        toast.success("Product successfully added to cart!");
+        toast.success("Product  added to cart!");
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cart));
       state.isInLocalStorage = true;
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
       state.cart = state.cart.filter((item) => item._id !== action.payload);
       localStorage.setItem("cartItems", JSON.stringify(state.cart));
       state.isInLocalStorage = true;
-      toast.success("Product successfully removed from cart!");
+      toast.success("Product  removed from cart!");
     },
     incrementQuantity: (state, action: PayloadAction<string>) => {
       const existingItemIndex = state.cart.findIndex(
