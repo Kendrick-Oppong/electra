@@ -4,10 +4,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { currentUser, auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    const url = new URL(req.url as string);
-    const productId = url.searchParams.get("productId") as string;
-    const productType = url.searchParams.get("productType") as string;
+export async function GET(req: Request, res: Response) {
+  const url = new URL(req.url as string);
+  const productId = url.searchParams.get("productId") as string;
+  const productType = url.searchParams.get("productType") as string;
 
   try {
     await dbConnect();
@@ -22,8 +22,6 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     const user = await currentUser();
     console.log("Current User ID:", user?.id);
 
-   
-
     if (!productId || !productType) {
       return NextResponse.json(
         { message: "Missing productId or productType" },
@@ -32,8 +30,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     }
 
     // Fetch reviews for the product
-    const reviews = await Review.find({ productId, productType })
-    
+    const reviews = await Review.find({ productId, productType });
 
     console.log("Reviews fetched:", reviews);
 
