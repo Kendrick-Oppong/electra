@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-
 const fetcher = <T,>(url: string): Promise<T> =>
   axios
     .get(`${baseUrl}/api/${url}`)

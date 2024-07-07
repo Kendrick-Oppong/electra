@@ -1,30 +1,18 @@
 import {
   ProductRating,
-  ButtonLink,
   ProductDetailImageGallery,
   ProductDetailActions,
   ProductQuantitySelector,
 } from "@/components/shared";
-
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {CircleCheck,} from "lucide-react";
 
-import {
-  CircleCheck,
-  ShoppingCart,
-  CreditCard,
-  Heart,
-  Plus,
-  Minus,
-} from "lucide-react";
-import { Input } from "@/components/ui/input";
 
 import { Camera, Laptop, Monitor } from "@/types";
 
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
-  SheetClose,
   SheetTrigger,
 } from "@/components/ui/sheet";
 

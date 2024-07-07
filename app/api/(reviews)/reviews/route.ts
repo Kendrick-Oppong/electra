@@ -15,7 +15,7 @@ export async function GET(req: Request, res: Response) {
     console.log("Auth User ID:", userId);
 
     if (!userId) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ message: "Unauthorized - Please sign in" }, { status: 401 });
     }
 
     const user = await currentUser();
@@ -29,7 +29,9 @@ export async function GET(req: Request, res: Response) {
     }
 
     // Fetch reviews for the product
-    const reviews = await Review.find({ productId, productType });
+    const reviews = await Review.find({ productId, productType }).select(
+      "username rating comment createdAt userId",
+    );
 
     console.log("Reviews fetched:", reviews);
 

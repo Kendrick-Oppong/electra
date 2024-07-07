@@ -32,7 +32,7 @@ interface ProductProps {
 const ProductReviews = ({ productId, productType }: ProductProps) => {
   const [rating, setRating] = useState(1);
   const pathname = usePathname();
-  const { isLoaded, isSignedIn,user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
 
   // In case the user signs out while on the page or is not logged in
   if (!isLoaded || !isSignedIn) {
@@ -47,7 +47,8 @@ const ProductReviews = ({ productId, productType }: ProductProps) => {
     },
   });
 
-  const { execute, hasSucceeded, hasErrored,isExecuting } = useAction(createSafeReview);
+  const { execute, hasSucceeded, hasErrored, isExecuting } =
+    useAction(createSafeReview);
 
   const {
     control,
@@ -71,8 +72,12 @@ const ProductReviews = ({ productId, productType }: ProductProps) => {
       productType,
     };
     execute(dataWithPathname);
-    if (hasErrored) {toast.error("Failed to add review")}
-    if (hasSucceeded) {toast.success("Review Successfully Created")}
+    if (hasErrored) {
+      toast.error("Failed to add review");
+    }
+    if (hasSucceeded) {
+      toast.success("Review Successfully Created");
+    }
   }
 
   return (

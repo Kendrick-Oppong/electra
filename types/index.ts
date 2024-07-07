@@ -1,4 +1,6 @@
-export type { CameraSchemaProps, Camera ,CameraPage} from "./cameraSchema";
+export type { CameraSchemaProps, Camera, CameraPage } from "./cameraSchema";
+
+export type { ReviewsResponse, Review } from "./reviewSchema";
 
 export type {
   LaptopSchemaProps,
