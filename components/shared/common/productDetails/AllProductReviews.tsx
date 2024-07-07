@@ -1,4 +1,5 @@
 import { useFetchProductDetail } from "@/hooks";
+import { formatDate } from "@/lib/getDateFormate";
 import {
   ProductReviewLoadingSkeleton,
   ErrorMessage,
@@ -50,7 +51,7 @@ export default async function AllProductReviews({
                 <TableRow>
                   <TableHead className="flex items-center justify-between bg-accent font-semibold text-primary">
                     <h2>{review.username || ""}</h2>
-                    <h2>{review.createdAt || ""}</h2>
+                    <h2>{ formatDate(review.createdAt) || ""}</h2>
                   </TableHead>
                 </TableRow>
               </TableHeader>
