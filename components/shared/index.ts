@@ -15,7 +15,6 @@ export { default as ToolTipPopUp } from "./ToolTipPopUp";
 export { default as ButtonLink } from "./ButtonLink";
 export { default as CookieAnnouncement } from "./CookieAnnouncement";
 export { default as ModalNewsLetter } from "./ModalNewsLetter";
-export { default as UserProfileDashboardPage } from "./DashBoardUi";
 
 export { default as ProductDetailSpecifications } from "./common/productDetails/ProductDetailSpecifications";
 export { default as MonitorDetailSpecifications } from "./common/productDetails/MonitorDetailSpecifications";
