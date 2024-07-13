@@ -43,7 +43,7 @@ const ProductReviews = ({ productId, productType }: ProductProps) => {
   const form = useForm<z.infer<typeof reviewSchema>>({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
-      name: user!.username ?? "",
+      name: user?.username ?? "",
       comment: "",
     },
   });

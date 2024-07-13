@@ -74,7 +74,7 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
         {cartItems.length > 0 && (
           <SheetFooter className="mt-[30px] sm:mt-[50px] lg:mt-[15px]  flex-wrap md:flex-nowrap items-center !justify-center gap-3 ">
             <SheetClose asChild>
-              <Link href="/dashboard">
+              <Link href="/dashboard/cart">
                 <ButtonLink type="button" className="mt-0 w-full">
                   View Cart
                 </ButtonLink>

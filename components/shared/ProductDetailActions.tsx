@@ -28,7 +28,7 @@ const ProductDetailActions = ({ product }: { product: ProductType }) => {
 
      {localStorageItems?.find(item=>item._id === product._id) ? (
         <ButtonLink type="button" className="bg-destructive flex-1 hover:bg-destructive hover:text-white hover:border-none" onClick={() => handleRemoveCart(product)}>
-       Remove from cart <Trash className="ml-2 inline-flex" />
+       Remove  <Trash className="ml-2 inline-flex" />
       </ButtonLink>
       ) : ( 
         <ButtonLink type="button" className="flex-1"  onClick={() => handleAddCart(product)}>

@@ -21,7 +21,7 @@ interface ProductProps {
   productType: string;
 }
 
-export default async function AllProductReviews({
+export default function AllProductReviews({
   productId,
   productType,
 }: Readonly<ProductProps>) {

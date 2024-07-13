@@ -34,19 +34,17 @@ const DashBoardLayout = ({
             
                 <Link
                   href="/dashboard/cart"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2  transition-all hover:text-primary"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Cart
-                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                    6
-                  </Badge>
+                
                 </Link>
               
             
                 <Link
                   href="/dashboard/favorite"
-                  className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+                  className="flex items-center gap-3 rounded-lg  px-3 py-2  transition-all hover:text-primary"
                 >
                   <Heart className="h-5 w-5" />
                   Favorites{" "}
@@ -82,19 +80,17 @@ const DashBoardLayout = ({
                
                   <Link
                     href="#"
-                    className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+                    className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 hover:text-primary"
                   >
                     <ShoppingCart className="h-5 w-5" />
                     Cart
-                    <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                      6
-                    </Badge>
+                
                   </Link>
                
                
                   <Link
                     href="#"
-                    className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                    className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground"
                   >
                     <Heart className="h-5 w-5" />
                     Favorites
@@ -104,7 +100,7 @@ const DashBoardLayout = ({
             </SheetContent>
           </Sheet>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex flex-1 flex-col gap-4 p-2 lg:gap-6 lg:p-4">
           <div className="flex items-center">
             <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
           </div>
