@@ -6,9 +6,9 @@ import { Provider } from "react-redux";
 
 export default function ReduxStoreProvider({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const storeRef = useRef<AppStore>();
   if (!storeRef.current) {
     // Create the store instance the first time this renders

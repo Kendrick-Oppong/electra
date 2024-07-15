@@ -18,7 +18,7 @@ export default async function Home() {
       {/* Hero section */}
       <section className="mx-0 mt-0 grid bg-accent px-5 md:grid-cols-2">
         <div className="self-center">
-          <h1 className="pt-7 text-5xl font-bold leading-tight md:pt-0 md:text-4xl lg:text-6xl">
+          <h1 className="pt-7 text-[2.3rem] font-bold leading-tight md:pt-0 lg:text-6xl">
             Discover Our Latest <br /> <span>Stylish Monitors</span>
           </h1>
           <p className="my-4 text-xl font-semibold">
@@ -94,9 +94,9 @@ export default async function Home() {
             width={400}
             height={400}
             sizes="(max-width:768px) 100vw, 400px"
-            alt="New Arrival Phone"
+            alt=""
             priority
-            className=""
+            className="w-[350px] md:w-auto"
           />
           <h2 className="text-2xl font-bold leading-tight">
             High Quality Hp Laptops
@@ -146,6 +146,7 @@ export default async function Home() {
               sizes="(max-width:768px) 100vw, 400px"
               alt="canon camera"
               priority
+              className="w-[350px] md:w-auto"
             />
           </div>
         </div>
@@ -175,25 +176,25 @@ export default async function Home() {
       {/* Categories */}
       <section className="">
         <h1 className="text-subtitle">Categories</h1>
-        <div className="flex flex-wrap gap-4">
-          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
-            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
+        <div className="flex flex-wrap rounded-md gap-4">
+          <div className="min-h-72 rounded-md flex-1 bg-[url('https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex rounded-md h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Camera</h2>
               <Link href="/shop/cameras">
                 <ButtonLink>View Collection</ButtonLink>
               </Link>
             </div>
           </div>
-          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
-            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
+          <div className="min-h-72 rounded-md flex-1 bg-[url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex rounded-md h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Laptop</h2>
               <Link href="/shop/laptops">
                 <ButtonLink>View Collection</ButtonLink>
               </Link>
             </div>
           </div>
-          <div className="min-h-72 flex-1 bg-[url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
-            <div className="flex h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
+          <div className="min-h-72 rounded-md flex-1 bg-[url('https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat backdrop-blur-sm">
+            <div className="flex rounded-md h-full flex-col items-center justify-center bg-[#00000045] text-3xl text-white backdrop-blur-sm">
               <h2 className="opacity-1">Monitor</h2>
               <Link href="/shop/monitors">
                 <ButtonLink>View Collection</ButtonLink>

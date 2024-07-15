@@ -42,7 +42,7 @@ export default function FavoritePage() {
                   <p className="my-2 text-destructive">${item.price}</p>
                 </div>
               </div>
-              <div className="pt-4 flex flex-wrap items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between pt-4">
                 <div>
                   <Trash2
                     className="cursor-pointer text-destructive"
@@ -50,7 +50,7 @@ export default function FavoritePage() {
                     onClick={() => handleRemoveFavorite(item._id)}
                   />
                 </div>
-                <div className="[&>button]:mt-0 mt-5 sm:mt-0">
+                <div className="mt-5 sm:mt-0 [&>button]:mt-0">
                   <ProductDetailActions product={item} />
                 </div>
               </div>

@@ -4,21 +4,17 @@ import {
   ModeToggle,
   GlobalSearch,
   FavoriteCartIcons,
+  MobileNavbarSheet,
 } from ".";
 import Link from "next/link";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { navLinks } from "@/constants/navLinks";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, Menu } from "lucide-react";
 
 const NavBar = () => {
   return (
     <header>
-      <nav className="px-5 py-5">
+      <nav className="px-3 py-5 sm:px-5">
         <div className="flex items-center justify-between">
           <div className="text-4xl font-black">
             <Link href="/">
@@ -29,17 +25,10 @@ const NavBar = () => {
             </Link>
           </div>
 
-          <div className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="transition duration-300 ease-in hover:text-primary list-none font-medium"
-              >
-                <li>Home</li>
-              </Link>
+          <div className="hidden items-center justify-between lg:flex">
             <Categories />
-            <ul className="flex items-center justify-between gap-8 font-medium">
+            <ul className="flex items-center justify-between gap-4 font-medium">
               <ShopCategories />
-
               <SignedOut>
                 <Link
                   href="/sign-in"
@@ -60,13 +49,36 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <div className="relative z-50 flex items-center justify-between gap-8">
+          <div className="flex items-center gap-6 sm:hidden">
+            <div className="sm:hidden">
+              <ModeToggle />
+            </div>
+           
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
+           
+            <MobileNavbarSheet>
+              <Menu
+                size={30}
+                className="border-gray cursor-pointer rounded-sm shadow-xl"
+              />
+            </MobileNavbarSheet>
+          </div>
+
+          <div className="relative z-50 hidden items-center justify-between gap-4 sm:flex lg:gap-8">
             <GlobalSearch />
             <div>
               <ModeToggle />
             </div>
             <SignedOut>
               <FavoriteCartIcons />
+              <MobileNavbarSheet>
+                <Menu
+                  size={30}
+                  className="border-gray cursor-pointer rounded-sm shadow-xl lg:hidden"
+                />
+              </MobileNavbarSheet>
             </SignedOut>
             <SignedIn>
               <Link
@@ -76,6 +88,12 @@ const NavBar = () => {
                 <LayoutDashboard />
               </Link>
               <UserButton afterSignOutUrl="/" />
+              <MobileNavbarSheet>
+                <Menu
+                  size={30}
+                  className="border-gray cursor-pointer rounded-sm shadow-xl lg:hidden"
+                />
+              </MobileNavbarSheet>
             </SignedIn>
           </div>
         </div>

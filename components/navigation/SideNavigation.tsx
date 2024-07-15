@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ShoppingCart, LayoutDashboard, View, ChevronsUp, Search } from "lucide-react";
+import { ShoppingCart, LayoutDashboard, ChevronsUp, Search } from "lucide-react";
 import { ToolTipPopUp } from "@/components/shared";
 import { CartSheet } from ".";
 import { toggleSearch } from "@/redux/features/searchToggleSlice";
@@ -17,7 +17,7 @@ const SideNavigation = () => {
   };
 
   return (
-    <aside className="fixed bottom-0 right-1 top-0 z-50 flex flex-col justify-center self-center justify-self-center">
+    <aside className="fixed bottom-0 right-1 top-0  flex flex-col justify-center self-center justify-self-center z-[1000]">
       <div className="relative divide-y-4 text-white">
         <CartSheet>
           <div className="bg-primary p-1 dark:bg-primary">
@@ -42,11 +42,6 @@ const SideNavigation = () => {
             className="cursor-pointer"
             onClick={() => dispatch(toggleSearch())}
           />
-        </div>
-
-        <div className="bg-primary p-1">
-          <ToolTipPopUp id="#Recent-views" content="Recent Views" />
-          <View size={27} id="Recent-views" className="cursor-pointer" />
         </div>
 
         <div className="bg-primary p-1">

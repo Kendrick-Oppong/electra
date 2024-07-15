@@ -129,7 +129,7 @@ const GlobalSearch: React.FC = () => {
         className="cursor-pointer"
         onClick={() => dispatch(toggleSearch())}
       >
-        <Search size={30} />
+        <Search size={28} />
       </div>
       {isExpanded && (
         <div className="fixed left-0 top-0 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md z-[10000]">
@@ -197,7 +197,7 @@ const GlobalSearch: React.FC = () => {
                     </div>
                   ) : (
                     <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
-                      <p className="flex items-center justify-center gap-1">
+                      <p className="flex items-center justify-center gap-1 !text-lg">
                         <Lightbulb className="text-[#ff7900]" />
                         Try searching by product or changing category
                       </p>
