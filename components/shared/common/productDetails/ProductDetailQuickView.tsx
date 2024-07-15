@@ -31,7 +31,7 @@ const ProductDetailQuickView = ({ product, children }: QuickViewProps) => {
     <section className="m-0">
       <Sheet>
         <SheetTrigger asChild>{children}</SheetTrigger>
-        <SheetContent side="bottom" className=" pt-14">
+        <SheetContent side="bottom" className="!px-0 md:px-auto py-14">
           <ScrollArea
             className="h-[30rem] lg:h-[35rem] !px-[0.5rem] sm:px-auto"
             style={{ scrollbarWidth: "none" }}
