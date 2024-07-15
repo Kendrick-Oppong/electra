@@ -93,7 +93,7 @@ const Footer = () => {
               <div key={category.category} className="flex flex-col flex-1">
                 <h2 className="mb-2 font-bold">{category.category}</h2>
                 {category.items.map((subCategory) => (
-                  <Link key={subCategory.name} href="" legacyBehavior passHref>
+                  <Link key={subCategory.name} href={subCategory.href} legacyBehavior passHref>
                     <a className="w-full hover:text-primary transition ease-in duration-300 mb-3">
                       {subCategory.name}
                     </a>

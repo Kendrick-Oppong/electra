@@ -33,7 +33,7 @@ const SortProduct = () => {
   return (
 
     
-  <div className="my-8 flex justify-between font-semibold">
+  <div className="my-8 flex gap-6 flex-wrap justify-between font-semibold">
     <p>
       Showing 1 - <span className="text-destructive">12</span> of{" "}
       <span>12</span> items
