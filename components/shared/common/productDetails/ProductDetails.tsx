@@ -23,7 +23,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
 
   return (
     <>
-      <section className="grid gap-5 lg:grid-cols-2">
+      <section className="mx-0 px-4 grid grid-cols-1 gap-5 lg:grid-cols-2">
         <div>
           <ProductDetailImageGallery product={product} />
         </div>
@@ -65,7 +65,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
 
           <ProductQuantitySelector productId={product._id} />
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap sm:gap-3 [&>button:!mt-2]">
             <ProductDetailActions product={product} />
           </div>
 
@@ -138,10 +138,10 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
       {/* Description and Specifications */}
       <section>
         <Tabs defaultValue="description" className="">
-          <TabsList className="mb-8 flex gap-3 rounded-none bg-transparent">
-            <TabsTrigger value="description">Description</TabsTrigger>
-            <TabsTrigger value="specifications">Specifications</TabsTrigger>
-            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+          <TabsList className="mb-24 sm:mb-8 flex flex-wrap gap-3 rounded-none bg-transparent">
+            <TabsTrigger value="description" className="flex-1 sm:flex-initial">Description</TabsTrigger>
+            <TabsTrigger value="specifications" className="flex-1 sm:flex-initial">Specifications</TabsTrigger>
+            <TabsTrigger value="reviews" className="flex-1 sm:flex-initial">Reviews</TabsTrigger>
           </TabsList>
           <TabsContent value="description" className="divide-y-2">
             <div>
