@@ -93,7 +93,7 @@ const FaqPage = () => {
     <section className="mt-10">
       <div className="mx-auto max-w-7xl">
         <h1 className="mb-8 text-subtitle !mt-0 font-bold">
-          Frequently Asked Questions
+          Frequently <span>Asked Questions</span>
         </h1>
         <Accordion type="single" collapsible>
           {faqs.map((faqCategory, index) => (

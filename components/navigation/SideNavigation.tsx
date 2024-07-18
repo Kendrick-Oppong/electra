@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
-import { ShoppingCart, LayoutDashboard, ChevronsUp, Search } from "lucide-react";
-import { ToolTipPopUp } from "@/components/shared";
+import {
+  ShoppingCart,
+  LayoutDashboard,
+  ChevronsUp,
+  Search,
+} from "lucide-react";
+import { ToolTipPopUp, } from "@/components/shared";   
+import {GlobalSearch } from "@/components/navigation";   
 import { CartSheet } from ".";
 import { toggleSearch } from "@/redux/features/searchToggleSlice";
 import { useAppDispatch } from "@/redux/hooks";
@@ -17,7 +23,7 @@ const SideNavigation = () => {
   };
 
   return (
-    <aside className="fixed bottom-0 right-1 top-0  flex flex-col justify-center self-center justify-self-center z-[1000]">
+    <aside className="fixed bottom-0 right-1 top-0 z-[1000] flex flex-col justify-center self-center justify-self-center">
       <div className="relative divide-y-4 text-white">
         <CartSheet>
           <div className="bg-primary p-1 dark:bg-primary">
@@ -29,19 +35,23 @@ const SideNavigation = () => {
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#dashboard" content="Dashboard" />
           <Link href="/dashboard">
-          <LayoutDashboard size={27} id="dashboard" className="cursor-pointer" />
+            <LayoutDashboard
+              size={27}
+              id="dashboard"
+              className="cursor-pointer"
+            />
           </Link>
         </div>
-        
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#search" content="Search" />
-          <Search
+          {/* <Search
             size={27}
             id="search"
             className="cursor-pointer"
             onClick={() => dispatch(toggleSearch())}
-          />
+          /> */}
+              <GlobalSearch />
         </div>
 
         <div className="bg-primary p-1">

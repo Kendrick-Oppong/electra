@@ -25,7 +25,7 @@ import toast from "react-hot-toast";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-const GlobalSearch: React.FC = () => {
+const GlobalSearch = () => {
   const dispatch = useAppDispatch();
   const isExpanded = useAppSelector(getSearchToggleState);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
@@ -123,35 +123,35 @@ const GlobalSearch: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative font-normal">
       <div
         role="button"
-        className="cursor-pointer"
+        className="cursor-pointer "
         onClick={() => dispatch(toggleSearch())}
       >
         <Search size={28} />
       </div>
       {isExpanded && (
-        <div className="fixed left-0 top-0 flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md z-[10000]">
-          <div className="relative w-full bg-accent px-5 py-16 shadow-md sm:px-10 z-[10000]">
+        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col  bg-black bg-opacity-50 backdrop-blur-md">
+          <div className="relative z-[10000] w-full bg-accent px-3 py-16 shadow-md sm:px-10">
             <div
               role="button"
-              className="absolute right-6 top-5 cursor-pointer"
+              className="absolute right-4 sm:right-6 top-5 cursor-pointer"
               onClick={() => dispatch(setSearchExpanded(false))}
             >
-              <X size={30} />
+              <X size={30} className="!text-black dark:!text-white"/>
             </div>
             <div className="relative flex w-full flex-col items-center gap-3 md:flex-row">
-              <div className="w-full md:basis-[30%]">
+              <div className="relative w-full md:basis-[30%] z-[10000]">
                 <Select onValueChange={(value) => handleBrandSelect(value)}>
-                  <SelectTrigger className="py-[1.3rem]">
+                  <SelectTrigger className="py-[1.3rem] font-normal">
                     <SelectValue placeholder="Search By" />
                   </SelectTrigger>
-                  <SelectContent className="border-gray">
+                  <SelectContent className="border-gray font-normal relative z-[10000]">
                     <SelectGroup>
                       {brands.map((searchCategory) => (
                         <SelectItem value={searchCategory} key={searchCategory}>
-                          <p className="text-black dark:text-white">
+                          <p className="font-normal !text-black dark:!text-white">
                             {searchCategory === "Default"
                               ? "Category: All "
                               : `Category: ${searchCategory}`}
@@ -162,8 +162,8 @@ const GlobalSearch: React.FC = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="relative w-full">
-                <Search className="absolute left-4 top-2.5 opacity-50" />
+              <div className="relative w-full font-normal ">
+                <Search className="absolute left-4 top-2.5 opacity-50 !text-black dark:!text-white" />
                 <div>
                   <Input
                     value={searchQuery}
@@ -171,33 +171,35 @@ const GlobalSearch: React.FC = () => {
                     onKeyDown={handleKeyDown}
                     type="search"
                     placeholder="Search Product..."
-                    className="h-11 w-full rounded-md border border-primary pl-14"
+                    className="h-11 w-full !text-black dark:!text-white rounded-md border border-primary pl-14"
                   />
                   {loading && (
-                    <div className="w-full">
-                      <Loader className="mx-auto animate-spin" />
+                    <div className="w-full ">
+                      <Loader className="mx-auto animate-spin !text-black dark:!text-white" />
                     </div>
                   )}
                   {suggestions.length > 0 ? (
-                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent shadow-lg">
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent font-normal shadow-lg !text-black dark:!text-white">
                       <ScrollArea className="h-[400px]">
                         {suggestions.map((suggestion, index) => (
                           <div
                             role="button"
                             key={index}
-                            className="cursor-pointer p-2 hover:bg-secondary"
+                            className="cursor-pointer p-2 font-normal hover:bg-secondary"
                             onClick={() =>
                               handleSuggestionClick(suggestion.title)
                             }
                           >
-                            {suggestion.title}
+                            <p className="!text-lg font-normal">
+                              {suggestion.title}
+                            </p>
                           </div>
                         ))}
                       </ScrollArea>
                     </div>
                   ) : (
-                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 shadow-lg">
-                      <p className="flex items-center justify-center gap-1 !text-lg">
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 font-normal shadow-lg !text-black dark:!text-white">
+                      <p className="flex justify-center items-center !text-lg font-normal">
                         <Lightbulb className="text-[#ff7900]" />
                         Try searching by product or changing category
                       </p>

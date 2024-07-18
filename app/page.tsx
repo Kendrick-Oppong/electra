@@ -18,7 +18,7 @@ export default async function Home() {
       {/* Hero section */}
       <section className="mx-0 mt-0 grid bg-accent px-5 md:grid-cols-2">
         <div className="self-center">
-          <h1 className="pt-7 text-[2.3rem] font-bold leading-tight md:pt-0 lg:text-6xl">
+          <h1 className="pt-7 text-[2.2rem] sm:text-[2.3rem] font-bold leading-tight md:pt-0 lg:text-6xl">
             Discover Our Latest <br /> <span>Stylish Monitors</span>
           </h1>
           <p className="my-4 text-xl font-semibold">

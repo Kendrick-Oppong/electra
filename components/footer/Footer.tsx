@@ -69,7 +69,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="lg:ml-10">
+        <div className="mt-8 md:mt-0 lg:ml-10">
           <h2 className="font-bold text-xl mb-4 text-primary">Navigation</h2>
           <ul>
             {navLinks.map((link) => (

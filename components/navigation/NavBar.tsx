@@ -53,11 +53,12 @@ const NavBar = () => {
             <div className="sm:hidden">
               <ModeToggle />
             </div>
-           
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-           
+
+
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+
             <MobileNavbarSheet>
               <Menu
                 size={30}
@@ -65,7 +66,6 @@ const NavBar = () => {
               />
             </MobileNavbarSheet>
           </div>
-
           <div className="relative z-50 hidden items-center justify-between gap-4 sm:flex lg:gap-8">
             <GlobalSearch />
             <div>

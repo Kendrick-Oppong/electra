@@ -17,11 +17,11 @@ return (
         className="h-[50px] w-[50px] md:w-[60px] cursor-pointer"
       />
     </DialogTrigger>
-    <DialogContent className="mx-auto max-w-3xl p-3 bg-accent">
+    <DialogContent className="z-[10009] mx-auto max-w-3xl p-3 bg-accent">
       <ReactPlayer
         url={url}
         controls={true}
-        style={{ marginInline: "auto", width: "100%!important", marginTop:"2rem" }}
+        style={{ marginInline: "auto", width: "100%!important", marginTop:"3rem" }}
         className="!w-full"
         fallback={<Loader className="animate-spin" />}
       />
