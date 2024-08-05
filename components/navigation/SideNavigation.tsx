@@ -6,8 +6,8 @@ import {
   ChevronsUp,
   Search,
 } from "lucide-react";
-import { ToolTipPopUp, } from "@/components/shared";   
-import {GlobalSearch } from "@/components/navigation";   
+import { ToolTipPopUp } from "@/components/shared";
+import { GlobalSearch } from "@/components/navigation";
 import { CartSheet } from ".";
 import { toggleSearch } from "@/redux/features/searchToggleSlice";
 import { useAppDispatch } from "@/redux/hooks";
@@ -34,7 +34,7 @@ const SideNavigation = () => {
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#dashboard" content="Dashboard" />
-          <Link href="/dashboard">
+          <Link href="/dashboard/cart">
             <LayoutDashboard
               size={27}
               id="dashboard"
@@ -45,13 +45,8 @@ const SideNavigation = () => {
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#search" content="Search" />
-          {/* <Search
-            size={27}
-            id="search"
-            className="cursor-pointer"
-            onClick={() => dispatch(toggleSearch())}
-          /> */}
-              <GlobalSearch />
+         
+          <GlobalSearch />
         </div>
 
         <div className="bg-primary p-1">

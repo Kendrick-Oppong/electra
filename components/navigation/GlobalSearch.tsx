@@ -1,3 +1,4 @@
+
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useRef, useCallback, KeyboardEvent } from "react";
@@ -126,28 +127,28 @@ const GlobalSearch = () => {
     <div className="relative font-normal">
       <div
         role="button"
-        className="cursor-pointer "
+        className="cursor-pointer"
         onClick={() => dispatch(toggleSearch())}
       >
         <Search size={28} />
       </div>
       {isExpanded && (
-        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col  bg-black bg-opacity-50 backdrop-blur-md">
+        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md">
           <div className="relative z-[10000] w-full bg-accent px-3 py-16 shadow-md sm:px-10">
             <div
               role="button"
-              className="absolute right-4 sm:right-6 top-5 cursor-pointer"
+              className="absolute right-4 top-5 cursor-pointer sm:right-6"
               onClick={() => dispatch(setSearchExpanded(false))}
             >
-              <X size={30} className="!text-black dark:!text-white"/>
+              <X size={30} className="!text-black dark:!text-white" />
             </div>
             <div className="relative flex w-full flex-col items-center gap-3 md:flex-row">
-              <div className="relative w-full md:basis-[30%] z-[10000]">
+              <div className="relative z-[10000] w-full md:basis-[30%]">
                 <Select onValueChange={(value) => handleBrandSelect(value)}>
                   <SelectTrigger className="py-[1.3rem] font-normal">
                     <SelectValue placeholder="Search By" />
                   </SelectTrigger>
-                  <SelectContent className="border-gray font-normal relative z-[10000]">
+                  <SelectContent className="border-gray relative z-[10000] font-normal">
                     <SelectGroup>
                       {brands.map((searchCategory) => (
                         <SelectItem value={searchCategory} key={searchCategory}>
@@ -162,8 +163,8 @@ const GlobalSearch = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="relative w-full font-normal ">
-                <Search className="absolute left-4 top-2.5 opacity-50 !text-black dark:!text-white" />
+              <div className="relative w-full font-normal">
+                <Search className="absolute left-4 top-2.5 !text-black opacity-50 dark:!text-white" />
                 <div>
                   <Input
                     value={searchQuery}
@@ -171,15 +172,15 @@ const GlobalSearch = () => {
                     onKeyDown={handleKeyDown}
                     type="search"
                     placeholder="Search Product..."
-                    className="h-11 w-full !text-black dark:!text-white rounded-md border border-primary pl-14"
+                    className="h-11 w-full rounded-md border border-primary pl-14 !text-black dark:!text-white"
                   />
                   {loading && (
-                    <div className="w-full ">
+                    <div className="w-full">
                       <Loader className="mx-auto animate-spin !text-black dark:!text-white" />
                     </div>
                   )}
                   {suggestions.length > 0 ? (
-                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent font-normal shadow-lg !text-black dark:!text-white">
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent font-normal !text-black shadow-lg dark:!text-white">
                       <ScrollArea className="h-[400px]">
                         {suggestions.map((suggestion, index) => (
                           <div
@@ -198,10 +199,10 @@ const GlobalSearch = () => {
                       </ScrollArea>
                     </div>
                   ) : (
-                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 font-normal shadow-lg !text-black dark:!text-white">
-                      <p className="flex justify-center items-center !text-lg font-normal">
+                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border p-1 font-normal !text-black shadow-lg dark:!text-white">
+                      <p className="flex items-center justify-center !text-lg font-normal">
                         <Lightbulb className="text-[#ff7900]" />
-                        Try searching by product or changing category
+                        Search by product or category
                       </p>
                     </div>
                   )}

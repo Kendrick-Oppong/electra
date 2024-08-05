@@ -82,7 +82,7 @@ const NavBar = () => {
             </SignedOut>
             <SignedIn>
               <Link
-                href="/dashboard"
+                href="/dashboard/cart"
                 className={`flex items-center transition duration-300 ease-in hover:text-primary`}
               >
                 <LayoutDashboard />
