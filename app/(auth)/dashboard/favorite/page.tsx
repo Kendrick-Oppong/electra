@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Trash2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { ProductDetailActions } from "@/components/shared";
@@ -7,10 +8,17 @@ import {
   removeFavorite,
 } from "@/redux/features/favoriteSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { Input } from "@/components/ui/input";
 
 export default function FavoritePage() {
+  const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useAppDispatch();
   const favoriteItems = useAppSelector(getAllLocalStorageFavoriteProduct);
+
+  const filteredFavorites = favoriteItems.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+  console.log(searchQuery);
 
   const handleRemoveFavorite = (productId: string) => {
     dispatch(removeFavorite(productId));
@@ -23,7 +31,13 @@ export default function FavoritePage() {
           <h1 className="font-bold">
             Your Wishlist <span>({favoriteItems.length} items)</span>
           </h1>
-          {favoriteItems.map((item) => (
+          <Input
+            type="search"
+            value={searchQuery}
+            placeholder="Filter by title"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {filteredFavorites.map((item) => (
             <div
               key={item._id}
               className="border-gray divide-y-2 rounded-lg p-2"
@@ -50,7 +64,7 @@ export default function FavoritePage() {
                     onClick={() => handleRemoveFavorite(item._id)}
                   />
                 </div>
-                <div className="mt-5 sm:mt-0 [&>button]:mt-0">
+                <div className="mt-5 space-x-2 sm:mt-0">
                   <ProductDetailActions product={item} />
                 </div>
               </div>

@@ -133,7 +133,7 @@ const GlobalSearch = () => {
         <Search size={28} />
       </div>
       {isExpanded && (
-        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-md">
+        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col bg-black bg-opacity-50 ">
           <div className="relative z-[10000] w-full bg-accent px-3 py-16 shadow-md sm:px-10">
             <div
               role="button"
@@ -165,7 +165,7 @@ const GlobalSearch = () => {
               </div>
               <div className="relative w-full font-normal">
                 <Search className="absolute left-4 top-2.5 !text-black opacity-50 dark:!text-white" />
-                <div>
+                <div className="!text-black dark:!text-white">
                   <Input
                     value={searchQuery}
                     onChange={(e) => handleGlobalSearch(e)}
@@ -180,7 +180,7 @@ const GlobalSearch = () => {
                     </div>
                   )}
                   {suggestions.length > 0 ? (
-                    <div className="border-gray absolute z-10 mt-1 w-full rounded-md border bg-accent font-normal !text-black shadow-lg dark:!text-white">
+                    <div className="border-gray absolute z-[100] mt-1 w-full rounded-md border bg-accent font-normal !text-black shadow-lg dark:!text-white">
                       <ScrollArea className="h-[400px]">
                         {suggestions.map((suggestion, index) => (
                           <div

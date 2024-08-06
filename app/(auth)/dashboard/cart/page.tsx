@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Trash2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { ProductQuantitySelector } from "@/components/shared";
@@ -7,11 +8,15 @@ import {
   removeCart,
 } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { Input } from "@/components/ui/input";
 
 export default function CartPage() {
+  const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector(getAllLocalStorageCartProduct);
-
+  const filteredcart = cartItems.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
   const handleRemoveCart = (productId: string) => {
     dispatch(removeCart(productId));
   };
@@ -23,7 +28,13 @@ export default function CartPage() {
           <h1 className="font-bold">
             Your Cart <span>({cartItems.length} items)</span>
           </h1>
-          {cartItems.map((item) => (
+          <Input
+            type="search"
+            value={searchQuery}
+            placeholder="Filter by title"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {filteredcart.map((item) => (
             <div
               key={item._id}
               className="border-gray divide-y-2 rounded-lg p-2"

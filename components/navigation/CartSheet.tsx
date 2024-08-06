@@ -34,7 +34,7 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
           </SheetTitle>
         </SheetHeader>
         <ScrollArea
-          className="h-[30rem] lg:h-[35rem]"
+          className="h-[26rem] sm:h-[30rem] lg:h-[32rem]"
           style={{ scrollbarWidth: "none" }}
         >
           <div className="mt-8">
@@ -72,18 +72,20 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
           </div>
         </ScrollArea>
         {cartItems.length > 0 && (
-          <SheetFooter className="mt-[30px] sm:mt-[50px] lg:mt-[15px]  flex-wrap md:flex-nowrap items-center !justify-center gap-3 ">
-            <SheetClose asChild>
-              <Link href="/dashboard/cart">
-                <ButtonLink type="button" className="mt-0 w-full">
+          <SheetFooter className="mt-[30px] flex-wrap items-center !justify-center gap-3 sm:mt-[50px] md:flex-nowrap lg:mt-[15px]">
+            <SheetClose asChild className="flex">
+              <Link href="/dashboard/cart" className="flex-1 sm:flex-none">
+                <ButtonLink type="button" className="mt-0 w-full flex-1">
                   View Cart
                 </ButtonLink>
               </Link>
             </SheetClose>
             <SheetClose asChild>
-              <ButtonLink type="button" className="mt-0 !mx-0 w-full">
-                Checkout
-              </ButtonLink>
+              <Link href="/" className="flex-1 sm:flex-none">
+                <ButtonLink type="button" className="!mx-0 mt-0 w-full">
+                  Checkout
+                </ButtonLink>
+              </Link>
             </SheetClose>
           </SheetFooter>
         )}

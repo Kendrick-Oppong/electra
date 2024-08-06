@@ -32,7 +32,7 @@ const ModalNewsLetter = () => {
   return (
     modalPopup &&
     hideModal && (
-      <div className="fixed inset-0 z-[110] flex w-full items-center justify-center bg-black bg-opacity-50">
+      <div className="hidden lg:fixed inset-0 z-[110] flex w-full items-center justify-center bg-black bg-opacity-50">
         <div className="relative w-full max-w-5xl rounded-lg bg-accent p-8 shadow-lg">
           <div className="">
             <X
@@ -58,7 +58,7 @@ const ModalNewsLetter = () => {
                 Newsletter{" "}
               </h1>
               <div className="relative mb-4">
-                <NewsletterForm />
+                <NewsletterForm handleClose={handleClose}/>
               </div>
               <p>
                 Subscribe to the mailing list to receive updates on new

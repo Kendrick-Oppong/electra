@@ -13,8 +13,6 @@ import {
 import {
   Categories,
   ShopCategories,
-  ModeToggle,
-  GlobalSearch,
   FavoriteCartIcons,
 } from ".";
 import Link from "next/link";
@@ -44,29 +42,18 @@ export default function MobileNavbarSheet({
                       </h1>
                     </Link>
                   </SheetClose>
-                  <div className="relative flex items-center gap-4">
-                     <SheetClose asChild>
-                    <GlobalSearch />
-                  </SheetClose>
-                   
-                  </div>
+                 
                 </div>
 
                 <div className=" ">
-                   
-                    <div className="relative z-[101] -translate-x-4">
-                  
-                        <Categories />
-                    
+                  <div className="relative z-[101] -translate-x-4">
+                    <Categories />
                   </div>
-                 
+
                   <ul className="font-medium">
-                      
-                       <div className="relative z-[100] my-4 -translate-x-4">
+                    <div className="relative z-[100] my-4 -translate-x-4">
                       <ShopCategories />
                     </div>
-                     
-                   
 
                     <SignedOut>
                       <SheetClose asChild>
@@ -77,12 +64,11 @@ export default function MobileNavbarSheet({
                           <p className="my-4">Sign in</p>
                         </Link>
                       </SheetClose>
-                       <SheetClose asChild>
+                      <SheetClose asChild>
                         <div className="space-y-4">
-                        <FavoriteCartIcons />
-                      </div>
+                          <FavoriteCartIcons />
+                        </div>
                       </SheetClose>
-                    
                     </SignedOut>
 
                     <SignedIn>
@@ -111,7 +97,6 @@ export default function MobileNavbarSheet({
               </div>
             </nav>
           </header>
-        
         </SheetContent>
       </Sheet>
     </div>
