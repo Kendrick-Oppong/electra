@@ -48,7 +48,7 @@ const SortProduct = () => {
             className="text-black dark:text-white"
           />
         </SelectTrigger>
-        <SelectContent className="border-gray rounded-md">
+        <SelectContent className="border-gray rounded-md z-[100]">
           {sortingOptions.map((option) => (
             <SelectItem key={option.label} value={option.value}>
               <p className="text-black dark:text-white">{option.label}</p>

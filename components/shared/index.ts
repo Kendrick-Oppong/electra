@@ -30,4 +30,5 @@ export { default as ProductDetailQuickView } from "./common/productDetails/Produ
 export { default as ProductReviews } from "./common/productDetails/ProductReviewsForm";
 export { default as AllProductReviews } from "./common/productDetails/AllProductReviews";
 export { default as ProductReviewLoadingSkeleton } from "./common/productDetails/ProductReviewLoadingSkeleton";
+export { default as SocialShareLinks } from "./common/productDetails/SocialShareLinks";
 

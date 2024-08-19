@@ -85,7 +85,7 @@ const NavBar = () => {
                 href="/dashboard/cart"
                 className={`flex items-center transition duration-300 ease-in hover:text-primary`}
               >
-                <LayoutDashboard />
+                <LayoutDashboard  />
               </Link>
               <UserButton afterSignOutUrl="/" />
               <MobileNavbarSheet>

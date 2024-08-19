@@ -18,7 +18,7 @@ import {
 import Link from "next/link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { navLinks } from "@/constants/navLinks";
-import { LayoutDashboard, Menu } from "lucide-react";
+import { ShoppingCart, Menu } from "lucide-react";
 
 export default function MobileNavbarSheet({
   children,
@@ -77,7 +77,7 @@ export default function MobileNavbarSheet({
                           href="/dashboard/cart"
                           className={`flex items-center gap-2 font-medium transition duration-300 ease-in hover:text-primary`}
                         >
-                          <LayoutDashboard /> Dashboard
+                          <ShoppingCart /> Dashboard
                         </Link>
                       </SheetClose>
                     </SignedIn>

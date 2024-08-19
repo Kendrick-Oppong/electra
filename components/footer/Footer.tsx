@@ -5,7 +5,7 @@ import { categories } from "@/constants/shopCategories";
 
 const Footer = () => {
   return (
-    <footer className="mt-36">
+    <footer className="mt-auto">
       <Newsletter />
       <div className=" bg-secondary grid gap-4 md:grid-cols-2 lg:grid-cols-4 px-5 pt-12">
         <div>

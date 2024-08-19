@@ -7,6 +7,7 @@ import { getAllLocalStorageFavoriteProduct } from "@/redux/features/favoriteSlic
 import Link from "next/link";
 
 const FavoriteCartIcons = () => {
+ 
   const cartItems = useAppSelector(getAllLocalStorageCartProduct);
   const favoriteItems = useAppSelector(getAllLocalStorageFavoriteProduct);
 

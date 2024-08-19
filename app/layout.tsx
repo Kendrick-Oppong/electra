@@ -42,7 +42,7 @@ export default function RootLayout({
     >
       <html lang="en">
         <body
-          className={`relative ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
+          className={`relative min-h-dvh flex flex-col ${bai_Jamjuree.className} mx-auto text-lg 2xl:text-xl`}
         >
           <ThemeProvider
             attribute="class"

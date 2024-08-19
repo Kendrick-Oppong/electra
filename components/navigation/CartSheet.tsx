@@ -24,10 +24,15 @@ interface CartSheetProps {
 const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
   const cartItems = useAppSelector(getAllLocalStorageCartProduct);
 
+  // Calculate the total price
+  const totalPrice = cartItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent>
+      <SheetContent className="z-[1000]">
         <SheetHeader>
           <SheetTitle className="text-lg font-bold">
             Your Cart <span>({cartItems.length} items)</span>
@@ -72,16 +77,13 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
           </div>
         </ScrollArea>
         {cartItems.length > 0 && (
-          <SheetFooter className="mt-[30px] flex-wrap items-center !justify-center gap-3 sm:mt-[50px] md:flex-nowrap lg:mt-[15px]">
-            <SheetClose asChild className="flex">
-              <Link href="/dashboard/cart" className="flex-1 sm:flex-none">
-                <ButtonLink type="button" className="mt-0 w-full flex-1">
-                  View Cart
-                </ButtonLink>
-              </Link>
-            </SheetClose>
+         
+          <SheetFooter className="mt-[30px] sm:mt-[50px] md:flex-nowrap lg:mt-[15px]">
+             <div className="flex-1 text-lg font-semibold">
+              Total: ${totalPrice.toFixed(2)}
+            </div>
             <SheetClose asChild>
-              <Link href="/" className="flex-1 sm:flex-none">
+              <Link href="/dashboard/cart" className="flex-1">
                 <ButtonLink type="button" className="!mx-0 mt-0 w-full">
                   Checkout
                 </ButtonLink>
