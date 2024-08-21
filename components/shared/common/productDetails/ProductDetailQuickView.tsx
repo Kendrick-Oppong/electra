@@ -8,7 +8,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {CircleCheck,} from "lucide-react";
 
-
 import { Camera, Laptop, Monitor } from "@/types";
 
 import {
