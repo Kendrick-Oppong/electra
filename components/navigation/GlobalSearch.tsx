@@ -133,7 +133,7 @@ const GlobalSearch = () => {
         <Search size={28} />
       </div>
       {isExpanded && (
-        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col bg-black bg-opacity-50 ">
+        <div className="fixed left-0 top-0 z-[10000] flex h-full w-full flex-col bg-black bg-opacity-50 backdrop-blur-[2px]">
           <div className="relative z-[10000] w-full bg-accent px-3 py-16 shadow-md sm:px-10">
             <div
               role="button"

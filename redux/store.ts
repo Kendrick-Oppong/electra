@@ -3,6 +3,7 @@ import favoritesReducer from "./features/favoriteSlice";
 import cartReducer from "./features/cartSlice";
 import searchToggleReducer from "./features/searchToggleSlice";
 import modalNewsLetterReducer from "./features/modalNewsLetterSlice";
+import checkoutReducer from "./features/checkoutSlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -11,6 +12,7 @@ export const makeStore = () => {
       cart: cartReducer,
       searchToggle: searchToggleReducer,
       modalNewsletter: modalNewsLetterReducer,
+      checkout: checkoutReducer,
     },
   });
 };

@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
-import { Truck, CreditCard, ClipboardCheck, Banknote } from "lucide-react";
-import { ShippingForm, ShippingSummary } from "@/components/checkout";
+import { Truck, CreditCard, ClipboardCheck } from "lucide-react";
+import {
+  ConfirmReview,
+  PaymentMode,
+  ShippingForm,
+  ShippingSummary,
+} from "@/components/checkout";
 import { ButtonLink } from "@/components/shared";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const CheckOutPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -25,11 +29,14 @@ const CheckOutPage = () => {
         </div>
       </div>
 
-      <section className="grid lg:grid-cols-[1fr_26rem] border-gray py-4 lg:py-0 gap-4 rounded-sm">
-        <div className="self-center px-4">
+      <section className="border-gray grid gap-4 rounded-sm py-4 lg:grid-cols-[1fr_26rem] lg:py-0">
+        <div className="self-center px-4 lg:mt-4">
           <div className="flex items-center justify-between space-x-4">
             {steps.map((step, index) => (
-              <div key={index} className={`relative flex ${step.label === "Review" ? "w-auto" : "w-full"} items-center`}>
+              <div
+                key={index}
+                className={`relative flex ${step.label === "Review" ? "w-auto" : "w-full"} items-center`}
+              >
                 {/* Step Icon */}
                 <div
                   className={`flex h-12 w-[3.5rem] items-center justify-center rounded-full ${
@@ -53,31 +60,22 @@ const CheckOutPage = () => {
             ))}
           </div>
           {/* Content Section */}
-          <section className="mx-0 mt-16">
-            <div className="space-y-6">
+          <section className="mx-0 mb-0 mt-16">
+            <div className="">
               {currentStep === 1 && <ShippingForm onNext={nextStep} />}{" "}
               {/* Pass onNext prop */}
               {currentStep === 2 && (
                 <div>
-                  <h2 className="mb-4 font-semibold text-center">Choose Payment Mode</h2>
-                  <div>
-                    <ToggleGroup variant="outline" size="lg" type="single">
-                      <ToggleGroupItem value="cash" aria-label="Toggle bold">
-                        <Banknote size={30} className="mr-2"/>
-                        Cash
-                      </ToggleGroupItem>
-                      <ToggleGroupItem value="card" aria-label="Toggle italic">
-                        <CreditCard size={30} className="mr-2"/>
-                        Card
-                      </ToggleGroupItem>
-                    </ToggleGroup>
-                  </div>
+                  <h1 className="mb-4 text-center text-xl font-semibold">
+                    Choose Payment Mode
+                  </h1>
+                  <PaymentMode />
                 </div>
               )}
               {currentStep === 3 && (
                 <div>
                   <h2 className="mb-4 font-semibold">Review & Confirm</h2>
-                  {/* Order review content goes here */}
+                  <ConfirmReview />
                 </div>
               )}
               <div className="mt-8 flex justify-center gap-2">
@@ -95,7 +93,7 @@ const CheckOutPage = () => {
             </div>
           </section>
         </div>
-        <div className="lg:border-l border-gray-500">
+        <div className="border-gray-500 lg:border-l">
           <ShippingSummary />
         </div>
       </section>

@@ -77,13 +77,17 @@ const CartSheet: React.FC<CartSheetProps> = ({ children }) => {
           </div>
         </ScrollArea>
         {cartItems.length > 0 && (
-         
-          <SheetFooter className="mt-[30px] sm:mt-[50px] md:flex-nowrap lg:mt-[15px]">
-             <div className="flex-1 text-lg font-semibold">
-              Total: ${totalPrice.toFixed(2)}
+          <SheetFooter className="mt-[30px] block sm:mt-[50px] lg:mt-[15px]">
+            <div className="ml-2 text-lg font-semibold">
+              <p className="text-primary">
+                Total:{" "}
+                <span className="text-destructive">
+                  ${totalPrice.toFixed(2)}
+                </span>
+              </p>
             </div>
             <SheetClose asChild>
-              <Link href="/dashboard/cart" className="flex-1">
+              <Link href="/dashboard/cart">
                 <ButtonLink type="button" className="!mx-0 mt-0 w-full">
                   Checkout
                 </ButtonLink>

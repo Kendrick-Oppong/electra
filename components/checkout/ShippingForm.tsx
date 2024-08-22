@@ -16,8 +16,11 @@ import { Input } from "@/components/ui/input";
 import { ShippingFormSchema } from "@/validators/formSchema";
 import toast from "react-hot-toast";
 import { ButtonLink } from "@/components/shared";
+import { useAppDispatch } from "@/redux/hooks";
+import { addShippingForm } from "@/redux/features/checkoutSlice";
 
 const ShippingForm = ({ onNext }: { onNext: () => void }) => {
+  const dispatch = useAppDispatch();
   const form = useForm<z.infer<typeof ShippingFormSchema>>({
     resolver: zodResolver(ShippingFormSchema),
     defaultValues: {
@@ -25,6 +28,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
       lastName: "",
       region: "",
       city: "",
+      phoneNumber: "",
     },
   });
 
@@ -37,6 +41,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
 
   async function onSubmit(data: z.infer<typeof ShippingFormSchema>) {
     console.log(data);
+    dispatch(addShippingForm(data));
     if (isValid) {
       onNext();
     }
@@ -45,6 +50,9 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   return (
     <>
       <div className="text-lg">
+        <h1 className="mb-4 text-center text-xl font-semibold">
+          Shipping Address
+        </h1>
         <div className="mb-10 rounded-lg border border-primary px-3 pb-10 shadow-2xl">
           <Form {...form}>
             <form
@@ -52,7 +60,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
               className="mt-4"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <div className="sm:grid grid-cols-2 gap-4">
+              <div className="grid-cols-2 gap-4 sm:grid">
                 <div>
                   <FormField
                     control={control}
@@ -81,7 +89,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                     )}
                   />
                 </div>
-                <div>
+                <div className="mt-4 sm:mt-0">
                   <FormField
                     control={control}
                     name="lastName"
@@ -111,7 +119,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                 </div>
               </div>
 
-              <div className="mt-6 sm:grid grid-cols-2 gap-4">
+              <div className="mt-4 grid-cols-2 gap-4 sm:grid">
                 <div>
                   <FormField
                     control={control}
@@ -140,7 +148,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                     )}
                   />
                 </div>
-                <div>
+                <div className="mt-4 sm:mt-0">
                   <FormField
                     control={control}
                     name="city"
@@ -168,6 +176,35 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                     )}
                   />
                 </div>
+              </div>
+
+              <div className="mt-4">
+                <FormField
+                  control={control}
+                  name="phoneNumber"
+                  render={({ field }) => (
+                    <FormItem className="sm:col-span-2">
+                      <FormLabel>
+                        Phone Number
+                        <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          disabled={isSubmitting}
+                          placeholder="Enter your phone number"
+                          type="tel"
+                          className={`${
+                            errors.phoneNumber
+                              ? "border-destructive focus-visible:ring-destructive"
+                              : "border-primary"
+                          }`}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </div>
 
               <ButtonLink
