@@ -1,5 +1,7 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Truck, CreditCard, ClipboardCheck } from "lucide-react";
 import {
   ConfirmReview,
@@ -8,9 +10,47 @@ import {
   ShippingSummary,
 } from "@/components/checkout";
 import { ButtonLink } from "@/components/shared";
+import { useAppSelector } from "@/redux/hooks";
+import {
+  getAllPaymentMode,
+  getAllShippingFormData,
+} from "@/redux/features/checkoutSlice";
+import { getAllLocalStorageCartProduct } from "@/redux/features/cartSlice";
+
+// Dynamically import PaystackButton with SSR disabled
+const PaystackButton = dynamic(
+  () => import("react-paystack").then((mod) => mod.PaystackButton),
+  { ssr: false },
+);
 
 const CheckOutPage = () => {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const paymentMode = useAppSelector(getAllPaymentMode);
+  const cartItems = useAppSelector(getAllLocalStorageCartProduct);
+
+  const { firstName, lastName, phoneNumber, email } = useAppSelector(
+    getAllShippingFormData,
+  );
+
+  // Calculate the total price
+  const totalPrice = cartItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const paystackProps = {
+    email,
+    amount: totalPrice * 100,
+    custom_fields: {
+      name: `${firstName} ${lastName}`,
+      phone: phoneNumber,
+    },
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY as string,
+    currency: "GHS",
+    text: "Pay",
+    onSuccess: () => router.push("/success"),
+    onClose: () => router.push("/payment-failed"),
+  };
 
   const steps = [
     { icon: <Truck />, label: "Shipping" },
@@ -66,7 +106,7 @@ const CheckOutPage = () => {
               {/* Pass onNext prop */}
               {currentStep === 2 && (
                 <div>
-                  <h1 className="mb-4 text-center text-xl font-semibold">
+                  <h1 className="mb-4 rounded-sm bg-secondary p-2 text-center text-xl font-semibold">
                     Choose Payment Mode
                   </h1>
                   <PaymentMode />
@@ -74,20 +114,46 @@ const CheckOutPage = () => {
               )}
               {currentStep === 3 && (
                 <div>
-                  <h2 className="mb-4 font-semibold">Review & Confirm</h2>
                   <ConfirmReview />
                 </div>
               )}
+              {/* Step 3 Button Logic */}
               <div className="mt-8 flex justify-center gap-2">
                 {currentStep > 1 && (
-                  <ButtonLink type="button" onClick={prevStep}>
+                  <ButtonLink
+                    className={`${currentStep === 3 && "mb-5 mt-0"}`}
+                    type="button"
+                    onClick={prevStep}
+                  >
                     Back
                   </ButtonLink>
                 )}
-                {currentStep !== 1 && (
+
+                {/* Render "Next" button only if it's not step 3 */}
+                {currentStep !== 1 && currentStep < 3 && (
                   <ButtonLink type="button" onClick={nextStep}>
-                    {currentStep === 3 ? "Confirm" : "Next"}
+                    Next
                   </ButtonLink>
+                )}
+
+                {/* Conditional rendering for Step 3 based on payment mode */}
+                {currentStep === 3 && (
+                  <>
+                    {paymentMode === "Cash" || paymentMode === "" ? (
+                      <ButtonLink
+                        className="mb-5 mt-0"
+                        type="button"
+                        onClick={() => router.push("/success")}
+                      >
+                        Confirm
+                      </ButtonLink>
+                    ) : (
+                      <PaystackButton
+                        className="h-11 rounded-md border bg-primary px-8 text-lg text-white shadow-2xl hover:border-primary hover:bg-secondary hover:text-black"
+                        {...paystackProps}
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </div>

@@ -14,17 +14,18 @@ const PaymentMode = () => {
   return (
     <div>
       <ToggleGroup
-        defaultValue={paymentMode || ""}
+        defaultChecked
+        defaultValue={paymentMode || "Cash"}
         onValueChange={(value) => dispatch(addPaymentMode(value))}
         variant="outline"
         size="lg"
         type="single"
       >
-        <ToggleGroupItem value="cash" aria-label="Toggle bold">
+        <ToggleGroupItem value="Cash" aria-label="Toggle bold">
           <Banknote size={30} className="mr-2" />
           Cash
         </ToggleGroupItem>
-        <ToggleGroupItem value="card" aria-label="Toggle italic">
+        <ToggleGroupItem value="Card" aria-label="Toggle italic">
           <CreditCard size={30} className="mr-2" />
           Card
         </ToggleGroupItem>

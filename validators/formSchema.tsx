@@ -85,10 +85,15 @@ export const ShippingFormSchema = z.object({
     .regex(/^[a-zA-Z\s]+$/, {
       message: "City cannot contain numbers or special characters",
     }), // Ensures only letters and spaces
-   phoneNumber: z
+  email: z
+    .string()
+    .regex(emailRegex, { message: "Invalid email format" })
+    .min(1, { message: "Email is required" }),
+  phoneNumber: z
     .string()
     .regex(/^\+?\d{1,4}[-.\s]?\d{7,15}$/, {
-      message: "Phone number must be a valid international number with a country code",
+      message:
+        "Phone number must be a valid international number with a country code",
     }) // Allows an optional '+' followed by 1-4 digits (country code), and then 7-15 digits for the phone number
     .min(10, { message: "Phone number must be at least 10 digits long" })
     .max(20, { message: "Phone number cannot exceed 20 characters" }), // Includes room for spaces, dashes, etc.

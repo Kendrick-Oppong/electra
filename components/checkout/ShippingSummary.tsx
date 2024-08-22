@@ -41,7 +41,7 @@ const ShippingSummary = () => {
       <Separator className="my-2" />
       <div className="flex items-center justify-between font-semibold">
         <p>Total</p>
-        <p className="text-destructive">${totalPrice}</p>
+        <p className="text-destructive">${totalPrice.toFixed(2)}</p>
       </div>
 
       <div>

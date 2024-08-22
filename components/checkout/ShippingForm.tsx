@@ -24,9 +24,9 @@ import {
 
 const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   const dispatch = useAppDispatch();
-  const { city, firstName, lastName, phoneNumber, region } = useAppSelector(
-    getAllShippingFormData,
-  );
+  const { city, firstName, lastName, phoneNumber, region, email } =
+    useAppSelector(getAllShippingFormData);
+
   const form = useForm<z.infer<typeof ShippingFormSchema>>({
     resolver: zodResolver(ShippingFormSchema),
     defaultValues: {
@@ -35,13 +35,13 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
       region: region || "",
       city: city || "",
       phoneNumber: phoneNumber || "",
+      email: email || "",
     },
   });
 
   const {
     control,
     handleSubmit,
-    reset,
     formState: { isValid, errors },
   } = form;
 
@@ -55,7 +55,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   return (
     <>
       <div className="text-lg">
-        <h1 className="mb-4 text-center text-xl font-semibold">
+        <h1 className="mb-4 text-center text-xl font-semibold bg-secondary p-2 rounded-sm ">
           Shipping Address
         </h1>
         <div className="mb-10 rounded-lg border border-primary px-3 pb-10 shadow-2xl">
@@ -179,32 +179,61 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                 </div>
               </div>
 
-              <div className="mt-4">
-                <FormField
-                  control={control}
-                  name="phoneNumber"
-                  render={({ field }) => (
-                    <FormItem className="sm:col-span-2">
-                      <FormLabel>
-                        Phone Number
-                        <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Enter your phone number"
-                          type="tel"
-                          className={`${
-                            errors.phoneNumber
-                              ? "border-destructive focus-visible:ring-destructive"
-                              : "border-primary"
-                          }`}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <div className="mt-4 grid-cols-2 gap-4 sm:grid">
+                <div>
+                  <FormField
+                    control={control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="sm:col-span-2">
+                        <FormLabel>
+                          Email
+                          <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your email"
+                            type="tel"
+                            className={`${
+                              errors.email
+                                ? "border-destructive focus-visible:ring-destructive"
+                                : "border-primary"
+                            }`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="mt-4 sm:mt-0">
+                  <FormField
+                    control={control}
+                    name="phoneNumber"
+                    render={({ field }) => (
+                      <FormItem className="sm:col-span-2">
+                        <FormLabel>
+                          Phone Number
+                          <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your phone number"
+                            type="tel"
+                            className={`${
+                              errors.phoneNumber
+                                ? "border-destructive focus-visible:ring-destructive"
+                                : "border-primary"
+                            }`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
 
               <ButtonLink

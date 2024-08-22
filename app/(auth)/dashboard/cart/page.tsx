@@ -63,8 +63,8 @@ export default function CartPage() {
                   </div>
                   <div>
                     <p className="font-bold">{item.title}</p>
-                    <p className="my-2 text-destructive">
-                      ${item.price * item.quantity} - {item.quantity} items
+                    <p className="my-2 font-semibold text-destructive">
+                      ${item.price * item.quantity} - {item.quantity} {item.quantity > 1 ? "items" : "item"} 
                     </p>
                   </div>
                 </div>

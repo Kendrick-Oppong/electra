@@ -17,6 +17,7 @@ const initialState: CheckOutFormProps = {
     region: "",
     city: "",
     phoneNumber: "",
+    email: "",
   },
   paymentMode: "",
 };
@@ -39,6 +40,7 @@ export const { addShippingForm, addPaymentMode } = checkoutSlice.actions;
 export const getAllShippingFormData = (state: RootState) =>
   state.checkout.formData;
 
-export const getAllPaymentMode = (state: RootState) => state.checkout.paymentMode;
+export const getAllPaymentMode = (state: RootState) =>
+  state.checkout.paymentMode;
 
 export default checkoutSlice.reducer;

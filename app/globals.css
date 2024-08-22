@@ -300,3 +300,9 @@ button[data-localization-key='userProfile.start.dangerSection.deleteAccountButto
     @apply  hover:bg-popover;
 }
 
+
+/* paytack close icon */
+
+.button[data-v-81bf4389] {
+  transform : scale(1.5) !important
+}

@@ -46,18 +46,18 @@ export default function AllProductReviews({
       {reviews &&
         (reviews?.data?.length > 0 ? (
           reviews.data.map((review) => (
-            <Table key={review.userId} className="mb-4 border-gray">
+            <Table key={review.userId} className="border-gray mb-4">
               <TableHeader>
                 <TableRow>
                   <TableHead className="flex items-center justify-between bg-accent font-semibold text-primary">
                     <h2>{review.username || ""}</h2>
-                    <h2>{ formatDate(review.createdAt) || ""}</h2>
+                    <h2>{formatDate(review.createdAt) || ""}</h2>
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody className="text-lg">
                 <p className="my-3 pl-3">{review.comment || ""}</p>
-                <div className="pl-3 mb-3">
+                <div className="mb-3 pl-3">
                   <ProductRating
                     rating={review.rating || 3}
                     className="!ml-0"

@@ -146,7 +146,7 @@ const GlobalSearch = () => {
               <div className="relative z-[10000] w-full md:basis-[30%]">
                 <Select onValueChange={(value) => handleBrandSelect(value)}>
                   <SelectTrigger className="py-[1.3rem] font-normal">
-                    <SelectValue placeholder="Search By" />
+                    <SelectValue placeholder="Filter By" />
                   </SelectTrigger>
                   <SelectContent className="border-gray relative z-[10000] font-normal">
                     <SelectGroup>

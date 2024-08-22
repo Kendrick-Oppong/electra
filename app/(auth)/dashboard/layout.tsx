@@ -99,9 +99,7 @@ const DashBoardLayout = ({
 </header>
 
         <main className="flex flex-1 flex-col gap-4 p-2 lg:gap-6 lg:p-4">
-          <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
-          </div>
+         
           {children}
         </main>
       </div>
