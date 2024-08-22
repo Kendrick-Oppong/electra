@@ -16,19 +16,25 @@ import { Input } from "@/components/ui/input";
 import { ShippingFormSchema } from "@/validators/formSchema";
 import toast from "react-hot-toast";
 import { ButtonLink } from "@/components/shared";
-import { useAppDispatch } from "@/redux/hooks";
-import { addShippingForm } from "@/redux/features/checkoutSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  addShippingForm,
+  getAllShippingFormData,
+} from "@/redux/features/checkoutSlice";
 
 const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   const dispatch = useAppDispatch();
+  const { city, firstName, lastName, phoneNumber, region } = useAppSelector(
+    getAllShippingFormData,
+  );
   const form = useForm<z.infer<typeof ShippingFormSchema>>({
     resolver: zodResolver(ShippingFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      region: "",
-      city: "",
-      phoneNumber: "",
+      firstName: firstName || "",
+      lastName: lastName || "",
+      region: region || "",
+      city: city || "",
+      phoneNumber: phoneNumber || "",
     },
   });
 
@@ -36,11 +42,10 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
     control,
     handleSubmit,
     reset,
-    formState: { isValid, errors, isSubmitSuccessful, isSubmitting },
+    formState: { isValid, errors },
   } = form;
 
   async function onSubmit(data: z.infer<typeof ShippingFormSchema>) {
-    console.log(data);
     dispatch(addShippingForm(data));
     if (isValid) {
       onNext();
@@ -74,7 +79,6 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                         <FormControl>
                           <Input
                             {...field}
-                            disabled={isSubmitting}
                             placeholder="Enter your first name"
                             type="text"
                             className={`${
@@ -102,7 +106,6 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                         <FormControl>
                           <Input
                             {...field}
-                            disabled={isSubmitting}
                             placeholder="Enter your last name"
                             type="text"
                             className={`${
@@ -133,7 +136,6 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                         <FormControl>
                           <Input
                             {...field}
-                            disabled={isSubmitting}
                             placeholder="Enter your region"
                             type="text"
                             className={`${
@@ -161,7 +163,6 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                         <FormControl>
                           <Input
                             {...field}
-                            disabled={isSubmitting}
                             placeholder="Enter your city"
                             type="text"
                             className={`${
@@ -191,7 +192,6 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
                       <FormControl>
                         <Input
                           {...field}
-                          disabled={isSubmitting}
                           placeholder="Enter your phone number"
                           type="tel"
                           className={`${
