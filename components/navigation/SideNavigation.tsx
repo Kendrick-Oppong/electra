@@ -4,16 +4,12 @@ import {
   ShoppingCart,
   LayoutDashboard,
   ChevronsUp,
-  Search,
 } from "lucide-react";
 import { ToolTipPopUp } from "@/components/shared";
 import { GlobalSearch } from "@/components/navigation";
 import { CartSheet } from ".";
-import { toggleSearch } from "@/redux/features/searchToggleSlice";
-import { useAppDispatch } from "@/redux/hooks";
 
 const SideNavigation = () => {
-  const dispatch = useAppDispatch();
 
   const handleScrollToTop = () => {
     window.scrollTo({
@@ -45,7 +41,6 @@ const SideNavigation = () => {
 
         <div className="bg-primary p-1">
           <ToolTipPopUp id="#search" content="Search" />
-         
           <GlobalSearch />
         </div>
 
@@ -54,7 +49,7 @@ const SideNavigation = () => {
           <ChevronsUp
             size={28}
             id="scroll-to-top"
-            className="animate-bounce cursor-pointer"
+            className="animate-bounce-slow cursor-pointer"
             onClick={handleScrollToTop}
           />
         </div>

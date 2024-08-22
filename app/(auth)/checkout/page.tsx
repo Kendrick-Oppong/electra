@@ -40,7 +40,7 @@ const CheckOutPage = () => {
 
   const paystackProps = {
     email,
-    amount: totalPrice * 100,
+    amount: totalPrice * 100 * 13,
     custom_fields: {
       name: `${firstName} ${lastName}`,
       phone: phoneNumber,
@@ -69,7 +69,7 @@ const CheckOutPage = () => {
         </div>
       </div>
 
-      <section className="border-gray grid gap-4 rounded-sm py-4 lg:grid-cols-[1fr_26rem] lg:py-0">
+      <section className="mx-2 sm:mx-5 border-gray grid gap-4 rounded-sm py-4 lg:grid-cols-[1fr_26rem] lg:py-0">
         <div className="self-center px-4 lg:mt-4">
           <div className="flex items-center justify-between space-x-4">
             {steps.map((step, index) => (
